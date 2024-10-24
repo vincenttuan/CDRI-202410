@@ -22,9 +22,8 @@ public class BMIServlet extends HttpServlet {
 		String w = req.getParameter("w");
 		// 檢查參數
 		if(h == null || w == null) {
-			resp.setCharacterEncoding("UTF-8");
-			resp.setContentType("text/plain;charset=utf-8");
-			resp.getWriter().print("請輸入身高與體重的參數");
+			req.setAttribute("message", "請輸入身高與體重");
+			req.getRequestDispatcher("/WEB-INF/view/error.jsp").forward(req, resp);
 			return;
 		}
 		// 計算 bmi
