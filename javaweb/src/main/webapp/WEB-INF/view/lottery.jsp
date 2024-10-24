@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<h1 style="color: red">
+			Model 1 <p />
 			<%=request.getAttribute("n1") %>
 			<%=request.getAttribute("n2") %>
 			<%=request.getAttribute("n3") %>
