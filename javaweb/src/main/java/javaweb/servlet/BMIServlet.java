@@ -17,10 +17,17 @@ public class BMIServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		// 取得?後的參數
+		String h = req.getParameter("h");
+		String w = req.getParameter("w");
+		// 檢查參數
+		if(h == null || w == null) {
+			resp.getWriter().print("請輸入身高與體重的參數");
+			return;
+		}
 		// 計算 bmi
-		double height = 170;
-		double weight = 60;
+		double height = Double.parseDouble(h);
+		double weight = Double.parseDouble(w);
 		double bmi = weight / Math.pow(height/100, 2); // bmi 公式
 		
 		// 將資料傳給 jsp
