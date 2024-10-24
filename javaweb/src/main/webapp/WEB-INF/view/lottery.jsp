@@ -13,6 +13,11 @@
 			<%=request.getAttribute("n2") %>
 			<%=request.getAttribute("n3") %>
 			<%=request.getAttribute("n4") %>
+			<p />
+			${ n1 }
+			${ n2 }
+			${ n3 }
+			${ n4 }
 		</h1>
 	</body>
 </html>
