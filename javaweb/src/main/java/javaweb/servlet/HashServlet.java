@@ -12,8 +12,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+//import javaweb.utils.Hash;
 import static javaweb.utils.Hash.getHash;
-import static javaweb.utils.Hash.getSalt;;
+import static javaweb.utils.Hash.getSalt;
 /**
  * 網址: /hash?password=1234
  * 得到: 
