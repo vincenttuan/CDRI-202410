@@ -2,6 +2,7 @@ package javaweb.servlet;
 
 import java.io.IOException;
 import java.security.MessageDigest;
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Base64;
 
@@ -25,6 +26,16 @@ public class HashServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String hash = getHash(password);
 		resp.getWriter().println("hash:" + hash);
+		String salt = getSalt();
+		resp.getWriter().println("salt:" + salt);
+	}
+	
+	// 產生鹽
+	private String getSalt() {
+		SecureRandom secureRandom = new SecureRandom();
+		byte[] salt = new byte[16];
+		secureRandom.nextBytes(salt);
+		return Base64.getEncoder().encodeToString(salt);
 	}
 	
 	// 產生雜湊
