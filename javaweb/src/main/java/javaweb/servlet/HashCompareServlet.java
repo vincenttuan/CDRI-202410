@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import javaweb.utils.Hash;
 
 /**
  GET /hash/compare 得到 hash_compare.jsp
@@ -41,6 +42,20 @@ public class HashCompareServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		// 1.確認是否有此使用者
+		String hashPassword = users.get(username);
+		if(hashPassword == null) {
+			resp.getWriter().println("user not found !");
+			return;
+		}
+		// 2.密碼 hash 比對
+		if(Hash.getHash(password).equals(hashPassword)) {
+			resp.getWriter().println("Login OK !");
+			return;
+		}
+		resp.getWriter().println("Invalid password");
 		
 	}
 	
