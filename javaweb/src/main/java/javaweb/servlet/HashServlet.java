@@ -2,6 +2,7 @@ package javaweb.servlet;
 
 import java.io.IOException;
 import java.security.MessageDigest;
+import java.util.Arrays;
 import java.util.Base64;
 
 import jakarta.servlet.ServletException;
@@ -33,6 +34,7 @@ public class HashServlet extends HttpServlet {
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
 			// 進行加密
 			byte[] bytes = md.digest(password.getBytes());
+			//System.out.println(Arrays.toString(bytes));
 			// 將 byte[] 透過 Base64 編碼方便儲存
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
