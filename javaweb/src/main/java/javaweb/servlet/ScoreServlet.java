@@ -20,6 +20,9 @@ public class ScoreServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("text/plain;charset=utf-8");
+		
 		String[] scores = req.getParameterValues("score");
 		// String[] 轉 int[]
 		int[] intScores = Arrays.stream(scores).mapToInt(Integer::parseInt).toArray();
