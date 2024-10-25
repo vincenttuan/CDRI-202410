@@ -30,8 +30,8 @@ import jakarta.servlet.http.HttpServletResponse;
 public class HashCompareServlet extends HttpServlet {
 	private static Map<String, String> users = new ConcurrentHashMap<>();
 	static {
-		users.put("john", "");
-		users.put("mary", "");
+		users.put("john", "A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ="); // 密碼:1234(不含鹽)
+		users.put("mary", "+GOLl5svT3k92229GX4O4lp6bqMrCuIvXjxdEZ2DnnU="); // 密碼:5678(不含鹽)
 	}
 	
 	@Override
