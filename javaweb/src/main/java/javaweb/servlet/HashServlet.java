@@ -28,6 +28,26 @@ public class HashServlet extends HttpServlet {
 		resp.getWriter().println("hash:" + hash);
 		String salt = getSalt();
 		resp.getWriter().println("salt:" + salt);
+		String hashSalt = getHash(password, salt);
+		resp.getWriter().println("hashSalt:" + hashSalt);
+	}
+	
+	// 產生含鹽雜湊
+	private String getHash(String password, String salt) {
+		try {
+			// 加密演算法: SHA-256
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			// 加鹽
+			md.update(salt.getBytes());
+			// 進行加密
+			byte[] bytes = md.digest(password.getBytes());
+			//System.out.println(Arrays.toString(bytes));
+			// 將 byte[] 透過 Base64 編碼方便儲存
+			return Base64.getEncoder().encodeToString(bytes);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	// 產生鹽
