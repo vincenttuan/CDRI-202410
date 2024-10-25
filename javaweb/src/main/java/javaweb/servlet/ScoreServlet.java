@@ -2,6 +2,7 @@ package javaweb.servlet;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,7 +21,16 @@ public class ScoreServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String[] scores = req.getParameterValues("score");
+		// String[] 轉 int[]
+		int[] intScores = Arrays.stream(scores).mapToInt(Integer::parseInt).toArray();
+		// 統計資料
+		IntSummaryStatistics stat = Arrays.stream(intScores).summaryStatistics(); 
 		resp.getWriter().println("scores: " + Arrays.toString(scores));
+		resp.getWriter().println("sum: " + stat.getSum());
+		resp.getWriter().println("avg: " + stat.getAverage());
+		resp.getWriter().println("max: " + stat.getMax());
+		resp.getWriter().println("min: " + stat.getMin());
+		resp.getWriter().println("count: " + stat.getCount());
 		
 	}
 	
