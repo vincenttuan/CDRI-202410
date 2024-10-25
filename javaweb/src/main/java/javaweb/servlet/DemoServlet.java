@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// * 萬用字元, 表示可以添入任意字串資料
 @WebServlet("/demo/*")
 public class DemoServlet extends HttpServlet {
 
