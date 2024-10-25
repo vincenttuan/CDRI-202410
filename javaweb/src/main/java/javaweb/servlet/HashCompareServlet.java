@@ -36,7 +36,7 @@ public class HashCompareServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		req.getRequestDispatcher("/WEB-INF/view/hash_compare.jsp").forward(req, resp);
 	}
 
 	@Override
