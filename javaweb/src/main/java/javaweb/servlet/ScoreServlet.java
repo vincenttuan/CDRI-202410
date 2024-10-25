@@ -27,7 +27,7 @@ public class ScoreServlet extends HttpServlet {
 		IntSummaryStatistics stat = Arrays.stream(intScores).summaryStatistics(); 
 		resp.getWriter().println("scores: " + Arrays.toString(scores));
 		resp.getWriter().println("sum: " + stat.getSum());
-		resp.getWriter().println("avg: " + stat.getAverage());
+		resp.getWriter().println("avg: " + String.format("%.1f", stat.getAverage()));
 		resp.getWriter().println("max: " + stat.getMax());
 		resp.getWriter().println("min: " + stat.getMin());
 		resp.getWriter().println("count: " + stat.getCount());
