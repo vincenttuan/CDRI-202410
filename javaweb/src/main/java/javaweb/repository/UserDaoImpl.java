@@ -4,7 +4,7 @@ import java.util.List;
 
 import javaweb.model.entity.User;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public List<User> findAllUsers() {
