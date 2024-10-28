@@ -22,7 +22,7 @@ import jakarta.servlet.annotation.WebServlet;
  查詢單筆: GET  /user/get?username=admin
  新增單筆: POST /user/add
  修改單筆: POST /user/update?userId=1
- 查詢單筆: GET  /user/delete?userId=1 
+ 刪除單筆: GET  /user/delete?userId=1 
  
  * */
 
