@@ -16,10 +16,10 @@ public interface UserDao {
 	void addUser(User user);
 	
 	// 修改 active 狀態
-	void updateUserActive(Boolean active);
+	void updateUserActive(Integer userId, Boolean active);
 	
 	// 修改 role 狀態
-	void updateUserRole(String role);
+	void updateUserRole(Integer userId, String role);
 		
 	// 刪除: 根據 userId 來刪除
 	void deleteUser(Integer userId);
