@@ -108,13 +108,38 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public void updateUserRole(Integer userId, String role) {
-		// TODO Auto-generated method stub
+		String sql = "update user set role = ? where user_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, role);
+			pstmt.setInt(2, userId);
+			
+			int rowcount = pstmt.executeUpdate();
+			if(rowcount != 1) {
+				throw new RuntimeException("修改失敗 userId:" + userId + " role:" + role);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void deleteUser(Integer userId) {
-		// TODO Auto-generated method stub
+		String sql = "delete from user where user_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, userId);
+			
+			int rowcount = pstmt.executeUpdate();
+			if(rowcount != 1) {
+				throw new RuntimeException("刪除失敗 userId:" + userId);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
