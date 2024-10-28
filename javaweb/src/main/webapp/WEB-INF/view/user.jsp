@@ -14,6 +14,21 @@
 		<title>User</title>
 	</head>
 	<body>
+		<form method="post" action="/javaweb/user/add">
+			<fieldset>
+				<legend>User 新增</legend>
+				username: <input type="text" name="username" placeholder="請輸入 username" required /><p /> 
+				password: <input type="text" name="password" placeholder="請輸入 password" required /><p /> 
+				email: <input type="email" name="email" placeholder="請輸入 email" required /><p />
+				role: <select name="role">
+						<option value="ROLE_ADMIN">ADMIN</option>
+						<option value="ROLE_USER">USER</option>
+					  </select><p />
+				<button type="reset">Reset</button>
+				<button type="submit">Submit</button>	  
+			</fieldset>
+		</form>
+		<p />
 		<div>
 			<fieldset>
 				<legend>User 列表</legend>
