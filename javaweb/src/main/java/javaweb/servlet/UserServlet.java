@@ -49,11 +49,37 @@ public class UserServlet extends HttpServlet {
 			//resp.getWriter().print(userDtos);
 			// 將必要資料加入到 request 屬性中以便交由 jsp 進行分析與呈現
 			req.setAttribute("userDtos", userDtos);
-			// 重導到 user.jsp
+			// 內重導到 user.jsp
 			req.getRequestDispatcher("/WEB-INF/view/user.jsp").forward(req, resp);
 			return;
 		}
 		
 	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String pathInfo = req.getPathInfo();
+		// 取得表單資料
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String email = req.getParameter("email");
+		String role = req.getParameter("role");
+		
+		switch (pathInfo) {
+			case "/add":
+				userService.appendUser(username, password, email, role);
+				break;
+			case "/update":
+				
+				break;
+		}
+		
+		// 外重導到指定 URL 網頁
+		//resp.sendRedirect("http://tw.yahoo.com");
+		//resp.sendRedirect("http://localhost:8080/javaweb/user");
+		resp.sendRedirect("/javaweb/user");
+		
+	}
+	
+	
 	
 }
