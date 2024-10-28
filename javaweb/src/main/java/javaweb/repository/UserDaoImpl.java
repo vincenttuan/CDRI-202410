@@ -89,13 +89,13 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	}
 
 	@Override
-	public void updateUserActive(Boolean active) {
+	public void updateUserActive(Integer userId, Boolean active) {
 		
 		
 	}
 
 	@Override
-	public void updateUserRole(String role) {
+	public void updateUserRole(Integer userId, tring role) {
 		// TODO Auto-generated method stub
 		
 	}
