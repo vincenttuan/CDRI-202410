@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import javaweb.model.entity.User;
 
 public class UserDaoImpl extends BaseDao implements UserDao {
@@ -68,8 +70,24 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into users(username, password_hash, salt, email, active, role) values(?, ?, ?, ?, ?, ?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, user.getUsername());
+			pstmt.setString(2, user.getPasswordHash());
+			pstmt.setString(3, user.getSalt());
+			pstmt.setString(4, user.getEmail());
+			pstmt.setBoolean(5, user.getActive());
+			pstmt.setString(6, user.getRole());
+			
+			int rowcount = pstmt.executeUpdate();
+			if(rowcount != 1) {
+				throw new RuntimeException("新增失敗");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
