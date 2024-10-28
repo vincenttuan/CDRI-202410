@@ -7,6 +7,7 @@ import javaweb.model.dto.UserDto;
 import javaweb.model.entity.User;
 import javaweb.repository.UserDao;
 import javaweb.repository.UserDaoImpl;
+import javaweb.utils.Hash;
 
 // UserService 是給 UserServlet(Controller) 使用
 public class UserService {
@@ -35,8 +36,20 @@ public class UserService {
 	}
 	
 	// 新增使用者
-	public void appendUser(String username, String password, String email, Boolean active, String role) {
-		
+	public void appendUser(String username, String password, String email, String role) {
+		String salt = Hash.getSalt(); // 得到隨機鹽
+		String passwordHash = Hash.getHash(password, salt); // 得到 hash
+		Boolean action = false; // email 尚未驗證成功
+		// 根據上列參數封裝到 User 物件中
+		User user = new User();
+		user.setUsername(username);
+		user.setPasswordHash(passwordHash);
+		user.setSalt(salt);
+		user.setEmail(email);
+		user.setActive(action);
+		user.setRole(role);
+		// 存入(新增使用者): 調用 userDao.addUser(user)
+		userDao.addUser(user);
 	}
 	
 	
