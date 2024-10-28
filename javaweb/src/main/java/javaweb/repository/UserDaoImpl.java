@@ -1,5 +1,9 @@
 package javaweb.repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javaweb.model.entity.User;
@@ -8,8 +12,29 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> users = new ArrayList<>();
+		String sql = "select user_id, username, password_hash, salt, email, active, role from users";
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)) {
+			// 逐筆尋訪
+			while (rs.next()) {
+				// 建立 user 物件並將資料配置進去
+				User user = new User();
+				user.setUserId(rs.getInt("user_id"));
+				user.setUsername(rs.getString("username"));
+				user.setPasswordHash(rs.getString("password_hash"));
+				user.setSalt(rs.getString("salt"));
+				user.setEmail(rs.getString("email"));
+				user.setActive(rs.getBoolean("active"));
+				user.setRole(rs.getString("role"));
+				// 將 user 物件放到 users 集合中保存
+				users.add(user);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return users; // 回傳有 user 物件的集合
 	}
 
 	@Override
