@@ -1,6 +1,15 @@
 package javaweb.servlet;
 
+import java.io.IOException;
+import java.util.List;
+
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import javaweb.model.dto.UserDto;
+import javaweb.service.UserService;
 
 /**
  
@@ -26,7 +35,20 @@ import jakarta.servlet.annotation.WebServlet;
  
  * */
 
-@WebServlet("/user/*")
-public class UserServlet {
+@WebServlet(urlPatterns = {"/user/*", "/users"})
+public class UserServlet extends HttpServlet {
+	
+	private UserService userService = new UserService();
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String pathInfo = req.getPathInfo();
+		resp.getWriter().print(pathInfo);
+		if(pathInfo == null) {
+			// 查詢全部
+			List<UserDto> userDtos = userService.findAll();
+			resp.getWriter().print(userDtos);
+			return;
+		}
+	}
 	
 }
