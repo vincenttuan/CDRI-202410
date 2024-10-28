@@ -1,5 +1,7 @@
 package javaweb.servlet;
 
+import jakarta.servlet.annotation.WebServlet;
+
 /**
  
  MVC + 自訂框架
@@ -15,8 +17,16 @@ package javaweb.servlet;
  <--------- |   user.jsp  |
   response	|    (View)   |
   			+-------------+                 
-  
+ 
+ 查詢全部: GET  /user
+ 查詢單筆: GET  /user/get?username=admin
+ 新增單筆: POST /user/add
+ 修改單筆: POST /user/update?userId=1
+ 查詢單筆: GET  /user/delete?userId=1 
+ 
  * */
-public class UserServlet {
 
+@WebServlet("/user/*")
+public class UserServlet {
+	
 }
