@@ -1,5 +1,6 @@
 package javaweb.repository;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,7 +40,29 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public User getUser(String username) {
-		// TODO Auto-generated method stub
+		String sql = "select user_id, username, password_hash, salt, email, active, role from users where username=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, username); // 第一個 ? 放 username
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) { // 若有得到一筆
+					// 建立 user 物件並將資料配置進去
+					User user = new User();
+					user.setUserId(rs.getInt("user_id"));
+					user.setUsername(rs.getString("username"));
+					user.setPasswordHash(rs.getString("password_hash"));
+					user.setSalt(rs.getString("salt"));
+					user.setEmail(rs.getString("email"));
+					user.setActive(rs.getBoolean("active"));
+					user.setRole(rs.getString("role"));
+					return user; // 返回 user 物件
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
