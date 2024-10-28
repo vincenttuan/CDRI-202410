@@ -90,8 +90,20 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public void updateUserActive(Integer userId, Boolean active) {
-		
-		
+		String sql = "update user set active = ? where user_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setBoolean(1, active);
+			pstmt.setInt(2, userId);
+			
+			int rowcount = pstmt.executeUpdate();
+			if(rowcount != 1) {
+				throw new RuntimeException("修改失敗 userId:" + userId + " active:" + active);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
