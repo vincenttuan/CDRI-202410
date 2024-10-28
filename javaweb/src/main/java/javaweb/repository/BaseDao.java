@@ -10,7 +10,7 @@ public class BaseDao {
 	static {
 		String username = "root";
 		String password = "abc123";
-		String dbUrl = "jdbc:mysql://localhost:3306web?serverTimezone=Asia/Taipei&characterEncoding=utf-8&useUnicode=true";
+		String dbUrl = "jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei&characterEncoding=utf-8&useUnicode=true";
 		// 建立連線
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
