@@ -7,8 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-
 import javaweb.model.entity.User;
 
 public class UserDaoImpl extends BaseDao implements UserDao {
