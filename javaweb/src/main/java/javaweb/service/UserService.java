@@ -8,6 +8,7 @@ import javaweb.model.entity.User;
 import javaweb.repository.UserDao;
 import javaweb.repository.UserDaoImpl;
 
+// UserService 是給 UserServlet(Controller) 使用
 public class UserService {
 	
 	private UserDao userDao = new UserDaoImpl();
@@ -32,5 +33,11 @@ public class UserService {
 		
 		return userDtos;
 	}
+	
+	// 新增使用者
+	public void appendUser(String username, String password, String email, Boolean active, String role) {
+		
+	}
+	
 	
 }
