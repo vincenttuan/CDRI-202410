@@ -26,10 +26,10 @@
 					<% for(UserDto userDto : userDtos) { %>
 						<tr>
 							<td><%=userDto.getUserId() %></td>
-							<td><%=userDto.getUsername()() %></td>
-							<td><%=userDto.getEmail()() %></td>
-							<td><%=userDto.getActive()() %></td>
-							<td><%=userDto.getRole()() %></td>
+							<td><%=userDto.getUsername() %></td>
+							<td><%=userDto.getEmail() %></td>
+							<td><%=userDto.getActive() %></td>
+							<td><%=userDto.getRole() %></td>
 						</tr>
 					<% } %>
 				</table>
