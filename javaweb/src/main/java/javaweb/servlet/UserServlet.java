@@ -42,11 +42,15 @@ public class UserServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
-		resp.getWriter().print(pathInfo);
+		//resp.getWriter().print(pathInfo);
 		if(pathInfo == null) {
 			// 查詢全部
 			List<UserDto> userDtos = userService.findAll();
-			resp.getWriter().print(userDtos);
+			//resp.getWriter().print(userDtos);
+			// 將必要資料加入到 request 屬性中以便交由 jsp 進行分析與呈現
+			req.setAttribute("userDtos", userDtos);
+			// 重導到 user.jsp
+			req.getRequestDispatcher("/WEB-INF/view/user.jsp").forward(req, resp);
 			return;
 		}
 		
