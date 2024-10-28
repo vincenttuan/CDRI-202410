@@ -27,9 +27,9 @@ import javaweb.service.UserService;
   response	|    (View)   |
   			+-------------+                 
  
- 查詢全部: GET  /user
- 查詢單筆: GET  /user/get?username=admin
+ 查詢全部: GET  /user, /users
  新增單筆: POST /user/add
+ 查詢單筆: GET  /user/get?username=admin
  修改單筆: POST /user/update?userId=1
  刪除單筆: GET  /user/delete?userId=1 
  
