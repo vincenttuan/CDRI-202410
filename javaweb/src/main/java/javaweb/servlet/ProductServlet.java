@@ -25,7 +25,7 @@ create table if not exists product (
   
   request   +----------------+             +----------------+          +------------+
  ---------> | ProductServlet | ----------> | ProductService | -------> | ProductDao | ------->    MySQL
-            | (Controller)   | <---------- |                | <------- |            | <------- (web.product)
+            |  (Controller)  | <---------- |                | <------- |            | <------- (web.product)
   			+----------------+  ProductDto +----------------+  Product +------------+
   			       |              (Dto)                       (Entity)
   			       |
