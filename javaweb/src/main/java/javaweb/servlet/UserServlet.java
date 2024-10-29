@@ -43,7 +43,7 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
 		//resp.getWriter().print(pathInfo);
-		if(pathInfo == null || pathInfo.equals("/*")) {
+		if(pathInfo == null || pathInfo.equals("/*")) { // 查詢全部
 			// 查詢全部
 			List<UserDto> userDtos = userService.findAll();
 			//resp.getWriter().print(userDtos);
@@ -52,7 +52,7 @@ public class UserServlet extends HttpServlet {
 			// 內重導到 user.jsp
 			req.getRequestDispatcher("/WEB-INF/view/user.jsp").forward(req, resp);
 			return;
-		} else if(pathInfo.equals("/delete")) {
+		} else if(pathInfo.equals("/delete")) { // 刪除
 			String userId = req.getParameter("userId");
 			userService.deleteUser(userId);
 			// 刪除完畢之後, 重新執行指定頁面
