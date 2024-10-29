@@ -13,20 +13,39 @@
 		<link rel="stylesheet" href="/javaweb/css/buttons.css">
 	</head>
 	<body style="padding: 15px">
-		<form class="pure-form" method="post" action="/javaweb/user/update">
-			<fieldset>
-				<legend>User 修改</legend>
-				序號: <input type="text" name="userId" value="<%=userDto.getUserId() %>" readonly /><p /> 
-				帳號: <input type="text" name="username" value="<%=userDto.getUsername() %>" readonly /><p /> 
-				電郵: <input type="email" name="email" value="<%=userDto.getEmail() %>" readonly /><p />
-				狀態: <input type="radio" name="active" value="true"  <%=userDto.getActive()?"checked":"" %> />True
-					 <input type="radio" name="active" value="false" <%=userDto.getActive()?"":"checked" %>  />False <p />
-				權限: <select name="role">
-						<option value="ROLE_ADMIN" <%=userDto.getRole().equals("ROLE_ADMIN")?"selected":"" %>>ADMIN</option>
-						<option value="ROLE_USER"  <%=userDto.getRole().equals("ROLE_USER")?"selected":"" %>>USER</option>
-					  </select><p />
-				<button type="submit" class="button-success pure-button">Update</button>	  
-			</fieldset>
-		</form>
+		<table>
+			<td valign="top">
+				<form class="pure-form" method="post" action="/javaweb/user/update">
+					<fieldset>
+						<legend>User 修改</legend>
+						序號: <input type="text" name="userId" value="<%=userDto.getUserId() %>" readonly /><p /> 
+						帳號: <input type="text" name="username" value="<%=userDto.getUsername() %>" readonly /><p /> 
+						電郵: <input type="email" name="email" value="<%=userDto.getEmail() %>" readonly /><p />
+						狀態: <input type="radio" name="active" value="true"  <%=userDto.getActive()?"checked":"" %> />True
+							 <input type="radio" name="active" value="false" <%=userDto.getActive()?"":"checked" %>  />False <p />
+						權限: <select name="role">
+								<option value="ROLE_ADMIN" <%=userDto.getRole().equals("ROLE_ADMIN")?"selected":"" %>>ADMIN</option>
+								<option value="ROLE_USER"  <%=userDto.getRole().equals("ROLE_USER")?"selected":"" %>>USER</option>
+							  </select><p />
+						<button type="submit" class="button-success pure-button">Update</button>	  
+					</fieldset>
+				</form>
+			</td>
+			<td valign="top">
+				<form class="pure-form" >
+					<fieldset>
+						<legend>User 修改密碼(請自行實現)</legend>
+						<input type="hidden" name="userId" value="<%=userDto.getUserId() %>" readonly /><p /> 
+						<input type="hidden" name="username" value="<%=userDto.getUsername() %>" readonly /><p />
+						舊碼: <input type="password"><p /> 
+						新碼: <input type="password"><p />
+						<button type="submit" class="button-success pure-button">Update Password</button>	  
+					</fieldset>
+				</form>
+			</td>
+		</table>
+		
+		
+		
 	</body>
 </html>
