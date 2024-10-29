@@ -31,10 +31,10 @@
 			</fieldset>
 		</form>
 		<p />
-		<div>
+		<div class="pure-form">
 			<fieldset>
 				<legend>User 列表</legend>
-				<table border="1">
+				<table class="pure-table pure-table-bordered">
 					<thead>
 						<tr>
 							<th>ID</th><th>帳號</th><th>郵件</th><th>action</th><th>角色(權限)</th>
