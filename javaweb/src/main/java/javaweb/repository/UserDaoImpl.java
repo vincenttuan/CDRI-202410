@@ -90,7 +90,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public void updateUserActive(Integer userId, Boolean active) {
-		String sql = "update user set active = ? where user_id = ?";
+		String sql = "update users set active = ? where user_id = ?";
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
 			pstmt.setBoolean(1, active);
@@ -108,7 +108,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public void updateUserRole(Integer userId, String role) {
-		String sql = "update user set role = ? where user_id = ?";
+		String sql = "update users set role = ? where user_id = ?";
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
 			pstmt.setString(1, role);
@@ -127,7 +127,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public void deleteUser(Integer userId) {
-		String sql = "delete from user where user_id = ?";
+		String sql = "delete from users where user_id = ?";
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
 			pstmt.setInt(1, userId);
