@@ -54,8 +54,9 @@ public class UserServlet extends HttpServlet {
 			return;
 		} else if(pathInfo.equals("/delete")) {
 			String userId = req.getParameter("userId");
-			
-			
+			userService.deleteUser(userId);
+			// 刪除完畢之後, 重新執行指定頁面
+			resp.sendRedirect("/javaweb/user");
 			return;
 		}
 		

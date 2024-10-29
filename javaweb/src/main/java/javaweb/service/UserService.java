@@ -53,8 +53,8 @@ public class UserService {
 	}
 	
 	// 刪除使用者
-	public void deleteUser(Integer userId) {
-		userDao.deleteUser(userId);
+	public void deleteUser(String userId) {
+		userDao.deleteUser(Integer.parseInt(userId));
 	}
 	
 	
