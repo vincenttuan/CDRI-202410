@@ -32,13 +32,13 @@
 				</form>
 			</td>
 			<td valign="top">
-				<form class="pure-form" >
+				<form class="pure-form" method="post" action="/javaweb/user/update/password" >
 					<fieldset>
 						<legend>User 修改密碼(請自行實現)</legend>
 						<input type="hidden" name="userId" value="<%=userDto.getUserId() %>" readonly /><p /> 
 						<input type="hidden" name="username" value="<%=userDto.getUsername() %>" readonly /><p />
-						舊碼: <input type="password"><p /> 
-						新碼: <input type="password"><p />
+						舊密碼: <input type="password" name="password"><p /> 
+						新密碼: <input type="password" name="newPassword"><p />
 						<button type="submit" class="button-success pure-button">Update Password</button>	  
 					</fieldset>
 				</form>

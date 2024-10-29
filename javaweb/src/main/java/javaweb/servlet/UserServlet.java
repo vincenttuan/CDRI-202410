@@ -87,6 +87,9 @@ public class UserServlet extends HttpServlet {
 			case "/update":
 				userService.updateUser(userId, active, role);
 				break;
+			case "/update/password":
+				
+				break;
 		}
 		
 		// 外重導到指定 URL 網頁
