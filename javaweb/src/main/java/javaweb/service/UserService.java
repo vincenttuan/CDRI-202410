@@ -73,5 +73,15 @@ public class UserService {
 		return userDto;
 	}
 	
+	// 修改使用者
+	public void updateUser(String userId, String active, String role) {
+		if(!active.isEmpty()) {
+			userDao.updateUserActive(Integer.parseInt(userId), Boolean.parseBoolean(active));
+		}
+		if(!role.isEmpty()) {
+			userDao.updateUserRole(Integer.parseInt(userId), role);
+		}
+	}
+	
 	
 }
