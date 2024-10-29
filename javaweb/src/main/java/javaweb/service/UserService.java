@@ -57,5 +57,21 @@ public class UserService {
 		userDao.deleteUser(Integer.parseInt(userId));
 	}
 	
+	// 取得指定使用者
+	public UserDto getUser(String username) {
+		User user = userDao.getUser(username);
+		if(user == null) {
+			return null;
+		}
+		// 一個一個將 User 轉成 UserDto 並放在 userDtos 集合中
+		UserDto userDto = new UserDto();
+		userDto.setUserId(user.getUserId());
+		userDto.setUsername(user.getUsername());
+		userDto.setEmail(user.getEmail());
+		userDto.setActive(user.getActive());
+		userDto.setRole(user.getRole());
+		return userDto;
+	}
+	
 	
 }

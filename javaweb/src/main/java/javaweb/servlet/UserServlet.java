@@ -58,6 +58,11 @@ public class UserServlet extends HttpServlet {
 			// 刪除完畢之後, 重新執行指定頁面
 			resp.sendRedirect("/javaweb/user");
 			return;
+		} else if(pathInfo.equals("/get")) { // 取得 user 資料並導入到修改頁面
+			String username = req.getParameter("username");
+			UserDto userDto = userService.getUser(username);
+			
+			
 		}
 		
 		
