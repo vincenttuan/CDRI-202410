@@ -63,7 +63,7 @@ public class UserService {
 		if(user == null) {
 			return null;
 		}
-		// 一個一個將 User 轉成 UserDto 並放在 userDtos 集合中
+		// 一個一個將 User 轉成 UserDto
 		UserDto userDto = new UserDto();
 		userDto.setUserId(user.getUserId());
 		userDto.setUsername(user.getUsername());
