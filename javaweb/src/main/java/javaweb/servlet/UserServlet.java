@@ -43,7 +43,7 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
 		//resp.getWriter().print(pathInfo);
-		if(pathInfo == null) {
+		if(pathInfo == null || pathInfo.equals("/*")) {
 			// 查詢全部
 			List<UserDto> userDtos = userService.findAll();
 			//resp.getWriter().print(userDtos);
