@@ -77,13 +77,15 @@ public class UserServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String email = req.getParameter("email");
 		String role = req.getParameter("role");
+		String action = req.getParameter("action"); // update 專用
+		String userId = req.getParameter("userId"); // update 專用
 		
 		switch (pathInfo) {
 			case "/add":
 				userService.appendUser(username, password, email, role);
 				break;
 			case "/update":
-				
+				userService.updateUser(userId, action, role);
 				break;
 		}
 		
