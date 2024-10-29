@@ -16,9 +16,9 @@
 		<form class="pure-form" method="post" action="/javaweb/user/update">
 			<fieldset>
 				<legend>User 修改</legend>
-				序號: <input type="text" name="userId" value="<%=userDto.getUserId() %>" disabled /><p /> 
-				帳號: <input type="text" name="username" value="<%=userDto.getUsername() %>" disabled /><p /> 
-				電郵: <input type="email" name="email" value="<%=userDto.getEmail() %>" disabled /><p />
+				序號: <input type="text" name="userId" value="<%=userDto.getUserId() %>" readonly /><p /> 
+				帳號: <input type="text" name="username" value="<%=userDto.getUsername() %>" readonly /><p /> 
+				電郵: <input type="email" name="email" value="<%=userDto.getEmail() %>" readonly /><p />
 				狀態: <input type="text" name="active" value="<%=userDto.getActive() %>" /><p />
 				權限: <input type="text" name="role" value="<%=userDto.getRole() %>"><p />
 				<button type="submit" class="button-success pure-button">Update</button>	  
