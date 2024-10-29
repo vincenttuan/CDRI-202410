@@ -61,7 +61,10 @@ public class UserServlet extends HttpServlet {
 		} else if(pathInfo.equals("/get")) { // 取得 user 資料並導入到修改頁面
 			String username = req.getParameter("username");
 			UserDto userDto = userService.getUser(username);
-			
+			// 將必要資料加入到 request 屬性中以便交由 jsp 進行分析與呈現
+			req.setAttribute("userDto", userDto);
+			// 內重導到 user_update.jsp
+			req.getRequestDispatcher("/WEB-INF/view/user_update.jsp").forward(req, resp);
 			
 		}
 		
