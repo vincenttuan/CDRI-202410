@@ -66,9 +66,8 @@ public class UserServlet extends HttpServlet {
 			// 內重導到 user_update.jsp
 			req.getRequestDispatcher("/WEB-INF/view/user.jsp").forward(req, resp);
 		}
-		
-		
 	}
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
