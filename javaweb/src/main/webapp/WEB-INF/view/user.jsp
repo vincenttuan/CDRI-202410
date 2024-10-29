@@ -48,7 +48,7 @@
 							<td><%=userDto.getEmail() %></td>
 							<td><%=userDto.getActive() %></td>
 							<td><%=userDto.getRole() %></td>
-							<td><a href="" class="button-error pure-button">刪除</a></td>
+							<td><a href="/javaweb/user/delete?userId=<%=userDto.getUserId() %>" class="button-error pure-button">刪除</a></td>
 						</tr>
 					<% } %>
 				</table>
