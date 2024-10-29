@@ -19,7 +19,8 @@
 				序號: <input type="text" name="userId" value="<%=userDto.getUserId() %>" readonly /><p /> 
 				帳號: <input type="text" name="username" value="<%=userDto.getUsername() %>" readonly /><p /> 
 				電郵: <input type="email" name="email" value="<%=userDto.getEmail() %>" readonly /><p />
-				狀態: <input type="text" name="active" value="<%=userDto.getActive() %>" /><p />
+				狀態: <input type="radio" name="active" value="true"  <%=userDto.getActive()?"checked":"" %> />True
+					 <input type="radio" name="active" value="false" <%=userDto.getActive()?"":"checked" %>  />False <p />
 				權限: <input type="text" name="role" value="<%=userDto.getRole() %>"><p />
 				<button type="submit" class="button-success pure-button">Update</button>	  
 			</fieldset>
