@@ -65,6 +65,7 @@ public class UserServlet extends HttpServlet {
 			req.setAttribute("userDto", userDto);
 			// 內重導到 user_update.jsp
 			req.getRequestDispatcher("/WEB-INF/view/user_update.jsp").forward(req, resp);
+			return;
 		}
 	}
 	
