@@ -38,6 +38,7 @@
 					<thead>
 						<tr>
 							<th>ID</th><th>帳號</th><th>郵件</th><th>action</th><th>角色(權限)</th>
+							<th>刪除</th>
 						</tr>
 					</thead>
 					<% for(UserDto userDto : userDtos) { %>
@@ -47,6 +48,7 @@
 							<td><%=userDto.getEmail() %></td>
 							<td><%=userDto.getActive() %></td>
 							<td><%=userDto.getRole() %></td>
+							<td><a href="" class="button-error pure-button">刪除</a></td>
 						</tr>
 					<% } %>
 				</table>
