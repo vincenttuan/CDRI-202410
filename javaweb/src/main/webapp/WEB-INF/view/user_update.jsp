@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="/javaweb/css/buttons.css">
 	</head>
 	<body style="padding: 15px">
-		<form class="pure-form" method="post" action="/javaweb/user/update?userId=">
+		<form class="pure-form" method="post" action="/javaweb/user/update">
 			<fieldset>
 				<legend>User 修改</legend>
 				序號: <input type="text" name="userId" value="<%=userDto.getUserId() %>" disabled /><p /> 
