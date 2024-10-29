@@ -52,5 +52,10 @@ public class UserService {
 		userDao.addUser(user);
 	}
 	
+	// 刪除使用者
+	public void deleteUser(Integer userId) {
+		userDao.deleteUser(userId);
+	}
+	
 	
 }

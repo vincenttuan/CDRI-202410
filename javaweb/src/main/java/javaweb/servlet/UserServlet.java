@@ -52,7 +52,13 @@ public class UserServlet extends HttpServlet {
 			// 內重導到 user.jsp
 			req.getRequestDispatcher("/WEB-INF/view/user.jsp").forward(req, resp);
 			return;
+		} else if(pathInfo.equals("/delete")) {
+			String userId = req.getParameter("userId");
+			
+			
+			return;
 		}
+		
 		
 	}
 	@Override
