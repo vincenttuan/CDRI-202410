@@ -1,5 +1,9 @@
+<%@page import="javaweb.model.dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	UserDto userDto = (UserDto)request.getAttribute("userDto");
+%>    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,16 +16,12 @@
 		<form class="pure-form" method="post" action="/javaweb/user/update?userId=">
 			<fieldset>
 				<legend>User 修改</legend>
-				序號: <input type="text" name="userId" disabled /><p /> 
-				帳號: <input type="text" name="username" disabled /><p /> 
-				電郵: <input type="email" name="email" disabled /><p />
-				狀態: <input type="checkbox" name="active" /><p />
-				權限: <select name="role">
-						<option value="ROLE_ADMIN">ADMIN</option>
-						<option value="ROLE_USER">USER</option>
-					  </select><p />
-				<button type="reset" class="button-warning pure-button">Reset</button>
-				<button type="submit" class="button-success pure-button">Submit</button>	  
+				序號: <input type="text" name="userId" value="<%=userDto.getUserId() %>" disabled /><p /> 
+				帳號: <input type="text" name="username" value="<%=userDto.getUsername() %>" disabled /><p /> 
+				電郵: <input type="email" name="email" value="<%=userDto.getEmail() %>" disabled /><p />
+				狀態: <input type="text" name="active" value="<%=userDto.getActive() %>" /><p />
+				權限: <input type="text" name="role" value="<%=userDto.getRole() %>"><p />
+				<button type="submit" class="button-success pure-button">Update</button>	  
 			</fieldset>
 		</form>
 	</body>
