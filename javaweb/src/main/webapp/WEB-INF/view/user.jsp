@@ -13,20 +13,21 @@
 		<meta charset="UTF-8">
 		<title>User</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+		<link rel="stylesheet" href="/javaweb/css/buttons.css">
 	</head>
-	<body>
-		<form method="post" action="/javaweb/user/add">
+	<body style="padding: 15px">
+		<form class="pure-form" method="post" action="/javaweb/user/add">
 			<fieldset>
 				<legend>User 新增</legend>
-				username: <input type="text" name="username" placeholder="請輸入 username" required /><p /> 
-				password: <input type="text" name="password" placeholder="請輸入 password" required /><p /> 
-				email: <input type="email" name="email" placeholder="請輸入 email" required /><p />
-				role: <select name="role">
+				帳號: <input type="text" name="username" placeholder="請輸入 username" required /><p /> 
+				密碼: <input type="text" name="password" placeholder="請輸入 password" required /><p /> 
+				電郵: <input type="email" name="email" placeholder="請輸入 email" required /><p />
+				權限: <select name="role">
 						<option value="ROLE_ADMIN">ADMIN</option>
 						<option value="ROLE_USER">USER</option>
 					  </select><p />
-				<button type="reset">Reset</button>
-				<button type="submit">Submit</button>	  
+				<button type="reset" class="button-warning pure-button">Reset</button>
+				<button type="submit" class="button-success pure-button">Submit</button>	  
 			</fieldset>
 		</form>
 		<p />
