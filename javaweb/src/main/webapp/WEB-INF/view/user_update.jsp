@@ -31,7 +31,7 @@
 					</fieldset>
 				</form>
 			</td>
-			<td valign="top">
+			<td style="padding-left: 30px" valign="top">
 				<form class="pure-form" method="post" action="/javaweb/user/update/password" >
 					<fieldset>
 						<legend>User 修改密碼(請自行實現)</legend>
