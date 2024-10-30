@@ -99,11 +99,13 @@ public class UserServlet extends HttpServlet {
 				try {
 					UserCert userCert = (UserCert)session.getAttribute("userCert"); // 取得 session 登入憑證
 					userService.updatePassword(userCert.getUserId(), userCert.getUsername(), oldPassword, newPassword);
+					req.setAttribute("message", "密碼更新成功");
+					req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 				} catch (Exception e) {
 					req.setAttribute("message", e.getMessage());
 					req.getRequestDispatcher("/WEB-INF/view/error.jsp").forward(req, resp);
 				}
-				break;
+				return;
 		}
 		
 		// 外重導到指定 URL 網頁
