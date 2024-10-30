@@ -143,4 +143,20 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		
 	}
 
+	@Override
+	public void updatePasswordHash(Integer userId, String newPasswordHash) {
+		String sql = "update users set password_hash = ? where user_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, newPasswordHash);
+			pstmt.setInt(2, userId);
+			
+			pstmt.executeUpdate(); // 更新
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }
