@@ -71,7 +71,7 @@ public class UserServlet extends HttpServlet {
 			// 內重導到 user_update.jsp
 			req.getRequestDispatcher("/WEB-INF/view/user_update.jsp").forward(req, resp);
 			return;
-		} else if(pathInfo.equals("/update/password")) {
+		} else if(pathInfo.equals("/update/password")) { // 修改密碼頁面
 			req.getRequestDispatcher("/WEB-INF/view/update_password.jsp").forward(req, resp);
 			return;
 		}
