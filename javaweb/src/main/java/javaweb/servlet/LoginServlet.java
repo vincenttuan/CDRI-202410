@@ -15,7 +15,7 @@ import javaweb.service.CertService;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
-	private CertService certService;
+	private CertService certService = new CertService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
