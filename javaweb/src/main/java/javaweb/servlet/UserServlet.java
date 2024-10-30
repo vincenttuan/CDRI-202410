@@ -8,6 +8,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import javaweb.exception.PasswordInvalidException;
+import javaweb.exception.UserNotFoundException;
+import javaweb.model.dto.UserCert;
 import javaweb.model.dto.UserDto;
 import javaweb.service.UserService;
 
@@ -32,7 +36,7 @@ import javaweb.service.UserService;
  查詢單筆: GET  /user/get?username=admin
  修改單筆: POST /user/update?userId=1
  刪除單筆: GET  /user/delete?userId=1 
- 
+ 修改密碼: POST /user/update/password
  * */
 
 @WebServlet(urlPatterns = {"/user/*", "/users"})
@@ -79,6 +83,8 @@ public class UserServlet extends HttpServlet {
 		String role = req.getParameter("role");
 		String active = req.getParameter("active"); // update 專用
 		String userId = req.getParameter("userId"); // update 專用
+		String oldPassword = req.getParameter("oldPassword"); // update/password 專用
+		String newPassword = req.getParameter("newPassword"); // update/password 專用
 		
 		switch (pathInfo) {
 			case "/add":
@@ -88,7 +94,15 @@ public class UserServlet extends HttpServlet {
 				userService.updateUser(userId, active, role);
 				break;
 			case "/update/password":
-				
+				// 修改密碼需要在已登入的環境下
+				HttpSession session = req.getSession();
+				try {
+					UserCert userCert = (UserCert)session.getAttribute("userCert"); // 取得 session 登入憑證
+					userService.updatePassword(userCert.getUserId(), userCert.getUsername(), oldPassword, newPassword);
+				} catch (Exception e) {
+					req.setAttribute("message", e.getMessage());
+					req.getRequestDispatcher("/WEB-INF/view/error.jsp").forward(req, resp);
+				}
 				break;
 		}
 		
