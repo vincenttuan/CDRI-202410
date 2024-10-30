@@ -3,6 +3,8 @@ package javaweb.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javaweb.exception.PasswordInvalidException;
+import javaweb.exception.UserNotFoundException;
 import javaweb.model.dto.UserDto;
 import javaweb.model.entity.User;
 import javaweb.repository.UserDao;
@@ -83,5 +85,24 @@ public class UserService {
 		}
 	}
 	
+	// 變更密碼
+	public void updatePassword(Integer userId, String username, String oldPassword, String newPassword) throws UserNotFoundException, PasswordInvalidException {
+		User user = userDao.getUser(username);
+		if(user == null) {
+			throw new UserNotFoundException();
+		}
+		
+		// 比對修改之前的 password 是否正確 
+		String oldPasswordHash = Hash.getHash(oldPassword, user.getSalt());
+		if(!oldPasswordHash.equals(user.getPasswordHash())) {
+			throw new PasswordInvalidException("原密碼輸入錯誤");
+		}
+		
+		// 產生新密碼的 Hash
+		String newPasswordHash = Hash.getHash(newPassword, user.getSalt());
+		// 密碼 Hash 修改
+		userDao.updatePasswordHash(userId, newPasswordHash);
+		
+	}
 	
 }
