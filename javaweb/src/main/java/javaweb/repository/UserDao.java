@@ -23,5 +23,7 @@ public interface UserDao {
 		
 	// 刪除: 根據 userId 來刪除
 	void deleteUser(Integer userId);
-		
+	
+	// 修改密碼
+	void updatePasswordHash(Integer userId, String newPasswordHash);
 }
