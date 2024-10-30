@@ -1,12 +1,9 @@
-<%@page import="javaweb.model.dto.UserDto"%>
-<%@page import="java.util.List"%>
+<%@ page import="javaweb.model.dto.UserDto"%>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%
-	// 得到 UserServlet 所傳來的資料
-	List<UserDto> userDtos = (List<UserDto>)request.getAttribute("userDtos");
-%>    
+<%@ taglib uri="jakarta.tags.core" prefix="c" %> <!-- 核心庫 -->
+    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,17 +38,17 @@
 							<th>修改</th><th>刪除</th>
 						</tr>
 					</thead>
-					<% for(UserDto userDto : userDtos) { %>
+					<c:forEach var="userDto" items="${ userDtos }">
 						<tr>
-							<td><%=userDto.getUserId() %></td>
-							<td><%=userDto.getUsername() %></td>
-							<td><%=userDto.getEmail() %></td>
-							<td><%=userDto.getActive() %></td>
-							<td><%=userDto.getRole() %></td>
-							<td><a href="/javaweb/user/get?username=<%=userDto.getUsername() %>" class="button-secondary pure-button">修改</a></td>
-							<td><a href="/javaweb/user/delete?userId=<%=userDto.getUserId() %>" class="button-error pure-button">刪除</a></td>
+							<td>${ userDto.userId }</td>
+							<td>${ userDto.username}</td>
+							<td>${ userDto.email }</td>
+							<td>${ userDto.active }</td>
+							<td>${ userDto.role }</td>
+							<td><a href="/javaweb/user/get?username=${ userDto.username }" class="button-secondary pure-button">修改</a></td>
+							<td><a href="/javaweb/user/delete?userId=${ userDto.userId }" class="button-error pure-button">刪除</a></td>
 						</tr>
-					<% } %>
+					</c:forEach>
 				</table>
 			</fieldset>
 		</div>
