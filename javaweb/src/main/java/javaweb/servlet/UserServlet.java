@@ -35,8 +35,9 @@ import javaweb.service.UserService;
  新增單筆: POST /user/add
  查詢單筆: GET  /user/get?username=admin
  修改單筆: POST /user/update?userId=1
- 刪除單筆: GET  /user/delete?userId=1 
- 修改密碼: POST /user/update/password
+ 刪除單筆: GET  /user/delete?userId=1
+ 修改密碼: GET  /user/update/password (得到修改密碼頁面)
+ 修改密碼: POST /user/update/password (修改密碼處理程序)
  * */
 
 @WebServlet(urlPatterns = {"/user/*", "/users"})
@@ -69,6 +70,9 @@ public class UserServlet extends HttpServlet {
 			req.setAttribute("userDto", userDto);
 			// 內重導到 user_update.jsp
 			req.getRequestDispatcher("/WEB-INF/view/user_update.jsp").forward(req, resp);
+			return;
+		} else if(pathInfo.equals("/update/password")) {
+			req.getRequestDispatcher("/WEB-INF/view/update_password.jsp").forward(req, resp);
 			return;
 		}
 	}
