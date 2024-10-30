@@ -33,6 +33,10 @@
 		<h1>
 			<%=getLotto() %>
 		</h1>
+		<h1>
+			<%=session.getId() %>
+		</h1>
+		
 	</body>
 </html>
 
