@@ -1,5 +1,7 @@
 package javaweb.servlet;
 
+import jakarta.servlet.annotation.WebServlet;
+
 /**
 -- 商品 product
 +------------+------------------+----------+----------------+
@@ -38,6 +40,7 @@ create table if not exists product (
  查詢全部: GET  /product, /products
  
 */ 
+@WebServlet("/product")
 public class ProductServlet {
 
 }
