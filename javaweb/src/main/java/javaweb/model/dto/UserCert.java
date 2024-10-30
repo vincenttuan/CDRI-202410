@@ -1,7 +1,5 @@
 package javaweb.model.dto;
 
-import java.util.Date;
-
 // 使用者憑證
 // 登入成功之後會得到的憑證資料(只有 Getter)
 public class UserCert {
