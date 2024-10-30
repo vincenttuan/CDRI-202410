@@ -3,15 +3,15 @@
     pageEncoding="UTF-8"%>
 
 <%!
-	int getLotto() {
-		Random random = new Random();
+	Random random = new Random(); // 物件變數
+	int getLotto() { // 物件方法
 		int n = random.nextInt(10);
 		return n;
 	}
 %>
     
 <%
-	Random random = new Random();
+	//Random random = new Random(); // 區域變數
 	int n1 = random.nextInt(10); // 0~9 的隨機數
 	int n2 = random.nextInt(10); // 0~9 的隨機數
 	int n3 = random.nextInt(10); // 0~9 的隨機數
