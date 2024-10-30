@@ -1,6 +1,15 @@
 <%@ page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%!
+	int getLotto() {
+		Random random = new Random();
+		int n = random.nextInt(10);
+		return n;
+	}
+%>
+    
 <%
 	Random random = new Random();
 	int n1 = random.nextInt(10); // 0~9 的隨機數
@@ -21,5 +30,8 @@
 		<%=n3 %>
 		<%=n4 %>
 		</H1>
+		<h1>
+			<%=getLotto() %>
+		</h1>
 	</body>
 </html>
