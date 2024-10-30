@@ -24,5 +24,11 @@ public class UserCert {
 	public String getRole() {
 		return role;
 	}
+
+	@Override
+	public String toString() {
+		return "UserCert [userId=" + userId + ", username=" + username + ", role=" + role + "]";
+	}
+
 	
 }
