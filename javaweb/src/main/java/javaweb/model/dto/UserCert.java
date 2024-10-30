@@ -1,7 +1,7 @@
 package javaweb.model.dto;
 
 // 使用者憑證
-// 登入成功之後會得到的憑證資料
+// 登入成功之後會得到的憑證資料(只有 Getter)
 public class UserCert {
 	private Integer userId; // 使用者ID
 	private String username; // 使用者名稱
