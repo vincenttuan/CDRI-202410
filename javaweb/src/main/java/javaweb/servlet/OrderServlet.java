@@ -77,8 +77,11 @@ public class OrderServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String[] ids = req.getParameterValues("id");
 		String[] amounts = req.getParameterValues("amount");
-		resp.getWriter().println(Arrays.toString(amounts));
+		
+		resp.getWriter().println("ids: " + Arrays.toString(ids));
+		resp.getWriter().println("amounts: " + Arrays.toString(amounts));
 	}
 	
 }
