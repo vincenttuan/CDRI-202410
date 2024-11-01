@@ -17,7 +17,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 						select order_id, user_id, order_date, product_id, 
 						   	   quantity, unit_price, subtotal, order_status
 						from orders
-						where user_id = ? and orderStatus = ?
+						where user_id = ? and order_status = ?
 					 """.trim(); 
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
