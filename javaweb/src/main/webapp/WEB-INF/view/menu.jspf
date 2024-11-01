@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<div style="background-color: #dddddd; height: 50px; width: 100%">
+<div style="padding:15px; background-color: #dddddd; height: 50px; width: 100%; align-content: center;">
 	<!-- menu bar -->
 	<a href="/javaweb/users">使用者維護檔</a>&nbsp;|&nbsp;
 	<a href="/javaweb/login">登入</a>&nbsp;|&nbsp;
