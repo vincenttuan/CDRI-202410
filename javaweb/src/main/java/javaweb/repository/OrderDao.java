@@ -6,7 +6,7 @@ import javaweb.model.entity.Order;
 
 public interface OrderDao {
 	
-	public List<Order> findAllOrders(String userId, String orderStatus);
+	public List<Order> findAllOrders(Integer userId, String orderStatus);
 	
 	public void batchAddOrders(List<Order> orders);
 	
