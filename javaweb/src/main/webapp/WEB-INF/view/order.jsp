@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="/javaweb/css/buttons.css">
 	</head>
 	<body style="padding: 15px">
-		<form class="pure-form" method="post" action="/javaweb/user/add">
+		<form class="pure-form" method="post" action="/javaweb/order">
 			<fieldset>
 				<legend>訂購商品</legend>
 				<table class="pure-table">
