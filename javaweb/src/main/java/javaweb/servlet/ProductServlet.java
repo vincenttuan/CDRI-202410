@@ -22,6 +22,12 @@ create table if not exists product (
 	stock_quantity int not null default 0 comment '商品庫存'
 ); 
 
+insert into product(product_name, price, stock_quantity) values('PC', 30000.00, 50);
+insert into product(product_name, price, stock_quantity) values('Mobile', 15000.00, 100);
+insert into product(product_name, price, stock_quantity) values('MusicBox', 3000.00, 200);
+insert into product(product_name, price, stock_quantity) values('Pad', 20000.00, 75);
+insert into product(product_name, price, stock_quantity) values('Watch', 8000.00, 150);
+
 
  MVC + 自訂框架
   
