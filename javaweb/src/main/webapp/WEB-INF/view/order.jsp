@@ -14,7 +14,7 @@
 		<form class="pure-form" method="post" action="/javaweb/user/add">
 			<fieldset>
 				<legend>Order 新增</legend>
-				<table>
+				<table class="pure-table">
 					<thead>
 						<tr>
 							<th>商品 id</th><th>商品名稱</th><th>商品單價</th><th>目前庫存</th><th>下單數量</th>
@@ -43,6 +43,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<p>
 				<button type="reset" class="button-warning pure-button">Reset</button>
 				<button type="submit" class="button-success pure-button">Submit</button>	  
 			</fieldset>
