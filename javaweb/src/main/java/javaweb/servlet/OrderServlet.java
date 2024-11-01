@@ -38,6 +38,24 @@ values(4, '2024-09-22', 2, 1, 15000.00, 15000.00, 'Cancel');
 
 insert into orders(user_id, order_date, product_id, quantity, unit_price, subtotal, order_status) 
 values(5, '2024-09-23', 5, 4, 8000.00, 32000.00, 'Pending');
+
+ MVC + 自訂框架
+  
+  request   +----------------+             +----------------+          +------------+
+ ---------> | OrderServlet   | ----------> | OrderService   | -------> | OrderDao   | ------->    MySQL
+            |  (Controller)  | <---------- |                | <------- |            | <------- (web.orders)
+  			+----------------+  OrderDto   +----------------+  Order   +------------+
+  			       |              (Dto)                       (Entity)
+  			       |
+  			       v
+  			+-------------+
+ <--------- | order.jsp   |
+  response	|    (View)   |
+  			+-------------+                 
+ 
+ 查詢全部: GET  /order, /orders
+ 新增訂單: POST /order
+ 
  * */
 
 import java.io.IOException;
