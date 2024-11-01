@@ -80,8 +80,8 @@ public class OrderServlet extends HttpServlet {
 		String[] ids = req.getParameterValues("id");
 		String[] amounts = req.getParameterValues("amount");
 		
-		resp.getWriter().println("ids: " + Arrays.toString(ids));
-		resp.getWriter().println("amounts: " + Arrays.toString(amounts));
+		resp.getWriter().println(Arrays.toString(ids) + " <= ids");
+		resp.getWriter().println(Arrays.toString(amounts) + " <= amounts");
 	}
 	
 }
