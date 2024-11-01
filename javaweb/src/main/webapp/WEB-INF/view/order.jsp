@@ -6,14 +6,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Order</title>
+		<title>訂購商品</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 		<link rel="stylesheet" href="/javaweb/css/buttons.css">
 	</head>
 	<body style="padding: 15px">
 		<form class="pure-form" method="post" action="/javaweb/user/add">
 			<fieldset>
-				<legend>Order 新增</legend>
+				<legend>訂購商品</legend>
 				<table class="pure-table">
 					<thead>
 						<tr>
