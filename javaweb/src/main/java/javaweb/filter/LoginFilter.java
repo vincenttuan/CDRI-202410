@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = {"/user/update/password", "/products"}) // 設定要過濾/攔截的路徑
+@WebFilter(urlPatterns = {"/fruit/*", "/user/update/password", "/products"}) // 設定要過濾/攔截的路徑
 public class LoginFilter extends HttpFilter {
 
 	@Override
