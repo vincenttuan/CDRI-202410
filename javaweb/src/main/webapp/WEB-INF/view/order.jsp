@@ -14,6 +14,7 @@
 		<!-- menu bar include -->
 		<%@ include file="/WEB-INF/view/menu.jspf" %>
 		
+		<!-- body content -->
 		<div style="padding: 15px">
 			<form class="pure-form" method="post" action="/javaweb/order">
 				<fieldset>
