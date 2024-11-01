@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebFilter(urlPatterns = {"/user/update/password", "/products"}) // 設定要過濾/攔截的路徑
 public class LoginFilter extends HttpFilter {
@@ -21,7 +22,15 @@ public class LoginFilter extends HttpFilter {
 		
 		System.out.println("攔截過濾 URL :" + request.getRequestURL());
 		response.getWriter().println("攔截過濾 URL :" + request.getRequestURL());
-		response.getWriter().println("請先登入");
+		
+		// 判斷是否有憑證
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userCert") == null) {
+			response.getWriter().println("請先登入");
+		} else {
+			chain.doFilter(request, response); // 放行
+		}
+		
 	}
 	
 }
