@@ -16,7 +16,8 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 將 session 失效
 		HttpSession session = req.getSession();
-		session.invalidate();
+		session.invalidate(); // 所有 session 失效
+		//session.setAttribute("userCert", null); // 只讓憑證的 session 變數失效
 		
 		String message = "登出成功";
 		req.setAttribute("message", message);
