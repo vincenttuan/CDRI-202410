@@ -68,7 +68,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 				pstmt.addBatch(); // 加入批次
 			}
 			
-			pstmt.executeBatch(); // 執行批次
+			pstmt.executeBatch(); // 執行批次(一次整批傳送給 MySQL)
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
