@@ -78,8 +78,27 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 
 	@Override
 	public void batchUpdateOrderStatus(List<Integer> orderIds, String orderStatus) {
-		// TODO Auto-generated method stub
-		
+		String sql = """
+						update orders
+						set order_status = ?
+						where order_id = ?
+				""".trim();
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.clearBatch(); // 清除批次(重要 !!!)
+			
+			for(Integer orderId : orderIds) {
+				pstmt.setString(1, orderStatus);
+				pstmt.setInt(2, orderId);
+				
+				pstmt.addBatch(); // 加入批次
+			}
+			
+			pstmt.executeBatch(); // 執行批次(一次整批傳送給 MySQL)
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
