@@ -2,16 +2,27 @@ package javaweb.servlet;
 
 /**
  * 訂單
-+----------+---------+------------+--------------+----------+------------+--------------+--------------+
-| order_id | user_id | order_date |  product_id  | quantity | unit_price | total_amount | order_status |
-+----------+---------+------------+--------------+----------+------------+--------------+--------------+
-| 1        | 1       | 2024-09-19 | 1            | 2        | 30000.00   | 60000.00     | Finished     |
-| 2        | 1       | 2024-09-20 | 2            | 5        | 15000.00   | 75000.00     | Finished     |
-| 3        | 3       | 2024-09-21 | 3            | 3        | 3000.00    | 9000.00      | Pending      |
-| 4        | 4       | 2024-09-22 | 2            | 1        | 15000.00   | 15000.00     | Cancel       |
-| 5        | 5       | 2024-09-23 | 5            | 4        | 8000.00    | 32000.00     | Pending      |
-+----------+---------+------------+--------------+----------+------------+--------------+--------------+
-  
++----------+---------+------------+--------------+----------+------------+----------+--------------+
+| order_id | user_id | order_date |  product_id  | quantity | unit_price | subtotal | order_status |
++----------+---------+------------+--------------+----------+------------+----------+--------------+
+| 1        | 1       | 2024-09-19 | 1            | 2        | 30000.00   | 60000.00 | Finished     |
+| 2        | 1       | 2024-09-20 | 2            | 5        | 15000.00   | 75000.00 | Finished     |
+| 3        | 3       | 2024-09-21 | 3            | 3        | 3000.00    | 9000.00  | Pending      |
+| 4        | 4       | 2024-09-22 | 2            | 1        | 15000.00   | 15000.00 | Cancel       |
+| 5        | 5       | 2024-09-23 | 5            | 4        | 8000.00    | 32000.00 | Pending      |
++----------+---------+------------+--------------+----------+------------+----------+--------------+
+
+-- 創建訂單表
+create table if not exists orders (
+	order_id   int primary key auto_increment comment '訂單Id',
+	user_id    int not null comment 'User Id',
+	order_date varchar(50) not null comment '訂購日期',
+	product_id int not null comment '商品 Id',
+	quantity   int not null default 0 null comment '訂購數量',
+	unit_price decimal(10, 2) not null comment '商品單價',
+	subtotal   decimal(10, 2) not null comment '小計',
+	order_status ENUM('Pending', 'Finished', 'Cancel') NOT NULL DEFAULT 'Pending' comment '訂單狀態'
+);
  * */
 
 import java.io.IOException;
