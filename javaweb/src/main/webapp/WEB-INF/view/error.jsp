@@ -5,10 +5,16 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Error</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 	</head>
 	<body>
-		<h1>
-			錯誤訊息: <%=request.getAttribute("message") %>
-		</h1>
+		<!-- menu bar include -->
+		<%@ include file="/WEB-INF/view/menu.jspf" %>
+		
+		<div style="padding: 15px">
+			<h1>
+				錯誤訊息: <%=request.getAttribute("message") %>
+			</h1>
+		</div>
 	</body>
 </html>
