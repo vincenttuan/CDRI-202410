@@ -11,6 +11,7 @@
 		<!-- menu bar include -->
 		<%@ include file="/WEB-INF/view/menu.jspf" %>
 		
+		<!-- body content -->
 		<div style="padding: 15px">
 			<h1>
 				錯誤訊息: <%=request.getAttribute("message") %>
