@@ -1,12 +1,12 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<div style="padding:15px; background-color: #dddddd; height: 50px; width: 100%; align-content: center;">
+<div class="pure-menu pure-menu-horizontal" style="background-color: #dddddd;height: 50px; align-content: center;">
 	<!-- menu bar -->
-	<a href="/javaweb/users">使用者維護檔</a>&nbsp;|&nbsp;
-	<a href="/javaweb/login">登入</a>&nbsp;|&nbsp;
-	<a href="/javaweb/user/update/password">修改密碼</a>&nbsp;|&nbsp;
-	<a href="/javaweb/products">商品維護檔</a>&nbsp;|&nbsp;
-	<a href="/javaweb/order">訂購商品</a>&nbsp;|&nbsp;
-	<a href="/javaweb/cart">購物車(結帳, 取消)</a>&nbsp;|&nbsp;
-	<a href="/javaweb/order/history">歷史訂單</a>&nbsp;|&nbsp;
-	<a href="/javaweb/logout">登出</a>
+	<a href="/javaweb/users" class="pure-menu-heading pure-menu-link">使用者維護檔</a>
+	<a href="/javaweb/login" class="pure-menu-heading pure-menu-link">登入</a>
+	<a href="/javaweb/user/update/password" class="pure-menu-heading pure-menu-link">修改密碼</a>
+	<a href="/javaweb/products" class="pure-menu-heading pure-menu-link">商品維護檔</a>
+	<a href="/javaweb/order" class="pure-menu-heading pure-menu-link">訂購商品</a>
+	<a href="/javaweb/cart" class="pure-menu-heading pure-menu-link">購物車(結帳, 取消)</a>
+	<a href="/javaweb/order/history" class="pure-menu-heading pure-menu-link">歷史訂單</a>
+	<a href="/javaweb/logout" class="pure-menu-heading pure-menu-link">登出</a>
 </div>
