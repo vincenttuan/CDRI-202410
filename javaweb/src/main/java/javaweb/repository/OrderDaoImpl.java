@@ -48,7 +48,31 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 
 	@Override
 	public void batchAddOrders(List<Order> orders) {
-		// TODO Auto-generated method stub
+		String sql = """
+						insert into 
+						orders(user_id, order_date, product_id, quantity, unit_price, subtotal, order_status) 
+						values(?, ?, ?, ?, ?, ?)
+					 """.trim();
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.clearBatch(); // 清除批次(重要 !!!)
+			
+			for(Order order : orders) {
+				pstmt.setInt(1, order.getUserId());
+				pstmt.setString(2, order.getOrderDate());
+				pstmt.setInt(3, order.getProductId());
+				pstmt.setInt(4, order.getQuantity());
+				pstmt.setDouble(5, order.getUnitPrice());
+				pstmt.setInt(6, order.getSubtotal());
+				pstmt.setString(7, order.getOrderStatus());
+				
+				pstmt.addBatch(); // 加入批次
+			}
+			
+			pstmt.executeBatch(); // 執行批次
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
