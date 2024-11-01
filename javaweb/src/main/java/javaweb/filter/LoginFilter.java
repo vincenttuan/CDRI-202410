@@ -17,16 +17,17 @@ public class LoginFilter extends HttpFilter {
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// 編碼
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/plain;charset=utf-8");
+		//response.setCharacterEncoding("UTF-8");
+		//response.setContentType("text/plain;charset=utf-8");
 		
 		System.out.println("攔截過濾 URL :" + request.getRequestURL());
-		response.getWriter().println("攔截過濾 URL :" + request.getRequestURL());
+		//response.getWriter().println("攔截過濾 URL :" + request.getRequestURL());
 		
 		// 判斷是否有憑證
 		HttpSession session = request.getSession();
 		if(session.getAttribute("userCert") == null) {
-			response.getWriter().println("請先登入");
+			//response.getWriter().println("請先登入");
+			response.sendRedirect("/javaweb/login"); // 自動重導到登入頁面
 		} else {
 			chain.doFilter(request, response); // 放行
 		}
