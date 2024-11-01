@@ -59,6 +59,7 @@ values(5, '2024-09-23', 5, 4, 8000.00, 32000.00, 'Pending');
  * */
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -76,7 +77,8 @@ public class OrderServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		String[] amounts = req.getParameterValues("amount");
+		resp.getWriter().println(Arrays.toString(amounts));
 	}
 	
 }
