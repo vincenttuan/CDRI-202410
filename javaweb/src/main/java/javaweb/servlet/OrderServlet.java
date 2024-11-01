@@ -53,7 +53,7 @@ values(5, '2024-09-23', 5, 4, 8000.00, 32000.00, 'Pending');
   response	|    (View)   |
   			+-------------+                 
  
- 下單頁面: GET  /order, /orders
+ 下單頁面: GET  /order
  執行下單: POST /order
  
  * */
