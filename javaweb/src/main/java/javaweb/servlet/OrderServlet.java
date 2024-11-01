@@ -84,6 +84,9 @@ public class OrderServlet extends HttpServlet {
 		resp.getWriter().println(Arrays.toString(productIds) + " <= productIds");
 		resp.getWriter().println(Arrays.toString(unitPrices) + " <= unitPrices");
 		resp.getWriter().println(Arrays.toString(amounts) + " <= amounts");
+		
+		// 如何實現 
+		//orderService.batchAddOrders(userId, productIds, unitPrices, amounts);
 	}
 	
 }
