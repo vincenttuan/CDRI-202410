@@ -44,7 +44,14 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		session.setAttribute("userCert", userCert);
 		req.setAttribute("message", "登入成功");
-		req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
+		// 檢查 session 中的 redirectURL 是否有資料 ?
+		if(session.getAttribute("redirectURL") == null) {
+			req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
+		} else {
+			String redirectURL = session.getAttribute("redirectURL").toString();
+			resp.sendRedirect(redirectURL);
+			session.setAttribute("redirectURL", null); // 清空 "redirectURL"
+		}
 	}
 	
 }
