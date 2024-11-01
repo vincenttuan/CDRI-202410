@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebFilter(urlPatterns = {"/*"}) // 設定要過濾/攔截的路徑
+//@WebFilter(urlPatterns = {"/*"}) // 設定要過濾/攔截的路徑
 public class LoginFilter extends HttpFilter {
 
 	@Override
@@ -20,8 +20,8 @@ public class LoginFilter extends HttpFilter {
 		response.setContentType("text/plain;charset=utf-8");
 		
 		System.out.println("攔截過濾 URL :" + request.getRequestURL());
-		response.getWriter().print("攔截過濾 URL :" + request.getRequestURL());
-		response.getWriter().print("今日公休");
+		response.getWriter().println("攔截過濾 URL :" + request.getRequestURL());
+		response.getWriter().println("今日公休");
 	}
 	
 }
