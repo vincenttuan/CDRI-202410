@@ -31,7 +31,12 @@
 									1
 									<input type="hidden" name="productId" value="1" >
 								</td>
-								<td>PC</td><td>30000</td><td>50</td>
+								<td>PC</td>
+								<td>
+									30000
+									<input type="hidden" name="unitPrice" value="30000" >
+								</td>
+								<td>50</td>
 								<td><input type="number" name="amount" style="width: 100px" value="0" min="0" max="50"></td>
 							</tr>
 							<tr>
@@ -39,7 +44,12 @@
 									2
 									<input type="hidden" name="productId" value="2" >
 								</td>
-								<td>Mobile</td><td>15000</td><td>100</td>
+								<td>Mobile</td>
+								<td>
+									15000
+									<input type="hidden" name="unitPrice" value="15000" >
+								</td>
+								<td>100</td>
 								<td><input type="number" name="amount" style="width: 100px" value="0" min="0" max="100"></td>
 							</tr>
 							<tr>
@@ -47,7 +57,12 @@
 									3
 									<input type="hidden" name="productId" value="3" >
 								</td>
-								<td>MusicBox</td><td>3000</td><td>200</td>
+								<td>MusicBox</td>
+								<td>
+									3000
+									<input type="hidden" name="unitPrice" value="3000" >
+								</td>
+								<td>200</td>
 								<td><input type="number" name="amount" style="width: 100px" value="0" min="0" max="200"></td>
 							</tr>
 							<tr>
@@ -55,7 +70,12 @@
 									4
 									<input type="hidden" name="productId" value="4" >
 								</td>
-								<td>Pad</td><td>20000</td><td>75</td>
+								<td>Pad</td>
+								<td>
+									20000
+									<input type="hidden" name="unitPrice" value="20000" >
+								</td>
+								<td>75</td>
 								<td><input type="number" name="amount" style="width: 100px" value="0" min="0" max="75"></td>
 							</tr>
 							<tr>
@@ -63,7 +83,12 @@
 									5
 									<input type="hidden" name="productId" value="5" >
 								</td>
-								<td>Watch</td><td>8000</td><td>150</td>
+								<td>Watch</td>
+								<td>
+									8000
+									<input type="hidden" name="unitPrice" value="80000" >
+								</td>
+								<td>150</td>
 								<td><input type="number" name="amount" style="width: 100px" value="0" min="0" max="150"></td>
 							</tr>
 						</tbody>
