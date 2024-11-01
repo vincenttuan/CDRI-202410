@@ -15,6 +15,8 @@ public class LoginFilter extends HttpFilter {
 	@Override
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println("攔截過濾 URL :" + request.getRequestURL());
+		response.getWriter().print("攔截過濾 URL :" + request.getRequestURL());
 		response.getWriter().print("今日公休");
 	}
 	
