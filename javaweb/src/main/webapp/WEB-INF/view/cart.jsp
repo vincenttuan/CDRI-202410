@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %> <!-- 核心庫 -->
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %> <!-- 格式化庫 -->
     
 <!DOCTYPE html>
 <html>
@@ -50,7 +51,12 @@
 							<!-- 顯示總計 -->
 							<tr>
 								<td colspan="7" align="right">總計</td>
-								<td align="right"><strong>${ total }</strong></td>
+								<td align="right">
+									<strong>
+										<fmt:setLocale value="${ locale }" />
+										<fmt:formatNumber value="${ total }" type="currency" />
+									</strong>
+								</td>
 								<td></td>
 							</tr>
 						</tbody>
