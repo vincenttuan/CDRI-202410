@@ -4,7 +4,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %> <!-- 核心庫 -->
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %> <!-- 格式化庫 -->
-    
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %> <!-- 功能庫 -->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -66,7 +67,7 @@
 								<td></td>
 							</tr>
 							<!-- 結帳/取消 -->
-							<tr>
+							<tr style="display: ${ fn:length(orderDtos) == 0 ? 'none' : '' };">
 								<td colspan="6"></td>
 								<td align="center">結帳</td>
 								<td><a href="/javaweb/order/finish" class="button-success pure-button">結帳</a></td>
