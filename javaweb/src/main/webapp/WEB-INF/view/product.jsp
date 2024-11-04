@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %> <!-- 核心庫 -->
+<%@ taglib uri="jakarta.tags.fmt" prefix="f" %> <!-- 格式化庫 -->
     
 <!DOCTYPE html>
 <html>
@@ -38,8 +39,12 @@
 							<tr>
 								<td>${ productDto.productId }</td>
 								<td>${ productDto.productName}</td>
-								<td>${ productDto.price }</td>
-								<td>${ productDto.stockQuantity }</td>
+								<td align="right">
+									<f:formatNumber value="${ productDto.price }" type="currency" maxFractionDigits="0" />
+								</td>
+								<td align="right">
+									<f:formatNumber value="${ productDto.stockQuantity }" />
+								</td>
 							</tr>
 						</c:forEach>
 					</table>
