@@ -35,7 +35,7 @@ public class OrderService {
 			order.setQuantity(amount);
 			order.setUnitPrice(unitPrice); // ?
 			order.setSubtotal((int)(order.getQuantity() * order.getUnitPrice()));
-			//order.setOrderStatus("Pending"); // 可不加因為資料表有預設值
+			order.setOrderStatus("Pending");
 			
 			orders.add(order);
 		}
