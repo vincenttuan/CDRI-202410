@@ -28,6 +28,10 @@ public class OrderService {
 			Double unitPrice = Double.parseDouble(unitPrices[i]);
 			Integer amount = Integer.parseInt(amounts[i]);
 			
+			if(amount <= 0) {
+				continue;
+			}
+			
 			Order order = new Order();
 			order.setUserId(userId);
 			order.setOrderDate(sdf.format(new Date()));
