@@ -60,7 +60,8 @@ public class ProductServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		switch (req.getServletPath()) {
+		String servletPath = req.getServletPath();
+		switch (servletPath) {
 			case "/product/sales/ranking":
 				req.setAttribute("salesRankingMap", productService.querySalesRanking());
 				req.getRequestDispatcher("/WEB-INF/view/sales_ranking.jsp").forward(req, resp);
