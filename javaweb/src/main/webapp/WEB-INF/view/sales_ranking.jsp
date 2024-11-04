@@ -22,8 +22,8 @@
 	        var data = google.visualization.arrayToDataTable([
 	          ['product name', 'sales total'],
 	          
-	          <c:forEach var="map" items="${salesRankingMap}">
-	          	['${map.key}', ${map.value}],
+	          <c:forEach var="entry" items="${salesRankingMap}">
+	          	['${entry.key}', ${entry.value}],}
 	          </c:forEach>
 	          
 	        ]);
