@@ -4,7 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javaweb.model.entity.Product;
 
@@ -32,6 +34,32 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 		}
 		
 		return products;
+	}
+
+	@Override
+	public List<Map<String, Double>> querySalesRanking() {
+		String sql = """
+				SELECT p.product_name, SUM(o.subtotal) AS total_sales
+				FROM orders o
+				LEFT JOIN product p ON o.product_id = p.product_id
+				GROUP BY p.product_name
+				ORDER BY total_sales DESC
+				""".trim();
+		List<Map<String, Double>> salesRanking = new ArrayList<>();
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)) {
+			
+			while (rs.next()) {
+				Map<String, Double> map = new LinkedHashMap<>();
+				String key = rs.getString("product_name");
+				Double value = rs.getDouble("total_sales");
+				map.put(key, value);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return salesRanking;
 	}
 
 }
