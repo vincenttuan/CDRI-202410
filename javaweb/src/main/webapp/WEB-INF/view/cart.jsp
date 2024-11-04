@@ -33,6 +33,8 @@
 						<tbody>
 							<!-- 初始化"總計"變數 -->
 							<c:set var="total" value="0" />
+							<!-- 設定 locale -->
+							<fmt:setLocale value="${ locale }" />
 							<c:forEach var="orderDto" items="${ orderDtos }">
 								<tr>
 									<td align="center">${ orderDto.orderId }</td>
@@ -53,7 +55,6 @@
 								<td colspan="7" align="right">總計</td>
 								<td align="right">
 									<strong>
-										<fmt:setLocale value="${ locale }" />
 										<fmt:formatNumber value="${ total }" type="currency" />
 									</strong>
 								</td>
