@@ -28,6 +28,7 @@ public class OrderService {
 			Double unitPrice = Double.parseDouble(unitPrices[i]);
 			Integer amount = Integer.parseInt(amounts[i]);
 			
+			// 過濾有效的訂單
 			if(amount <= 0) {
 				continue;
 			}
