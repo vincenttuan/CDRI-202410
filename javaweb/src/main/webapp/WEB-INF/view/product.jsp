@@ -28,7 +28,21 @@
 			<div class="pure-form">
 				<fieldset>
 					<legend>商品列表</legend>
-					Homework
+					<table class="pure-table pure-table-bordered">
+						<thead>
+							<tr>
+								<th>商品</th><th>商品名稱</th><th>商品單價</th><th>商品庫存</th>
+							</tr>
+						</thead>
+						<c:forEach var="productDto" items="${ productDtos }">
+							<tr>
+								<td>${ productDto.productId }</td>
+								<td>${ productDto.productName}</td>
+								<td>${ productDto.price }</td>
+								<td>${ productDto.stockQuantity }</td>
+							</tr>
+						</c:forEach>
+					</table>
 				</fieldset>
 			</div>
 		</div>
