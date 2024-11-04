@@ -42,7 +42,9 @@ public class LoginServlet extends HttpServlet {
 		
 		// 將憑證放入 session 變數中以利其他程式進行取用與驗證
 		HttpSession session = req.getSession();
-		session.setAttribute("userCert", userCert);
+		session.setAttribute("userCert", userCert); // 放憑證
+		session.setAttribute("locale", req.getLocale()); // 取得客戶端所在地 例如: zh_TW
+		
 		req.setAttribute("message", "登入成功");
 		// 檢查 session 中的 redirectURL 是否有資料 ?
 		if(session.getAttribute("redirectURL") == null) {

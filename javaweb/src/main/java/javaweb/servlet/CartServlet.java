@@ -28,7 +28,6 @@ public class CartServlet extends HttpServlet {
 		// 購物車資料指的是 order_status = "Pending"
 		List<OrderDto> orderDtos = orderService.findAllOrders(userCert.getUserId(), "Pending");
 		req.setAttribute("orderDtos", orderDtos);
-		req.setAttribute("locale", req.getLocale()); // 取得客戶端所在地 例如: zh_TW
 		req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
 	}
 	
