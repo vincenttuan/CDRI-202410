@@ -56,7 +56,8 @@
 							</c:forEach>
 							<!-- 顯示總計 -->
 							<tr>
-								<td colspan="7" align="right">總計</td>
+								<td colspan="6"></td>
+								<td align="center">總計</td>
 								<td align="right">
 									<strong>
 										<fmt:formatNumber value="${ total }" type="currency" maxFractionDigits="0" />
@@ -66,7 +67,8 @@
 							</tr>
 							<!-- 結帳/取消 -->
 							<tr>
-								<td colspan="7" align="right">總計</td>
+								<td colspan="6"></td>
+								<td align="center">結帳</td>
 								<td><a href="/javaweb/order/finish" class="button-success pure-button">結帳</a></td>
 								<td><a href="/javaweb/order/cancel" class="button-warning pure-button">取消</a></td>
 							</tr>
