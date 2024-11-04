@@ -26,17 +26,21 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 			pstmt.setString(2, orderStatus);
 			
 			try(ResultSet rs = pstmt.executeQuery()) {
-				Order order = new Order();
-				order.setOrderId(rs.getInt("order_id"));
-				order.setUserId(rs.getInt("user_id"));
-				order.setOrderDate(rs.getString("order_date"));
-				order.setProductId(rs.getInt("product_id"));
-				order.setQuantity(rs.getInt("quantity"));
-				order.setUnitPrice(rs.getDouble("unit_price"));
-				order.setSubtotal(rs.getInt("subtotal"));
-				order.setOrderStatus(rs.getString("order_status"));
-				// 加入到 orders 集合
-				orders.add(order);
+				
+				while (rs.next()) {
+					Order order = new Order();
+					order.setOrderId(rs.getInt("order_id"));
+					order.setUserId(rs.getInt("user_id"));
+					order.setOrderDate(rs.getString("order_date"));
+					order.setProductId(rs.getInt("product_id"));
+					order.setQuantity(rs.getInt("quantity"));
+					order.setUnitPrice(rs.getDouble("unit_price"));
+					order.setSubtotal(rs.getInt("subtotal"));
+					order.setOrderStatus(rs.getString("order_status"));
+					// 加入到 orders 集合
+					orders.add(order);
+				}
+				
 			}
 			
 		} catch (SQLException e) {
