@@ -45,6 +45,7 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 				GROUP BY p.product_name
 				ORDER BY total_sales DESC
 				""".trim();
+		// 存放銷售排行
 		List<Map<String, Double>> salesRanking = new ArrayList<>();
 		try(Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql)) {
@@ -53,6 +54,7 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 				Map<String, Double> map = new LinkedHashMap<>();
 				String key = rs.getString("product_name");
 				Double value = rs.getDouble("total_sales");
+				// 將排行放到 map 集合中
 				map.put(key, value);
 			}
 			
