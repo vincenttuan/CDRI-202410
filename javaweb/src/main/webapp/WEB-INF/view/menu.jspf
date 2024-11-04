@@ -8,5 +8,6 @@
 	<a href="/javaweb/order" class="pure-menu-heading pure-menu-link">訂購商品</a>
 	<a href="/javaweb/cart" class="pure-menu-heading pure-menu-link">購物車(結帳, 取消)</a>
 	<a href="/javaweb/order/history" class="pure-menu-heading pure-menu-link">歷史訂單</a>
+	<a href="/javaweb/product/sales/ranking" class="pure-menu-heading pure-menu-link">銷售排行</a>
 	<a href="/javaweb/logout" class="pure-menu-heading pure-menu-link">登出</a>
 </div>
