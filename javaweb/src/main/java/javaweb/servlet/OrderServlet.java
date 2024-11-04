@@ -96,9 +96,9 @@ public class OrderServlet extends HttpServlet {
 		String[] unitPrices = req.getParameterValues("unitPrice"); // 商品單價
 		String[] amounts = req.getParameterValues("amount"); // 購買數量
 		
-		resp.getWriter().println(Arrays.toString(productIds) + " <= productIds");
-		resp.getWriter().println(Arrays.toString(unitPrices) + " <= unitPrices");
-		resp.getWriter().println(Arrays.toString(amounts) + " <= amounts");
+		System.out.println(Arrays.toString(productIds) + " <= productIds");
+		System.out.println(Arrays.toString(unitPrices) + " <= unitPrices");
+		System.out.println(Arrays.toString(amounts) + " <= amounts");
 		
 		// 如何實現
 		// 從 session 憑證中找到 userId
@@ -106,7 +106,10 @@ public class OrderServlet extends HttpServlet {
 		UserCert userCert = (UserCert)session.getAttribute("userCert");
 		orderService.batchAddOrders(userCert.getUserId(), productIds, unitPrices, amounts);
 		
-		resp.getWriter().println("OK");
+		System.out.println("OK");
+		
+		// 外重導到購物車
+		resp.sendRedirect("/javaweb/cart");
 	}
 	
 }
