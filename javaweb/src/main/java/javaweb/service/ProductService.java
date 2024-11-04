@@ -2,6 +2,7 @@ package javaweb.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javaweb.model.dto.ProductDto;
 import javaweb.model.entity.Product;
@@ -20,5 +21,9 @@ public class ProductService {
 		});
 		
 		return productDtos;
+	}
+	
+	public List<Map<String, Double>> querySalesRanking() {
+		return productDao.querySalesRanking();
 	}
 }
