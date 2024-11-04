@@ -42,9 +42,13 @@
 									<td>${ orderDto.orderDate }</td>
 									<td align="center">${ orderDto.productId }</td>
 									<td></td>
-									<td align="right">${ orderDto.unitPrice }</td>
+									<td align="right">
+										<fmt:formatNumber value="${ orderDto.unitPrice }" type="currency" maxFractionDigits="0" />
+									</td>
 									<td align="right">${ orderDto.quantity }</td>
-									<td align="right">${ orderDto.subtotal }</td>
+									<td align="right">
+										<fmt:formatNumber value="${ orderDto.subtotal }" type="currency" maxFractionDigits="0" />
+									</td>
 									<td>${ orderDto.orderStatus }</td>
 								</tr>
 								<!-- 累計 -->
@@ -55,7 +59,7 @@
 								<td colspan="7" align="right">總計</td>
 								<td align="right">
 									<strong>
-										<fmt:formatNumber value="${ total }" type="currency" />
+										<fmt:formatNumber value="${ total }" type="currency" maxFractionDigits="0" />
 									</strong>
 								</td>
 								<td></td>
