@@ -53,15 +53,24 @@ insert into product(product_name, price, stock_quantity) values('Watch', 8000.00
  查詢全部: GET  /product, /products
  
 */ 
-@WebServlet("/products")
+@WebServlet(value = {"/products", "/product/sales/ranking"})
 public class ProductServlet extends HttpServlet {
 	
 	private ProductService productService = new ProductService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("productDtos", productService.findAllProducts());
-		req.getRequestDispatcher("/WEB-INF/view/product.jsp").forward(req, resp);
+		switch (req.getServletPath()) {
+			case "/product/sales/ranking":
+				req.setAttribute("salesRankingMap", productService.querySalesRanking());
+				req.getRequestDispatcher("/WEB-INF/view/sales_ranking.jsp").forward(req, resp);
+				break;
+			case "/products":
+			default:
+				req.setAttribute("productDtos", productService.findAllProducts());
+				req.getRequestDispatcher("/WEB-INF/view/product.jsp").forward(req, resp);
+		}
+		
 	}
 	
 }
