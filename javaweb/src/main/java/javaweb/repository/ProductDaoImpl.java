@@ -37,7 +37,7 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 	}
 
 	@Override
-	public List<Map<String, Double>> querySalesRanking() {
+	public Map<String, Double> querySalesRanking() {
 		String sql = """
 				SELECT p.product_name, SUM(o.subtotal) AS total_sales
 				FROM orders o
@@ -45,25 +45,24 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 				GROUP BY p.product_name
 				ORDER BY total_sales DESC
 				""".trim();
-		// 存放銷售排行
-		List<Map<String, Double>> salesRanking = new ArrayList<>();
+		// 存放銷售排行 map
+		Map<String, Double> map = new LinkedHashMap<>();
+		
 		try(Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql)) {
 			
 			while (rs.next()) {
-				Map<String, Double> map = new LinkedHashMap<>();
+				
 				String key = rs.getString("product_name");
 				Double value = rs.getDouble("total_sales");
 				// 將排行放到 map 集合中
 				map.put(key, value);
-				// 注入到 salesRanking 集合
-				salesRanking.add(map);
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return salesRanking;
+		return map;
 	}
 
 }

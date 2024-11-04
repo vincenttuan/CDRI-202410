@@ -23,7 +23,7 @@ public class ProductService {
 		return productDtos;
 	}
 	
-	public List<Map<String, Double>> querySalesRanking() {
+	public Map<String, Double> querySalesRanking() {
 		return productDao.querySalesRanking();
 	}
 }

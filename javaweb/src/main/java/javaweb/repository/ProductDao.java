@@ -8,5 +8,5 @@ import javaweb.model.entity.Product;
 public interface ProductDao {
 	List<Product> findAllProducts();
 	// Map<商品名稱(product_name), 銷售金額 (total_sales)>
-	List<Map<String, Double>> querySalesRanking(); // 銷售排行
+	Map<String, Double> querySalesRanking(); // 銷售排行
 }

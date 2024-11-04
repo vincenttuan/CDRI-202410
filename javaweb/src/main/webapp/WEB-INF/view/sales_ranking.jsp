@@ -1,8 +1,12 @@
 <%@ page import="javaweb.model.dto.UserDto"%>
-<%@ page import="java.util.List"%>
+<%@ page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %> <!-- 核心庫 -->
+
+<%
+Map<String, Double> rankings = (Map<String, Double>)request.getAttribute("salesRankingMap"); 
+%>
     
 <!DOCTYPE html>
 <html>
@@ -22,9 +26,7 @@
 	        var data = google.visualization.arrayToDataTable([
 	          ['product name', 'sales total'],
 	          
-	          <c:forEach var="entry" items="${salesRankingMap}">
-	          	['${entry.key}', ${entry.value}],}
-	          </c:forEach>
+	          
 	          
 	        ]);
 	
