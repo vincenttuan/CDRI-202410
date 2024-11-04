@@ -37,7 +37,7 @@
 						</thead>
 						<c:forEach var="productDto" items="${ productDtos }">
 							<tr>
-								<td>${ productDto.productId }</td>
+								<td align="center">${ productDto.productId }</td>
 								<td>${ productDto.productName}</td>
 								<td align="right">
 									<f:formatNumber value="${ productDto.price }" type="currency" maxFractionDigits="0" />
