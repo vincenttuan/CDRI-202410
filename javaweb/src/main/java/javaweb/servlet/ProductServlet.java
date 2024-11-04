@@ -52,7 +52,7 @@ insert into product(product_name, price, stock_quantity) values('Watch', 8000.00
  查詢全部: GET  /product, /products
  
 */ 
-@WebServlet("/product")
+@WebServlet("/products")
 public class ProductServlet extends HttpServlet {
 
 	@Override
