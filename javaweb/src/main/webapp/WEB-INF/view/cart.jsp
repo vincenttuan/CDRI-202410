@@ -41,7 +41,7 @@
 									<td align="center">${ orderDto.userId }</td>
 									<td>${ orderDto.orderDate }</td>
 									<td align="center">${ orderDto.productId }</td>
-									<td></td>
+									<td>${ orderDto.productName }</td>
 									<td align="right">
 										<fmt:formatNumber value="${ orderDto.unitPrice }" type="currency" maxFractionDigits="0" />
 									</td>

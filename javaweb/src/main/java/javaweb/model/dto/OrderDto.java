@@ -12,4 +12,6 @@ public class OrderDto {
 	private Double unitPrice;
 	private Integer subtotal;
 	private String orderStatus;
+	// 外加欄位
+	private String productName;
 }
