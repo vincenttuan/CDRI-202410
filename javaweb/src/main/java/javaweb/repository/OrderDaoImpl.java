@@ -51,7 +51,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 		String sql = """
 						insert into 
 						orders(user_id, order_date, product_id, quantity, unit_price, subtotal, order_status) 
-						values(?, ?, ?, ?, ?, ?)
+						values(?, ?, ?, ?, ?, ?, ?)
 					 """.trim();
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.clearBatch(); // 清除批次(重要 !!!)
