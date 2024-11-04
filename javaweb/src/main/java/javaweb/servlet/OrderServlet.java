@@ -87,10 +87,14 @@ public class OrderServlet extends HttpServlet {
 			case "/finish":
 				System.out.println(pathInfo);
 				orderService.updateOrderStatus(userId, "Pending", "Finished");
+				req.setAttribute("message", "購物-結帳完畢");
+				req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 				break;
 			case "/cancel":
 				System.out.println(pathInfo);
 				orderService.updateOrderStatus(userId, "Pending", "Cancel");
+				req.setAttribute("message", "購物-取消完畢");
+				req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 				break;
 			default:
 				req.getRequestDispatcher("/WEB-INF/view/order.jsp").forward(req, resp);
