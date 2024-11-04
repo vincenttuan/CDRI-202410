@@ -66,9 +66,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import javaweb.model.dto.UserCert;
+import javaweb.service.OrderService;
 
 @WebServlet("/order")
 public class OrderServlet extends HttpServlet {
+	
+	private OrderService orderService = new OrderService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -85,8 +90,13 @@ public class OrderServlet extends HttpServlet {
 		resp.getWriter().println(Arrays.toString(unitPrices) + " <= unitPrices");
 		resp.getWriter().println(Arrays.toString(amounts) + " <= amounts");
 		
-		// 如何實現 
-		//orderService.batchAddOrders(userId, productIds, unitPrices, amounts);
+		// 如何實現
+		// 從 session 憑證中找到 userId
+		HttpSession session = req.getSession();
+		UserCert userCert = (UserCert)session.getAttribute("userCert");
+		orderService.batchAddOrders(userCert.getUserId(), productIds, unitPrices, amounts);
+		
+		resp.getWriter().println("OK");
 	}
 	
 }
