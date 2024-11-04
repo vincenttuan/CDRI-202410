@@ -100,8 +100,8 @@ public class OrderServlet extends HttpServlet {
 			case "/history": // 歷史訂單
 				List<OrderDto> orderFinishedDtos = orderService.findAllOrders(userId, "Finished"); // 歷史訂單-已結帳
 				List<OrderDto> orderCancelDtos = orderService.findAllOrders(userId, "Cancel"); // 歷史訂單-已取消
-				
-				
+				req.setAttribute("orderFinishedDtos", orderFinishedDtos);
+				req.setAttribute("orderCancelDtos", orderCancelDtos);
 				req.getRequestDispatcher("/WEB-INF/view/history.jsp").forward(req, resp);
 				break;
 			default:
