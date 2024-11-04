@@ -70,14 +70,24 @@ import jakarta.servlet.http.HttpSession;
 import javaweb.model.dto.UserCert;
 import javaweb.service.OrderService;
 
-@WebServlet("/order")
+@WebServlet("/order/*")
 public class OrderServlet extends HttpServlet {
 	
 	private OrderService orderService = new OrderService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/view/order.jsp").forward(req, resp);
+		String pathInfo = req.getPathInfo() + "";
+		switch (pathInfo) {
+			case "/finish":
+				resp.getWriter().print(pathInfo);
+				break;
+			case "/cancel":
+				resp.getWriter().print(pathInfo);
+				break;
+			default:
+				req.getRequestDispatcher("/WEB-INF/view/order.jsp").forward(req, resp);
+		}
 	}
 
 	@Override
