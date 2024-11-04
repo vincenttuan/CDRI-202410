@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javaweb.model.dto.OrderDto;
 import javaweb.model.entity.Order;
@@ -91,4 +92,25 @@ public class OrderService {
 		return orderDtos;
 	}
 	
+	/** 更新訂單狀態
+	 * 
+	 * @param userId 例如: 1
+	 * @param fromOrderStatus 例如: Pending
+	 * @param toOrderStatus   例如: Finished 或 Cancel
+	 */
+	public void updateOrderStatus(Integer userId, String fromOrderStatus, String toOrderStatus) {
+		List<Order> orders = orderDao.findAllOrders(userId, fromOrderStatus);
+		// 收集 orders 中所有的 orderId
+		List<Integer> orderIds = orders.stream().map(o -> o.getOrderId()).collect(Collectors.toList());
+		//List<Integer> orderIds = orders.stream().mapToInt(o -> o.getOrderId()).boxed().collect(Collectors.toList());
+		// 進行批次修改
+		orderDao.batchUpdateOrderStatus(orderIds, toOrderStatus);
+	}
+	
 }
+
+
+
+
+
+

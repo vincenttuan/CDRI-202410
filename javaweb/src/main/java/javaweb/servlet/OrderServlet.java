@@ -80,10 +80,12 @@ public class OrderServlet extends HttpServlet {
 		String pathInfo = req.getPathInfo() + "";
 		switch (pathInfo) {
 			case "/finish":
-				resp.getWriter().print(pathInfo);
+				System.out.println(pathInfo);
+				
 				break;
 			case "/cancel":
-				resp.getWriter().print(pathInfo);
+				System.out.println(pathInfo);
+				
 				break;
 			default:
 				req.getRequestDispatcher("/WEB-INF/view/order.jsp").forward(req, resp);
