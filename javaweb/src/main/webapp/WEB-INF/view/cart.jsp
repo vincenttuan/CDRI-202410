@@ -29,19 +29,31 @@
 								<th>訂購數量</th><th>小計</th><th>訂單狀態</th>
 							</tr>
 						</thead>
-						<c:forEach var="orderDto" items="${ orderDtos }">
+						<tbody>
+							<!-- 初始化"總計"變數 -->
+							<c:set var="total" value="0" />
+							<c:forEach var="orderDto" items="${ orderDtos }">
+								<tr>
+									<td align="center">${ orderDto.orderId }</td>
+									<td align="center">${ orderDto.userId }</td>
+									<td>${ orderDto.orderDate }</td>
+									<td align="center">${ orderDto.productId }</td>
+									<td></td>
+									<td align="right">${ orderDto.unitPrice }</td>
+									<td align="right">${ orderDto.quantity }</td>
+									<td align="right">${ orderDto.subtotal }</td>
+									<td>${ orderDto.orderStatus }</td>
+								</tr>
+								<!-- 累計 -->
+								<c:set var="total" value="${ total + orderDto.subtotal }" />
+							</c:forEach>
+							<!-- 顯示總計 -->
 							<tr>
-								<td>${ orderDto.orderId }</td>
-								<td>${ orderDto.userId }</td>
-								<td>${ orderDto.orderDate }</td>
-								<td>${ orderDto.productId }</td>
+								<td colspan="7" align="right">總計</td>
+								<td align="right"><strong>${ total }</strong></td>
 								<td></td>
-								<td>${ orderDto.unitPrice }</td>
-								<td>${ orderDto.quantity }</td>
-								<td>${ orderDto.subtotal }</td>
-								<td>${ orderDto.orderStatus }</td>
 							</tr>
-						</c:forEach>
+						</tbody>
 					</table>
 				</fieldset>
 			</div>
