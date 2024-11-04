@@ -7,12 +7,16 @@ import java.util.List;
 
 import javaweb.model.dto.OrderDto;
 import javaweb.model.entity.Order;
+import javaweb.model.entity.Product;
 import javaweb.repository.OrderDao;
 import javaweb.repository.OrderDaoImpl;
+import javaweb.repository.ProductDao;
+import javaweb.repository.ProductDaoImpl;
 
 public class OrderService {
 	
 	private OrderDao orderDao = new OrderDaoImpl();
+	private ProductDao productDao = new ProductDaoImpl();
 	
 	// 同時新增多筆訂單
 	// userId: 使用者 id
@@ -54,7 +58,8 @@ public class OrderService {
 		// 取得訂單資料
 		List<Order> orders = orderDao.findAllOrders(userId, orderStatus);
 		// 取得所有商品
-		List<Product> products = 
+		List<Product> products = productDao.findAllProducts();
+		
 		// 將 List<Order> 轉 List<OrderDto>
 		List<OrderDto> orderDtos = new ArrayList<>();
 		for(Order order : orders) {
@@ -67,6 +72,14 @@ public class OrderService {
 			orderDto.setUnitPrice(order.getUnitPrice());
 			orderDto.setSubtotal(order.getSubtotal());
 			orderDto.setOrderStatus(order.getOrderStatus());
+			// 透過 productId 找到對應的 productName
+			orderDto.setProductName(
+					products.stream()
+							.filter(p -> p.getProductId().equals(orderDto.getProductId()))
+							.findFirst()
+							.orElseGet(null)
+							.getProductName()
+			);
 			// 注入到 orderDtos 集合
 			orderDtos.add(orderDto);
 		}
