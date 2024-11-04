@@ -62,6 +62,7 @@ public class OrderService {
 			orderDto.setOrderDate(order.getOrderDate());
 			orderDto.setProductId(order.getProductId());
 			orderDto.setQuantity(order.getQuantity());
+			orderDto.setUnitPrice(order.getUnitPrice());
 			orderDto.setSubtotal(order.getSubtotal());
 			orderDto.setOrderStatus(order.getOrderStatus());
 			// 注入到 orderDtos 集合
