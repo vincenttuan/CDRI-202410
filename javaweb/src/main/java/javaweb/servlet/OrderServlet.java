@@ -60,6 +60,7 @@ values(5, '2024-09-23', 5, 4, 8000.00, 32000.00, 'Pending');
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -67,7 +68,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import javaweb.model.dto.OrderDto;
 import javaweb.model.dto.UserCert;
+import javaweb.repository.OrderDao;
 import javaweb.service.OrderService;
 
 @WebServlet("/order/*")
@@ -84,17 +87,22 @@ public class OrderServlet extends HttpServlet {
 		Integer userId = userCert.getUserId();
 		
 		switch (pathInfo) {
-			case "/finish":
-				System.out.println(pathInfo);
+			case "/finish": // 訂單結帳
 				orderService.updateOrderStatus(userId, "Pending", "Finished");
 				req.setAttribute("message", "購物-結帳完畢");
 				req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 				break;
-			case "/cancel":
-				System.out.println(pathInfo);
+			case "/cancel": // 訂單取消
 				orderService.updateOrderStatus(userId, "Pending", "Cancel");
 				req.setAttribute("message", "購物-取消完畢");
 				req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
+				break;
+			case "/history": // 歷史訂單
+				List<OrderDto> orderFinishedDtos = orderService.findAllOrders(userId, "Finished"); // 歷史訂單-已結帳
+				List<OrderDto> orderCancelDtos = orderService.findAllOrders(userId, "Cancel"); // 歷史訂單-已取消
+				
+				
+				req.getRequestDispatcher("/WEB-INF/view/history.jsp").forward(req, resp);
 				break;
 			default:
 				req.getRequestDispatcher("/WEB-INF/view/order.jsp").forward(req, resp);
