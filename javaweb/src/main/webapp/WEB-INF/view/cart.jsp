@@ -64,6 +64,12 @@
 								</td>
 								<td></td>
 							</tr>
+							<!-- 結帳/取消 -->
+							<tr>
+								<td colspan="7" align="right">總計</td>
+								<td><a href="/javaweb/order/finish">結帳</a></td>
+								<td><a href="/javaweb/order/cancel">結帳</a></td>
+							</tr>
 						</tbody>
 					</table>
 				</fieldset>
