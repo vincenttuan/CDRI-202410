@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javaweb.model.dto.OrderDto;
 import javaweb.model.entity.Order;
 import javaweb.repository.OrderDao;
 import javaweb.repository.OrderDaoImpl;
@@ -46,6 +47,28 @@ public class OrderService {
 		}
 		
 		orderDao.batchAddOrders(orders);
+	}
+	
+	// 查找該使用者的所有訂單，根據訂單狀態進行篩選
+	public List<OrderDto> findAllOrders(Integer userId, String orderStatus) {
+		// 取得訂單資料
+		List<Order> orders = orderDao.findAllOrders(userId, orderStatus);
+		// 將 List<Order> 轉 List<OrderDto>
+		List<OrderDto> orderDtos = new ArrayList<>();
+		for(Order order : orders) {
+			OrderDto orderDto = new OrderDto();
+			orderDto.setOrderId(order.getOrderId());
+			orderDto.setUserId(order.getUserId());
+			orderDto.setOrderDate(order.getOrderDate());
+			orderDto.setProductId(order.getProductId());
+			orderDto.setQuantity(order.getQuantity());
+			orderDto.setSubtotal(order.getSubtotal());
+			orderDto.setOrderStatus(order.getOrderStatus());
+			// 注入到 orderDtos 集合
+			orderDtos.add(orderDto);
+		}
+		
+		return orderDtos;
 	}
 	
 }
