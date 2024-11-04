@@ -53,6 +53,8 @@ public class OrderService {
 	public List<OrderDto> findAllOrders(Integer userId, String orderStatus) {
 		// 取得訂單資料
 		List<Order> orders = orderDao.findAllOrders(userId, orderStatus);
+		// 取得所有商品
+		List<Product> products = 
 		// 將 List<Order> 轉 List<OrderDto>
 		List<OrderDto> orderDtos = new ArrayList<>();
 		for(Order order : orders) {
