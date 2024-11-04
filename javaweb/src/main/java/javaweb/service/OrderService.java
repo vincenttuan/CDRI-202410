@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javaweb.model.dto.OrderDto;
 import javaweb.model.entity.Order;
@@ -73,13 +74,16 @@ public class OrderService {
 			orderDto.setSubtotal(order.getSubtotal());
 			orderDto.setOrderStatus(order.getOrderStatus());
 			// 透過 productId 找到對應的 productName
-			orderDto.setProductName(
-					products.stream()
-							.filter(p -> p.getProductId().equals(orderDto.getProductId()))
-							.findFirst()
-							.orElseGet(null)
-							.getProductName()
-			);
+			Optional<Product> optProduct = products.stream()
+					.filter(p -> p.getProductId().equals(orderDto.getProductId()))
+					.findFirst();
+			
+			if(optProduct.isPresent()) { // 是否有找到 Product 資料
+				orderDto.setProductName(
+						optProduct.get().getProductName()
+				);
+			}
+			
 			// 注入到 orderDtos 集合
 			orderDtos.add(orderDto);
 		}
