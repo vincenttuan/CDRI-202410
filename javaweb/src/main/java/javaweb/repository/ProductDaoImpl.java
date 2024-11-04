@@ -56,6 +56,8 @@ public class ProductDaoImpl extends BaseDao implements ProductDao {
 				Double value = rs.getDouble("total_sales");
 				// 將排行放到 map 集合中
 				map.put(key, value);
+				// 注入到 salesRanking 集合
+				salesRanking.add(map);
 			}
 			
 		} catch (SQLException e) {
