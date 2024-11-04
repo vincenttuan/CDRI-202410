@@ -78,14 +78,19 @@ public class OrderServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo() + "";
+		
+		HttpSession session = req.getSession();
+		UserCert userCert = (UserCert)session.getAttribute("userCert");
+		Integer userId = userCert.getUserId();
+		
 		switch (pathInfo) {
 			case "/finish":
 				System.out.println(pathInfo);
-				
+				orderService.updateOrderStatus(userId, "Pending", "Finished");
 				break;
 			case "/cancel":
 				System.out.println(pathInfo);
-				
+				orderService.updateOrderStatus(userId, "Pending", "Cancel");
 				break;
 			default:
 				req.getRequestDispatcher("/WEB-INF/view/order.jsp").forward(req, resp);
