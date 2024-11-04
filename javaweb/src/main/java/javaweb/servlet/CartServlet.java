@@ -24,10 +24,12 @@ public class CartServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		UserCert userCert = (UserCert)session.getAttribute("userCert");
 		
+		// 使用者購物車資料
+		// 購物車資料指的是 order_status = "Pending"
 		List<OrderDto> orderDtos = orderService.findAllOrders(userCert.getUserId(), "Pending");
+		req.setAttribute("orderDtos", orderDtos);
 		
-		resp.getWriter().print(orderDtos);
-		
+		req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
 	}
 	
 	
