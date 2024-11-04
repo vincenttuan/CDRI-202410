@@ -1,12 +1,8 @@
 <%@ page import="javaweb.model.dto.UserDto"%>
-<%@ page import="java.util.Map"%>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %> <!-- 核心庫 -->
-
-<%
-Map<String, Double> rankings = (Map<String, Double>)request.getAttribute("salesRankingMap"); 
-%>
     
 <!DOCTYPE html>
 <html>
@@ -26,16 +22,20 @@ Map<String, Double> rankings = (Map<String, Double>)request.getAttribute("salesR
 	        var data = google.visualization.arrayToDataTable([
 	          ['product name', 'sales total'],
 	          
-	          
+	          <c:forEach var="entry" items="${salesRankingMap}">
+	          	['${entry.key}', ${entry.value}],
+	          </c:forEach>
 	          
 	        ]);
 	
 	        var options = {
-	          title: 'My Daily Activities'
+	          title: 'Sales Ranking'
 	        };
 	
-	        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-	
+	        var chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
+	        //var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	        //var chart = new google.visualization.BarChart(document.getElementById('piechart'));
+	    	
 	        chart.draw(data, options);
 	      }
 	    </script>
