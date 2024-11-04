@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import javaweb.service.ProductService;
 
 /**
 -- 商品 product
@@ -54,9 +55,12 @@ insert into product(product_name, price, stock_quantity) values('Watch', 8000.00
 */ 
 @WebServlet("/products")
 public class ProductServlet extends HttpServlet {
-
+	
+	private ProductService productService = new ProductService();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("productDtos", productService.findAllProducts());
 		req.getRequestDispatcher("/WEB-INF/view/product.jsp").forward(req, resp);
 	}
 	
