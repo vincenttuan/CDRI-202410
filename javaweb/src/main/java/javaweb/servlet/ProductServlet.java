@@ -57,7 +57,7 @@ public class ProductServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getWriter().print("Homework");
+		req.getRequestDispatcher("/WEB-INF/view/product.jsp").forward(req, resp);
 	}
 	
 }
