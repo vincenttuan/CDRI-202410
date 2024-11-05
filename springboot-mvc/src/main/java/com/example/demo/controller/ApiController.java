@@ -13,9 +13,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api") // 統一 URL 前綴
 public class ApiController {
 	
-	@GetMapping("/hello")
-	public String addBook() {
-		return "Hello !";
+	/** 
+	 * 1.歡迎頁 
+	 * 路徑: /welcome
+	 * 路徑: /home
+	 * 網址: http://localhost:8080/api/welcome
+	 * 網址: http://localhost:8080/api/home
+	 */
+	@GetMapping(value = {"/welcome", "/home"})
+	@ResponseBody
+	public String welcome() {
+		return "Welcome";
 	}
 	
 	
