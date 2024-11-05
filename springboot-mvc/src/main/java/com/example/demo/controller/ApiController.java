@@ -25,5 +25,16 @@ public class ApiController {
 		return "Welcome";
 	}
 	
+	/**
+	 * 2. ?帶參數
+	 * 路徑: /greet?name=John&age=18
+	 * 路徑: /greet?name=Mary
+	 * 網址: http://localhost:8080/api/greet?name=John&age=18
+	 * 結果: John, 18 (成年)
+	 * 網址: http://localhost:8080/api/greet?name=Mary
+	 * 結果: Mary, 0 (未成年)
+	 * 限制: name 參數一定要加, age 參數可不加(若沒有加 age 參數則會給初始值 0)
+	 * */
+	
 	
 }
