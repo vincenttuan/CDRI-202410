@@ -21,7 +21,6 @@ public class ApiController {
 	 * 網址: http://localhost:8080/api/home
 	 */
 	@GetMapping(value = {"/welcome", "/home"})
-	@ResponseBody
 	public String welcome() {
 		return "Welcome";
 	}
