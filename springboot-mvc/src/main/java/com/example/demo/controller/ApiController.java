@@ -36,10 +36,10 @@ public class ApiController {
 	 * 限制: name 參數一定要加, age 參數可不加(若沒有加 age 參數則會給初始值 0)
 	 * */
 	@GetMapping("/greet")
-	public String greet(@RequestParam(value = "name", required = true) String name,
-						@RequestParam(value = "age", required = false, defaultValue = "0") Integer age) {
+	public String greet(@RequestParam(value = "name", required = true) String username,
+						@RequestParam(value = "age", required = false, defaultValue = "0") Integer userage) {
 		
-		return String.format("Hi %s, %d (%s)", name, age, age >= 18?"成年":"未成年");
+		return String.format("Hi %s, %d (%s)", username, userage, userage >= 18?"成年":"未成年");
 		
 	}
 	
