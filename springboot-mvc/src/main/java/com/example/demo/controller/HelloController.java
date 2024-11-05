@@ -19,4 +19,9 @@ public class HelloController {
 		return "Yes";
 	} 
 	
+	@GetMapping("/today")
+	//@ResponseBody // 拿掉
+	public String today() {
+		return "today"; // 預設透過 application.properties 裡面的 jsp 配置去找 today.jsp
+	} 
 }
