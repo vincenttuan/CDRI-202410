@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,11 +88,18 @@ public class ApiController {
 	 */
 	//@GetMapping("/age")
 	@GetMapping(value = "/age", produces = "application/json;charset=utf-8")
-	public ApiResponse<Object> getAverageOfAge(@RequestParam("age") List<Integer> ages) {
-		double avgOfAge = ages.stream().mapToInt(Integer::intValue).average().getAsDouble();
-		Object data = Map.of("平均年齡", String.format("%.1f", avgOfAge));
-		return ApiResponse.success("查詢成功", data);
-		
+	public ResponseEntity<ApiResponse<Object>> getAverageOfAge(@RequestParam("age") List<Integer> ages) {
+		// 驗證 score 是否可以轉為有效整數
+		try {
+			double avgOfAge = ages.stream().mapToInt(Integer::intValue).average().getAsDouble();
+			Object data = Map.of("平均年齡", String.format("%.1f", avgOfAge));
+			//return ResponseEntity.status(200).body(ApiResponse.success("查詢成功", data));
+			return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
+		} catch (Exception e) {
+			
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+								 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "參數不正確"));
+		}
 	}
 	
 	/*
