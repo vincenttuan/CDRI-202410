@@ -112,13 +112,14 @@ public class ApiController {
 	 * 提示: IntSummaryStatistics, Collectors.partitioningBy
 	 * */
 	@GetMapping(value = "/exam", produces = "application/json;charset=utf-8")
-	public ResponseEntity<ApiResponse<Object>> getExamInfo(@RequestParam("score") List<Integer> scores) {
+	public ResponseEntity<ApiResponse<Object>> getExamInfo(@RequestParam("score") List<String> scores) {
 		try {
 			// 統計資料
-			IntSummaryStatistics stat = scores.stream().mapToInt(Integer::intValue).summaryStatistics();
+			IntSummaryStatistics stat = scores.stream().mapToInt(Integer::parseInt).summaryStatistics();
 			// 利用 Collectors.partitioningBy 分組
 			// key=true 及格分數, key=false 不及格分數
-			Map<Boolean, List<Integer>> resultMap = scores.stream().collect(Collectors.partitioningBy(score -> score >= 60)); 
+			Map<Boolean, List<String>> resultMap = scores.stream()
+												.collect(Collectors.partitioningBy(score -> Integer.parseInt(score) >= 60)); 
 			
 			Object data = Map.of(
 					"最高分", stat.getMax(), 
