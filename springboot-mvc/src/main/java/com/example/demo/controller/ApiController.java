@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -159,7 +160,21 @@ public class ApiController {
 	 */
 	@GetMapping("/book/{id}")
 	public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable Integer id) {
-		List<Book> books = List.of()
+		List<Book> books = List.of(
+				new Book(1, "Math1", 12.5, 20, true),
+				new Book(2, "Math2", 13.5, 21, false),
+				new Book(3, "Math3", 14.5, 22, true),
+				new Book(4, "Math4", 15.5, 23, false),
+				new Book(5, "Math5", 16.5, 24, true));
+		
+		Optional<Book> optBook = books.stream().filter(b -> b.getId().equals(id)).findAny();
+		
+		if(optBook.isEmpty()) {
+			throw new RuntimeException("查無此書");
+		}
+		
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", optBook.get()));
+		
 	}
 	
 	
