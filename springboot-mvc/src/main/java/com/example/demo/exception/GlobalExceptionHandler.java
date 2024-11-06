@@ -20,6 +20,13 @@ public class GlobalExceptionHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiResponse);
 	}
 	
+	// 當系統發生 RuntimeException
+	@ExceptionHandler(RuntimeException.class)
+	public ResponseEntity<ApiResponse<Object>> handleRuntimeNumberFormatException(RuntimeException e) {
+		ApiResponse<Object> apiResponse = ApiResponse.error(HttpStatus.FORBIDDEN.value(), "執行時期錯誤, " + e);
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(apiResponse);
+	}
+	
 	// 當系統發生 Exception 或 HttpStatus.INTERNAL_SERVER_ERROR 時的解決方法
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
