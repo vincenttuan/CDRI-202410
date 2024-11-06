@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.bean.Book;
 import com.example.demo.response.ApiResponse;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -135,9 +136,17 @@ public class ApiController {
 	 * 網址: http://localhost:8080/api/book?name=English&price=10.5&amount=20&pub=false
 	 * 自動會轉為 Map 集合
 	 * */
-	@GetMapping("/book")
+	//@GetMapping("/book")
 	public ResponseEntity<ApiResponse<Object>> getBookInfo(@RequestParam Map<String, Object> bookMap) {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", bookMap));
+	}
+	
+	/**
+	 * 8. 多筆參數轉指定 Bean 物件
+	 */
+	@GetMapping("/book")
+	public ResponseEntity<ApiResponse<Object>> getBookInfo(Book book) {
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
 	}
 	
 	
