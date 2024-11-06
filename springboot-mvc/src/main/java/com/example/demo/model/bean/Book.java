@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class Book {
+	private Integer id; // id
 	private String name; // 書名
 	private Double price; //價格
 	private Integer amount; // 數量

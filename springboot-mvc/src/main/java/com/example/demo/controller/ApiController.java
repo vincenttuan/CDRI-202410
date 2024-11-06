@@ -149,6 +149,15 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
 	}
 	
+	/**
+	 * 9. 路徑參數
+	 * 路徑: /book/1
+	 * 路徑: /book/3
+	 * 網址: http://localhost:8080/api/book/1
+	 * 網址: http://localhost:8080/api/book/3
+	 */
+	
+	
 	
 }
 
