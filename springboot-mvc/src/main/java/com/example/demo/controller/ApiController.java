@@ -126,6 +126,15 @@ public class ApiController {
 		
 	}
 	
+	/**
+	 * 7. 多筆參數轉 Map
+	 * name 書名(String), price 價格(Double), amount 數量(Integer), pub 出刊/停刊(Boolean)
+	 * 路徑: /product?name=Math&price=12.5&amount=10&pub=true
+	 * 路徑: /product?name=English&price=10.5&amount=20&pub=false
+	 * 網址: http://localhost:8080/api/product?name=Math&price=12.5&amount=10&pub=true
+	 * 網址: http://localhost:8080/api/product?name=Comics&price=10.5&amount=20&pub=false
+	 * */
+	
 }
 
 
