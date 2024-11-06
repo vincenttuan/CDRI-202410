@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.response.ApiResponse;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -82,9 +85,11 @@ public class ApiController {
 	 */
 	//@GetMapping("/age")
 	@GetMapping(value = "/age", produces = "application/json;charset=utf-8")
-	public Object getAverageOfAge(@RequestParam("age") List<Integer> ages) {
+	public ApiResponse<Object> getAverageOfAge(@RequestParam("age") List<Integer> ages) {
 		double avgOfAge = ages.stream().mapToInt(Integer::intValue).average().getAsDouble();
-		return Map.of("平均年齡", String.format("%.1f", avgOfAge));
+		Object data = Map.of("平均年齡", String.format("%.1f", avgOfAge));
+		return ApiResponse.success("查詢成功", data);
+		
 	}
 	
 	/*
