@@ -180,8 +180,31 @@ public class ApiController {
 	/**
 	 * Lab: 請列出書本價格介於 13~17 之間且目前仍在版的書名
 	 * 如何設計 GET API ?
+	 * http://localhost:8080/api/book/pub/true?min=13&max=17
+	 * http://localhost:8080/api/book/pub/false?min=13&max=17
 	 * */
-	
+	@GetMapping("/book/pub/{pub}")
+	public ResponseEntity<ApiResponse<List<String>>> queryBook(@PathVariable Boolean pub,
+			@RequestParam Double min, @RequestParam Double max) {
+		
+		List<Book> books = List.of(
+				new Book(1, "Math1", 12.5, 20, true),
+				new Book(2, "Math2", 13.5, 21, false),
+				new Book(3, "Math3", 14.5, 22, true),
+				new Book(4, "Math4", 15.5, 23, false),
+				new Book(5, "Math5", 16.5, 24, true));
+		
+		List<String> bookNames = books.stream().filter(b -> b.getPub())
+											   .filter(b -> b.getPrice() >= min && b.getPrice() <= max)
+											   .map(b -> b.getName())
+											   .collect(Collectors.toList());
+		
+		if(bookNames.size() == 0) {
+			throw new RuntimeException("此範圍查無任何書籍");
+		}
+		
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", bookNames));
+	}
 	
 }
 
