@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -145,7 +146,7 @@ public class ApiController {
 	 * 8. 多筆參數轉指定 Bean 物件
 	 */
 	@GetMapping("/book")
-	public ResponseEntity<ApiResponse<Object>> getBookInfo(Book book) {
+	public ResponseEntity<ApiResponse<Book>> getBookInfo(Book book) {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
 	}
 	
@@ -156,7 +157,10 @@ public class ApiController {
 	 * 網址: http://localhost:8080/api/book/1
 	 * 網址: http://localhost:8080/api/book/3
 	 */
-	
+	@GetMapping("/book/{id}")
+	public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable Integer id) {
+		List<Book> books = List.of()
+	}
 	
 	
 }
