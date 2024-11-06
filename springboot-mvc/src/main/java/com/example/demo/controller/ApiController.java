@@ -69,4 +69,12 @@ public class ApiController {
 				""".formatted(bmi); // 手動拼寫 json 格式
 	}
 	
+	/**
+	 * 5. 同名多筆的資料
+	 * 路徑: /age?age=17&age=21&age=20
+	 * 網址: http://localhost:8080/api/age?age=17&age=21&age=20
+	 * 計算出平均年齡
+	 */
+	
+	
 }
