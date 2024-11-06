@@ -89,20 +89,10 @@ public class ApiController {
 	//@GetMapping("/age")
 	@GetMapping(value = "/age", produces = "application/json;charset=utf-8")
 	public ResponseEntity<ApiResponse<Object>> getAverageOfAge(@RequestParam("age") List<String> ages) {
-		// 驗證 score 是否可以轉為有效整數
-		try {
-			double avgOfAge = ages.stream().mapToInt(Integer::parseInt).average().getAsDouble();
-			Object data = Map.of("平均年齡", String.format("%.1f", avgOfAge));
-			//return ResponseEntity.status(200).body(ApiResponse.success("查詢成功", data));
-			return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
-		} catch (NumberFormatException e) {
-			
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-								 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "參數不正確"));
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-					 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "內部伺服器錯誤"));
-		}
+		double avgOfAge = ages.stream().mapToInt(Integer::parseInt).average().getAsDouble();
+		Object data = Map.of("平均年齡", String.format("%.1f", avgOfAge));
+		//return ResponseEntity.status(200).body(ApiResponse.success("查詢成功", data));
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
 	}
 	
 	/*
@@ -116,31 +106,24 @@ public class ApiController {
 	 * */
 	@GetMapping(value = "/exam", produces = "application/json;charset=utf-8")
 	public ResponseEntity<ApiResponse<Object>> getExamInfo(@RequestParam("score") List<String> scores) {
-		try {
-			// 統計資料
-			IntSummaryStatistics stat = scores.stream().mapToInt(Integer::parseInt).summaryStatistics();
-			// 利用 Collectors.partitioningBy 分組
-			// key=true 及格分數, key=false 不及格分數
-			Map<Boolean, List<String>> resultMap = scores.stream()
-												.collect(Collectors.partitioningBy(score -> Integer.parseInt(score) >= 60)); 
-			
-			Object data = Map.of(
-					"最高分", stat.getMax(), 
-					"最低分", stat.getMin(),
-					"平均", stat.getAverage(),
-					"總分", stat.getSum(),
-					"及格分數", resultMap.get(true),
-					"不及格分數", resultMap.get(false)
-					);
-			
-			return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
-		} catch(NumberFormatException e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-					 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "參數不正確"));
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-					 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "內部伺服器錯誤"));
-		}
+		// 統計資料
+		IntSummaryStatistics stat = scores.stream().mapToInt(Integer::parseInt).summaryStatistics();
+		// 利用 Collectors.partitioningBy 分組
+		// key=true 及格分數, key=false 不及格分數
+		Map<Boolean, List<String>> resultMap = scores.stream()
+											.collect(Collectors.partitioningBy(score -> Integer.parseInt(score) >= 60)); 
+		
+		Object data = Map.of(
+				"最高分", stat.getMax(), 
+				"最低分", stat.getMin(),
+				"平均", stat.getAverage(),
+				"總分", stat.getSum(),
+				"及格分數", resultMap.get(true),
+				"不及格分數", resultMap.get(false)
+				);
+		
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
+		
 	}
 	
 }
