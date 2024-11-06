@@ -112,23 +112,28 @@ public class ApiController {
 	 * 提示: IntSummaryStatistics, Collectors.partitioningBy
 	 * */
 	@GetMapping(value = "/exam", produces = "application/json;charset=utf-8")
-	public ApiResponse<Object> getExamInfo(@RequestParam("score") List<Integer> scores) {
-		// 統計資料
-		IntSummaryStatistics stat = scores.stream().mapToInt(Integer::intValue).summaryStatistics();
-		// 利用 Collectors.partitioningBy 分組
-		// key=true 及格分數, key=false 不及格分數
-		Map<Boolean, List<Integer>> resultMap = scores.stream().collect(Collectors.partitioningBy(score -> score >= 60)); 
-		
-		Object data = Map.of(
-				"最高分", stat.getMax(), 
-				"最低分", stat.getMin(),
-				"平均", stat.getAverage(),
-				"總分", stat.getSum(),
-				"及格分數", resultMap.get(true),
-				"不及格分數", resultMap.get(false)
-				);
-		
-		return ApiResponse.success("查詢成功", data);
+	public ResponseEntity<ApiResponse<Object>> getExamInfo(@RequestParam("score") List<Integer> scores) {
+		try {
+			// 統計資料
+			IntSummaryStatistics stat = scores.stream().mapToInt(Integer::intValue).summaryStatistics();
+			// 利用 Collectors.partitioningBy 分組
+			// key=true 及格分數, key=false 不及格分數
+			Map<Boolean, List<Integer>> resultMap = scores.stream().collect(Collectors.partitioningBy(score -> score >= 60)); 
+			
+			Object data = Map.of(
+					"最高分", stat.getMax(), 
+					"最低分", stat.getMin(),
+					"平均", stat.getAverage(),
+					"總分", stat.getSum(),
+					"及格分數", resultMap.get(true),
+					"不及格分數", resultMap.get(false)
+					);
+			
+			return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
+		} catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "參數不正確"));
+		}
 	}
 	
 }
