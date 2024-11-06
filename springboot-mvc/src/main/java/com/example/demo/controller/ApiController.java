@@ -132,7 +132,7 @@ public class ApiController {
 	 * 路徑: /book?name=Math&price=12.5&amount=10&pub=true
 	 * 路徑: /book?name=English&price=10.5&amount=20&pub=false
 	 * 網址: http://localhost:8080/api/book?name=Math&price=12.5&amount=10&pub=true
-	 * 網址: http://localhost:8080/api/book?name=Comics&price=10.5&amount=20&pub=false
+	 * 網址: http://localhost:8080/api/book?name=English&price=10.5&amount=20&pub=false
 	 * 自動會轉為 Map 集合
 	 * */
 	@GetMapping("/book")
