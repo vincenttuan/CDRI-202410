@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -93,6 +96,23 @@ public class ApiController {
 	 * (支援中文字印出) 
 	 * 提示: IntSummaryStatistics, Collectors.partitioningBy
 	 * */
+	@GetMapping(value = "/exam", produces = "application/json;charset=utf-8")
+	public Object getExamInfo(@RequestParam("score") List<Integer> scores) {
+		// 統計資料
+		IntSummaryStatistics stat = scores.stream().mapToInt(Integer::intValue).summaryStatistics();
+		// 利用 Collectors.partitioningBy 分組
+		// key=true 及格分數, key=false 不及格分數
+		Map<Boolean, List<Integer>> resultMap = scores.stream().collect(Collectors.partitioningBy(score -> score >= 60)); 
+		
+		return Map.of(
+				"最高分", stat.getMax(), 
+				"最低分", stat.getMin(),
+				"平均", stat.getAverage(),
+				"總分", stat.getSum(),
+				"及格分數", resultMap.get(true),
+				"不及格分數", resultMap.get(false)
+				);
+	}
 	
 }
 
