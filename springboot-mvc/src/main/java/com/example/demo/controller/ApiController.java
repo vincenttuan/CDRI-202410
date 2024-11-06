@@ -95,10 +95,13 @@ public class ApiController {
 			Object data = Map.of("平均年齡", String.format("%.1f", avgOfAge));
 			//return ResponseEntity.status(200).body(ApiResponse.success("查詢成功", data));
 			return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 								 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "參數不正確"));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "內部伺服器錯誤"));
 		}
 	}
 	
@@ -131,9 +134,12 @@ public class ApiController {
 					);
 			
 			return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
-		} catch(Exception e) {
+		} catch(NumberFormatException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 					 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "參數不正確"));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					 .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "內部伺服器錯誤"));
 		}
 	}
 	
