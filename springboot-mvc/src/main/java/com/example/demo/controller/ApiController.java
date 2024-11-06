@@ -177,6 +177,11 @@ public class ApiController {
 		
 	}
 	
+	/**
+	 * Lab: 請列出書本價格介於 13~15 之間的書
+	 * 如何設計 GET API ?
+	 * */
+	
 	
 }
 
