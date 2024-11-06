@@ -88,10 +88,10 @@ public class ApiController {
 	 */
 	//@GetMapping("/age")
 	@GetMapping(value = "/age", produces = "application/json;charset=utf-8")
-	public ResponseEntity<ApiResponse<Object>> getAverageOfAge(@RequestParam("age") List<Integer> ages) {
+	public ResponseEntity<ApiResponse<Object>> getAverageOfAge(@RequestParam("age") List<String> ages) {
 		// 驗證 score 是否可以轉為有效整數
 		try {
-			double avgOfAge = ages.stream().mapToInt(Integer::intValue).average().getAsDouble();
+			double avgOfAge = ages.stream().mapToInt(Integer::parseInt).average().getAsDouble();
 			Object data = Map.of("平均年齡", String.format("%.1f", avgOfAge));
 			//return ResponseEntity.status(200).body(ApiResponse.success("查詢成功", data));
 			return ResponseEntity.ok(ApiResponse.success("查詢成功", data));
