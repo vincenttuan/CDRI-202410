@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
   create table room(
   	room_id integer primary key,
   	room_name varchar(50) not null unique,
-  	room_size int default 0
+  	room_size integer default 0
   );
   
   
@@ -43,7 +43,7 @@ public class Room {
 	@Column(name = "room_name", nullable = false, unique = true)
 	private String roomName;
 	
-	@Column(name = "room_size", columnDefinition = "default 0")
+	@Column(name = "room_size", columnDefinition = "integer default 0")
 	private Integer roomSize;
 	
 	
