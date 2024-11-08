@@ -32,8 +32,9 @@ public class RoomJPATests {
 	
 	@Test void updateRoom() {
 		Room uptRoom = new Room(101, "101(L)", 100);
+		System.out.println("修改前: " + uptRoom);
 		Room room = roomRepository.save(uptRoom);
-		System.out.println("測試修改: " + uptRoom + " 結果回傳: " + room);
+		System.out.println("修改後: " + room);
 	}
 	
 	@Test void deleteRoom() {
