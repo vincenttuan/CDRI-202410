@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,6 +18,7 @@ import com.example.demo.repository.RoomRepositoryJdbc;
 // 實現 RoomRepositoryJdbc 介面
 //@Repository("roomJdbc")
 @Repository  // 預設別名 roomRepositoryJdbcImpl (類名,字首小寫)
+@PropertySource("classpath:sql.properties") // 自動到 src/main/respurces 找到 sql.properties
 public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc {
 	
 	private static final Logger logger = LoggerFactory.getLogger(RoomRepositoryJdbcImpl.class);
@@ -23,10 +26,19 @@ public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	@Value("${room.sql.findAll}") // ${} SpringEL 語法
 	private String findAllSql;
+	
+	@Value("${room.sql.findById}")
 	private String findByIdSql;
+	
+	@Value("${room.sql.save}")
 	private String saveSql;
+	
+	@Value("${room.sql.update}")
 	private String updateSql;
+	
+	@Value("${room.sql.deleteById}")
 	private String deleteByIdSql;
 	
 	@Override
