@@ -1,0 +1,21 @@
+2024-11-08T10:05:01.976+08:00  INFO 3120 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.4 with PID 3120 (E:\WorkSpace\springboot-mvc\target\classes started by NTPU in E:\WorkSpace\springboot-mvc)
+2024-11-08T10:05:01.977+08:00  INFO 3120 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-08T10:05:02.325+08:00  INFO 3120 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-08T10:05:02.337+08:00  INFO 3120 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2024-11-08T10:05:02.603+08:00  INFO 3120 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-08T10:05:02.613+08:00  INFO 3120 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-08T10:05:02.614+08:00  INFO 3120 --- [springboot-mvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-08T10:05:02.756+08:00  INFO 3120 --- [springboot-mvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-11-08T10:05:02.761+08:00  INFO 3120 --- [springboot-mvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-08T10:05:02.761+08:00  INFO 3120 --- [springboot-mvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 755 ms
+2024-11-08T10:05:02.843+08:00  INFO 3120 --- [springboot-mvc] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-11-08T10:05:03.012+08:00  INFO 3120 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-08T10:05:03.098+08:00  INFO 3120 --- [springboot-mvc] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37d28938
+2024-11-08T10:05:03.099+08:00  INFO 3120 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-08T10:05:03.187+08:00  INFO 3120 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-08T10:05:03.192+08:00  INFO 3120 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Started SpringbootMvcApplication in 1.442 seconds (process running for 1.798)
+2024-11-08T10:05:18.294+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-08T10:05:18.294+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-08T10:05:18.295+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-08T10:05:18.311+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] c.example.demo.controller.ApiController  : 這是一條日誌訊息
+2024-11-08T10:05:32.972+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-3] c.example.demo.controller.ApiController  : username = John, userage18

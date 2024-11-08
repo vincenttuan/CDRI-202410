@@ -55,7 +55,7 @@ public class ApiController {
 	public String greet(@RequestParam(value = "name", required = true) String username,
 						@RequestParam(value = "age", required = false, defaultValue = "0") Integer userage) {
 		// 觀察參數
-		logger.info("username = " + username + ", userage" + userage);
+		logger.info("username = " + username + ", userage = " + userage);
 		return String.format("Hi %s, %d (%s)", username, userage, userage >= 18?"成年":"未成年");
 		
 	}
