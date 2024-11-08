@@ -16,7 +16,7 @@ public class RoomJdbcTests {
 	private RoomRepositoryJdbc roomRepositoryJdbc;
 	
 	@Test void testRoomAdd() {
-		Room room = new Room(101, "101(S)", 3);
+		Room room = new Room(301, "301(S)", 3);
 		int rowcount = roomRepositoryJdbc.save(room);
 		System.out.println("測試新增: " + room + " 結果回傳: " + rowcount + " (1 表示正確新增一筆)");
 	}
