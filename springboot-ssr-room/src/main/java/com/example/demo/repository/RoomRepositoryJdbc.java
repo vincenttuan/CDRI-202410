@@ -7,7 +7,7 @@ import com.example.demo.model.entity.Room;
 
 public interface RoomRepositoryJdbc {
 	List<Room> findAll();
-	Optional<Room> findById(Integer room);
+	Optional<Room> findById(Integer roomId);
 	int save(Room room); 
 	int update(Room room);
 	int deleteById(Integer roomId);
