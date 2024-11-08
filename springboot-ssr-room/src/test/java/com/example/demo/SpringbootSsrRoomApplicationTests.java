@@ -29,5 +29,6 @@ class SpringbootSsrRoomApplicationTests {
 		System.out.println("測試 toEntity: " + room);
 		
 	}
+	
 
 }
