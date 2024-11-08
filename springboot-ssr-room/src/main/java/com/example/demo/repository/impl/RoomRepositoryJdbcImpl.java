@@ -51,14 +51,14 @@ public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc {
 
 	@Override
 	public int update(Room room) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "update room set room_name = ?, room_size = ? where room_id = ?";
+		return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomSize(), room.getRoomId());
 	}
 
 	@Override
 	public int deleteById(Integer roomId) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from room where room_id = ?";
+		return jdbcTemplate.update(sql ,roomId);
 	}
 	
 }
