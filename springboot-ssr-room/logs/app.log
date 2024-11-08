@@ -191,3 +191,23 @@
 2024-11-08T15:21:30.653+08:00  INFO 5428 --- [springboot-ssr-room] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-11-08T15:21:30.655+08:00  INFO 5428 --- [springboot-ssr-room] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-11-08T15:21:30.660+08:00  INFO 5428 --- [springboot-ssr-room] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-08T15:27:05.295+08:00  INFO 8812 --- [springboot-ssr-room] [main] com.example.demo.RoomJdbcTests           : Starting RoomJdbcTests using Java 21.0.4 with PID 8812 (started by NTPU in E:\WorkSpace\springboot-ssr-room)
+2024-11-08T15:27:05.296+08:00  INFO 8812 --- [springboot-ssr-room] [main] com.example.demo.RoomJdbcTests           : No active profile set, falling back to 1 default profile: "default"
+2024-11-08T15:27:05.660+08:00  INFO 8812 --- [springboot-ssr-room] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-08T15:27:05.676+08:00  INFO 8812 --- [springboot-ssr-room] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2024-11-08T15:27:05.937+08:00  INFO 8812 --- [springboot-ssr-room] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-08T15:27:05.966+08:00  INFO 8812 --- [springboot-ssr-room] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-08T15:27:05.987+08:00  INFO 8812 --- [springboot-ssr-room] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-08T15:27:06.162+08:00  INFO 8812 --- [springboot-ssr-room] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-08T15:27:06.179+08:00  INFO 8812 --- [springboot-ssr-room] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-08T15:27:06.287+08:00  INFO 8812 --- [springboot-ssr-room] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@516195cf
+2024-11-08T15:27:06.289+08:00  INFO 8812 --- [springboot-ssr-room] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-08T15:27:06.768+08:00  INFO 8812 --- [springboot-ssr-room] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-08T15:27:06.792+08:00  INFO 8812 --- [springboot-ssr-room] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-08T15:27:06.923+08:00  WARN 8812 --- [springboot-ssr-room] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-08T15:27:07.181+08:00  INFO 8812 --- [springboot-ssr-room] [main] com.example.demo.RoomJdbcTests           : Started RoomJdbcTests in 2.08 seconds (process running for 2.633)
+2024-11-08T15:27:07.508+08:00  INFO 8812 --- [springboot-ssr-room] [main] c.e.d.r.impl.RoomRepositoryJdbcImpl      : org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+2024-11-08T15:27:07.509+08:00  INFO 8812 --- [springboot-ssr-room] [main] c.e.d.r.impl.RoomRepositoryJdbcImpl      : org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+2024-11-08T15:27:07.528+08:00  INFO 8812 --- [springboot-ssr-room] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-08T15:27:07.529+08:00  INFO 8812 --- [springboot-ssr-room] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-08T15:27:07.535+08:00  INFO 8812 --- [springboot-ssr-room] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

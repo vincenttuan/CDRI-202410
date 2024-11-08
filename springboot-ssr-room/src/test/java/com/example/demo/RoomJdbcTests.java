@@ -15,20 +15,17 @@ public class RoomJdbcTests {
 	//@Qualifier("roomJdbc")
 	private RoomRepositoryJdbc roomRepositoryJdbc;
 	
-	@Test
-	public void testRoomAdd() {
-		Room room = new Room(102, "102(S)", 5);
+	@Test void testRoomAdd() {
+		Room room = new Room(101, "101(S)", 3);
 		int rowcount = roomRepositoryJdbc.save(room);
 		System.out.println("測試新增: " + room + " 結果回傳: " + rowcount + " (1 表示正確新增一筆)");
 	}
 	
-	@Test
-	public void testFindAllRooms() {
+	@Test void testFindAllRooms() {
 		System.out.println("測試查詢全部: " + roomRepositoryJdbc.findAll());
 	}
 	
-	@Test
-	public void testGetOneRoom() {
+	@Test void testGetOneRoom() {
 		System.out.println("測試查詢單筆: " + roomRepositoryJdbc.findById(101));
 		System.out.println("測試查詢單筆: " + roomRepositoryJdbc.findById(109));
 	}
