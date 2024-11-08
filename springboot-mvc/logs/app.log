@@ -19,3 +19,6 @@
 2024-11-08T10:05:18.295+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2024-11-08T10:05:18.311+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] c.example.demo.controller.ApiController  : 這是一條日誌訊息
 2024-11-08T10:05:32.972+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-3] c.example.demo.controller.ApiController  : username = John, userage18
+2024-11-08T10:10:43.295+08:00  INFO 3120 --- [springboot-mvc] [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-08T10:10:43.300+08:00  INFO 3120 --- [springboot-mvc] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-08T10:10:43.303+08:00  INFO 3120 --- [springboot-mvc] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
