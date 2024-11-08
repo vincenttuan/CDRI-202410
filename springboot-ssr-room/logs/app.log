@@ -20,3 +20,7 @@
 2024-11-08T14:45:40.058+08:00  WARN 11940 --- [springboot-ssr-room] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2024-11-08T14:45:40.265+08:00  INFO 11940 --- [springboot-ssr-room] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
 2024-11-08T14:45:40.270+08:00  INFO 11940 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : Started SpringbootSsrRoomApplication in 2.236 seconds (process running for 2.603)
+2024-11-08T14:46:46.300+08:00  INFO 11940 --- [springboot-ssr-room] [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-08T14:46:46.305+08:00  INFO 11940 --- [springboot-ssr-room] [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-08T14:46:46.306+08:00  INFO 11940 --- [springboot-ssr-room] [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-08T14:46:46.310+08:00  INFO 11940 --- [springboot-ssr-room] [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

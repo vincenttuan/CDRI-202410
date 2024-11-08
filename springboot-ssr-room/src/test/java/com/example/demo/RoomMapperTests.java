@@ -9,7 +9,7 @@ import com.example.demo.model.dto.RoomDto;
 import com.example.demo.model.entity.Room;
 
 @SpringBootTest
-class SpringbootSsrRoomApplicationTests {
+class RoomMapperTests {
 	
 	@Autowired
 	private RoomMapper roomMapper;
