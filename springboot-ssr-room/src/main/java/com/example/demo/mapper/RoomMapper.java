@@ -10,16 +10,16 @@ import com.example.demo.model.entity.Room;
 @Component // 此元件由 Springboot 自動掃描後管理
 public class RoomMapper {
 	
-	//@Autowired
-	//private ModelMapper modelMapper;
-	
+	@Autowired
 	private ModelMapper modelMapper;
 	
-	@Autowired
-	public RoomMapper(ModelMapper modelMapper) {
-		// ...
-		this.modelMapper = modelMapper;
-	}
+//	private ModelMapper modelMapper;
+//	
+//	@Autowired
+//	public RoomMapper(ModelMapper modelMapper) {
+//		// ...
+//		this.modelMapper = modelMapper;
+//	}
 	
 	public RoomDto toDto(Room room) {
 		// Entity 轉 DTO
