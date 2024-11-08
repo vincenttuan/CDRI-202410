@@ -28,7 +28,6 @@ class SpringbootSsrRoomApplicationTests {
 		room = roomMapper.toEntity(roomDto);
 		System.out.println("測試 toEntity: " + room);
 		
-		
 	}
 
 }
