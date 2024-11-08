@@ -13,7 +13,7 @@ import com.example.demo.model.entity.Room;
 public interface RoomRepository extends JpaRepository<Room, Integer> { // Room: Entity, Integer: @Id 的型別
 	// 預設自動實現 CRUD
 	// 自定義查詢
-	// 1. 查詢 roomSize 大於指定值的房間
+	// 1. 查詢 roomSize 大於指定值的房間(自動生成 SQL)
 	List<Room> findByRoomSizeGreaterThen(Integer size);
 	
 	// 2. 查詢 roomSize 大於指定值的房間(JPQL)
