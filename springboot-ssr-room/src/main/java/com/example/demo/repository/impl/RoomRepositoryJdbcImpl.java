@@ -45,8 +45,8 @@ public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc {
 
 	@Override
 	public int save(Room room) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "insert into room(room_id, room_name, room_size) values(?, ?, ?)";
+		return jdbcTemplate.update(sql, room.getRoomId(), room.getRoomName(), room.getRoomSize());
 	}
 
 	@Override
