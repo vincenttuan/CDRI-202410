@@ -16,7 +16,7 @@ public class RoomJPATests {
 	private RoomRepository roomRepository;
 	
 	@Test void testRoomAdd() {
-		Room room = new Room(301, "301(S)", 3);
+		Room room = new Room(101, "101(S)", 3);
 		room = roomRepository.save(room);
 		System.out.println("測試新增: " + room);
 	}
