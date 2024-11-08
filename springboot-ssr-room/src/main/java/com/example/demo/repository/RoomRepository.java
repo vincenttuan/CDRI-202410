@@ -8,5 +8,5 @@ import com.example.demo.model.entity.Room;
 // Spring JPA
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Integer> { // Room: Entity, Integer: @Id 的型別
-	// 預設對自動實現 CRUD
+	// 預設自動實現 CRUD
 }
