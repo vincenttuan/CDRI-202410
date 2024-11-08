@@ -6,26 +6,26 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.bean.Book;
 import com.example.demo.response.ApiResponse;
 
 import org.springframework.web.bind.annotation.RequestParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 // 了解各種不同 URL 與參數的傳遞接收
 @RestController // 免去撰寫 @ResponseBody, 但若有要回傳 jsp 則不可使用
 @RequestMapping("/api") // 統一 URL 前綴
 public class ApiController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ApiController.class);
 	
 	/** 
 	 * 1.歡迎頁 
@@ -36,6 +36,7 @@ public class ApiController {
 	 */
 	@GetMapping(value = {"/welcome", "/home"})
 	public String welcome() {
+		logger.info("這是一條日誌訊息");
 		return "Welcome";
 	}
 	
