@@ -17,9 +17,32 @@ public class RoomJdbcTests {
 	
 	@Test
 	public void testRoomAdd() {
-		Room room = new Room(101, "101(S)", 3);
+		Room room = new Room(102, "102(S)", 5);
 		int rowcount = roomRepositoryJdbc.save(room);
 		System.out.println("測試新增: " + room + " 結果回傳: " + rowcount + " (1 表示正確新增一筆)");
+	}
+	
+	@Test
+	public void testFindAllRooms() {
+		System.out.println("測試查詢全部: " + roomRepositoryJdbc.findAll());
+	}
+	
+	@Test
+	public void testGetOneRoom() {
+		System.out.println("測試查詢單筆: " + roomRepositoryJdbc.findById(101));
+		System.out.println("測試查詢單筆: " + roomRepositoryJdbc.findById(109));
+	}
+	
+	@Test void updateRoom() {
+		Room uptRoom = new Room(101, "101(L)", 100);
+		int rowcount = roomRepositoryJdbc.update(uptRoom);
+		System.out.println("測試修改: " + uptRoom + " 結果回傳: " + rowcount + " (1 表示正確修改一筆)");
+	}
+	
+	@Test void deleteRoom() {
+		int roomId = 101;
+		int rowcount = roomRepositoryJdbc.deleteById(roomId);
+		System.out.println("測試刪除: " + roomId + " 結果回傳: " + rowcount + " (1 表示刪除修改一筆)");
 	}
 	
 }
