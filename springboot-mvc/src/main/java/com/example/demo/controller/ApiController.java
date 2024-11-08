@@ -36,6 +36,7 @@ public class ApiController {
 	 */
 	@GetMapping(value = {"/welcome", "/home"})
 	public String welcome() {
+		// 確認是否有執行到此方法
 		logger.info("這是一條日誌訊息");
 		return "Welcome";
 	}
@@ -53,7 +54,8 @@ public class ApiController {
 	@GetMapping("/greet")
 	public String greet(@RequestParam(value = "name", required = true) String username,
 						@RequestParam(value = "age", required = false, defaultValue = "0") Integer userage) {
-		
+		// 觀察參數
+		logger.info("username = " + username + ", userage" + userage);
 		return String.format("Hi %s, %d (%s)", username, userage, userage >= 18?"成年":"未成年");
 		
 	}
