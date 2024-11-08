@@ -18,6 +18,7 @@ class SpringbootSsrRoomApplicationTests {
 	void testRoomMapper() {
 		// Entity
 		Room room = new Room(101, "101(S)", 4);
+		System.out.println("原始 room: " + room);
 		
 		// toDto 將 Entity 轉 DTO
 		RoomDto roomDto = roomMapper.toDto(room);
