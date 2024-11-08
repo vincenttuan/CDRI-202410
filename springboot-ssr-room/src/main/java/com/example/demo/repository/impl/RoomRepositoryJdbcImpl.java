@@ -23,18 +23,22 @@ public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	private String findAllSql;
+	private String findByIdSql;
+	private String saveSql;
+	private String updateSql;
+	private String deleteByIdSql;
+	
 	@Override
 	public List<Room> findAll() {
-		String sql = "select room_id, room_name, room_size from room";
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class));
+		return jdbcTemplate.query(findAllSql, new BeanPropertyRowMapper<>(Room.class));
 	}
 
 	@Override
 	public Optional<Room> findById(Integer roomId) {
-		String sql = "select room_id, room_name, room_size from room where room_id = ?";
 		// 因為 queryForObject 若沒有找到資料會自動拋出例外, 所以要 try-catch 保護
 		try {
-			Room room = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Room.class), roomId);
+			Room room = jdbcTemplate.queryForObject(findByIdSql, new BeanPropertyRowMapper<>(Room.class), roomId);
 			return Optional.of(room);
 		} catch (Exception e) {
 			logger.info(e.toString());
@@ -44,20 +48,17 @@ public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc {
 
 	@Override
 	public int save(Room room) {
-		String sql = "insert into room(room_id, room_name, room_size) values(?, ?, ?)";
-		return jdbcTemplate.update(sql, room.getRoomId(), room.getRoomName(), room.getRoomSize());
+		return jdbcTemplate.update(saveSql, room.getRoomId(), room.getRoomName(), room.getRoomSize());
 	}
 
 	@Override
 	public int update(Room room) {
-		String sql = "update room set room_name = ?, room_size = ? where room_id = ?";
-		return jdbcTemplate.update(sql, room.getRoomName(), room.getRoomSize(), room.getRoomId());
+		return jdbcTemplate.update(updateSql, room.getRoomName(), room.getRoomSize(), room.getRoomId());
 	}
 
 	@Override
 	public int deleteById(Integer roomId) {
-		String sql = "delete from room where room_id = ?";
-		return jdbcTemplate.update(sql ,roomId);
+		return jdbcTemplate.update(deleteByIdSql ,roomId);
 	}
 	
 }
