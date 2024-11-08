@@ -14,7 +14,8 @@ import com.example.demo.model.entity.Room;
 import com.example.demo.repository.RoomRepositoryJdbc;
 
 // 實現 RoomRepositoryJdbc 介面
-@Repository
+//@Repository("roomJdbc")
+@Repository  // 預設別名 roomRepositoryJdbcImpl (類名,字首小寫)
 public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc {
 	
 	private static final Logger logger = LoggerFactory.getLogger(RoomRepositoryJdbcImpl.class);
