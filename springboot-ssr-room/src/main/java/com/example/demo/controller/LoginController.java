@@ -20,9 +20,6 @@ import jakarta.servlet.http.HttpSession;
 public class LoginController {
 	
 	@Autowired
-	private UserService userService;
-	
-	@Autowired
 	private CertService certService;
 	
 	@GetMapping
