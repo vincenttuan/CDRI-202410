@@ -1,13 +1,9 @@
 package com.example.demo.model.dto;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RoomDto {
 	
-	@NotEmpty(message = "房號不可為空")
 	@NotNull(message = "房號不可為NULL")
 	private Integer roomId;
 	

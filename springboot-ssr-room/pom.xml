@@ -32,13 +32,11 @@
 	</properties>
 	<dependencies>
 		
-		<!-- Hibernate Validator -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.4.1.Final</version>
-		</dependency>
-
+		<!-- Spring Boot Validation Starter (for @Valid, @NotNull, etc.) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
 		
 		<!-- Model Mapper DTO 與 Entity 互轉 -->
 		<dependency>

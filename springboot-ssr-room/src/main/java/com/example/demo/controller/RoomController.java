@@ -2,8 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.service.RoomService;
+
+import jakarta.validation.Valid;
 
 /**
  * Method URI            功能
@@ -47,7 +47,6 @@ public class RoomController {
 	// @Valid 進行驗證
 	// BindingResult 驗證結果
 	public String addRoom(@Valid @ModelAttribute RoomDto roomDto, BindingResult bindingResult, Model model) {
-		System.out.println(bindingResult.hasErrors());
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("roomDtos", roomService.getAllRooms());
 			return "room";
