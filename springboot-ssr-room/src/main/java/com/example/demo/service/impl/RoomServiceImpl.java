@@ -6,6 +6,7 @@ import static java.util.stream.Collectors.toList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.exception.RoomNotFoundException;
 import com.example.demo.mapper.RoomMapper;
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.model.entity.Room;
@@ -31,8 +32,10 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public RoomDto getRoomById(Integer roomId) {
-		// TODO Auto-generated method stub
-		return null;
+		Room room = roomRepositoryJdbc.findById(roomId)
+				.orElseThrow(() -> new RoomNotFoundException("找不到會議室: roomId: " + roomId));
+		
+		return roomMapper.toDto(room);
 	}
 
 	@Override
