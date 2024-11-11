@@ -1,11 +1,14 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
+import java.util.Optional;
+
 import static java.util.stream.Collectors.toList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.exception.RoomAlreadyExistsException;
 import com.example.demo.exception.RoomNotFoundException;
 import com.example.demo.mapper.RoomMapper;
 import com.example.demo.model.dto.RoomDto;
@@ -40,6 +43,12 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public void addRoom(RoomDto roomDto) {
+		// 判斷該 room 是否已經存在 ?
+		Optional<Room> optRoom = roomRepositoryJdbc.findById(roomDto.getRoomId());
+		if(optRoom.isPresent()) { // 房間已存在
+			throw new RoomAlreadyExistsException("新增失敗: " + roomDto.getRoomId() + " 已存在");
+		}
+		
 		Room room = roomMapper.toEntity(roomDto);
 		roomRepositoryJdbc.save(room);
 	}
