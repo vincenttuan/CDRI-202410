@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <div style="background-color: #dddddd">
 	<div style="padding: 10px">
+		<a href="/login" class="button-secondary pure-button" >Login</a>
 		<a href="/rooms" class="button-secondary pure-button" >Room 列表</a>
 	</div>
 </div>
