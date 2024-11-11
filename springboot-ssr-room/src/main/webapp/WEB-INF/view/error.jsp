@@ -14,7 +14,13 @@
 		
 		<!-- body content -->
 		<div style="padding: 15px">
-			${ message }
+			<div class="pure-form">
+				<fieldset>
+					<legend>發生錯誤</legend>
+					${ message }
+				</fieldset>	
+			</div>
+			
 		</div>
 	</body>
 </html>
