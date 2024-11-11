@@ -8,7 +8,7 @@
 		<legend>Room 列表</legend>
 		<table class="pure-table pure-table-bordered">
 			<thead>
-				<tr><th>roomId</th><th>roomName</th><th>roomSize</th></tr>
+				<tr><th>房號</th><th>名稱</th><th>人數</th></tr>
 			</thead>
 			<tbody>
 				<c:forEach var="roomDto" items="${ roomDtos }">
