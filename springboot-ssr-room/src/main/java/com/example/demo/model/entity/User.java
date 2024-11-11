@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // 實體類與資料表對應(會自動建立資料表)
-@Table(name = "user") // 若資料表名與實體類一致可以不用設定此行
+@Table(name = "users") // 若資料表名與實體類一致可以不用設定此行
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
