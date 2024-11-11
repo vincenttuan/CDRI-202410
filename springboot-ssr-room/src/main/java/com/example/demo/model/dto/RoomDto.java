@@ -13,15 +13,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RoomDto {
 	
-	@NotNull(message = "房號不可為空")
+	@NotNull(message = "{roomDto.roomId.notNull}")
 	private Integer roomId;
 	
-	@NotNull(message = "房名不可為空")
-	@Size(min = 2, message = "房名最少要有2個字")
+	@NotNull(message = "{roomDto.roomName.notNull}")
+	@Size(min = 2, message = "{roomDto.roomName.size}")
 	private String roomName;
 	
-	@NotNull(message = "人數不可為空")
-	@Range(min = 1, max = 500, message = "房間人數必須介於 {min} ~ {max} 人之間")
+	@NotNull(message = "{roomDto.roomSize.notNull}")
+	@Range(min = 1, max = 500, message = "{roomDto.roomSize.range}")
 	private Integer roomSize;
 	
 }
