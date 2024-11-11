@@ -2,7 +2,9 @@ package com.example.demo.model.dto;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +20,7 @@ public class RoomDto {
 	private Integer roomId;
 	
 	@NotNull(message = "房名不可為空")
+	@Size(min = 2, message = "房名最少要有2個字")
 	private String roomName;
 	
 	@NotNull(message = "人數不可為空")
