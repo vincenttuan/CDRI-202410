@@ -47,9 +47,9 @@ public class RoomController {
 	// @Valid 進行驗證
 	// BindingResult 驗證結果
 	public String addRoom(@Valid @ModelAttribute RoomDto roomDto, BindingResult bindingResult, Model model) {
-		if(bindingResult.hasErrors()) {
+		if(bindingResult.hasErrors()) { // 若有錯誤發生
 			model.addAttribute("roomDtos", roomService.getAllRooms());
-			return "room";
+			return "room"; // 會自動將錯誤訊息傳給 jsp
 		}
 		roomService.addRoom(roomDto);
 		return "redirect:/rooms"; // 重導到 /rooms 頁面
