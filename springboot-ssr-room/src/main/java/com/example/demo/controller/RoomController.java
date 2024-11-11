@@ -2,9 +2,12 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,7 +44,13 @@ public class RoomController {
 	}
 	
 	@PostMapping
-	public String addRoom(RoomDto roomDto) {
+	// @Valid 進行驗證
+	// BindingResult 驗證結果
+	public String addRoom(@Valid RoomDto roomDto, BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("roomDtos", roomService.getAllRooms());
+			return "room";
+		}
 		roomService.addRoom(roomDto);
 		return "redirect:/rooms"; // 重導到 /rooms 頁面
 	}
