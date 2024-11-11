@@ -43,7 +43,7 @@ public class RoomController {
 	@PostMapping
 	public String addRoom(RoomDto roomDto) {
 		roomService.addRoom(roomDto);
-		return "redirect: /rooms"; // 重導到 /rooms 頁面
+		return "redirect:/rooms"; // 重導到 /rooms 頁面
 	}
 	
 	
