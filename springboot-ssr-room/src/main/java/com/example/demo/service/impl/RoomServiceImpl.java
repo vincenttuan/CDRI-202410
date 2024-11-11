@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.exception.RoomAlreadyExistsException;
+import com.example.demo.exception.RoomException;
 import com.example.demo.exception.RoomNotFoundException;
 import com.example.demo.mapper.RoomMapper;
 import com.example.demo.model.dto.RoomDto;
@@ -50,7 +51,10 @@ public class RoomServiceImpl implements RoomService {
 		}
 		
 		Room room = roomMapper.toEntity(roomDto);
-		roomRepositoryJdbc.save(room);
+		int rowcount = roomRepositoryJdbc.save(room);
+		if(rowcount == 0) {
+			throw new RoomException("無法新增");
+		}
 	}
 
 	@Override
@@ -69,7 +73,10 @@ public class RoomServiceImpl implements RoomService {
 		
 		roomDto.setRoomId(roomId);
 		Room room = roomMapper.toEntity(roomDto);
-		roomRepositoryJdbc.update(room);
+		int rowcount = roomRepositoryJdbc.update(room);
+		if(rowcount == 0) {
+			throw new RoomException("無任何紀錄有被修改");
+		}
 	}
 
 	@Override
@@ -85,7 +92,10 @@ public class RoomServiceImpl implements RoomService {
 		if(optRoom.isEmpty()) { // 房間不存在
 			throw new RoomNotFoundException("刪除失敗: " + roomId + " 不存在");
 		}
-		roomRepositoryJdbc.deleteById(roomId);
+		int rowcount = roomRepositoryJdbc.deleteById(roomId);
+		if(rowcount == 0) {
+			throw new RoomException("無任何紀錄有被刪除");
+		}
 	}
 
 }
