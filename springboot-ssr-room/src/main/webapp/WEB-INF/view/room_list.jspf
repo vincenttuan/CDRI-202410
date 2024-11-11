@@ -8,7 +8,7 @@
 		<legend>Room 列表</legend>
 		<table class="pure-table pure-table-bordered">
 			<thead>
-				<tr><th>房號</th><th>名稱</th><th>人數</th></tr>
+				<tr><th>房號</th><th>名稱</th><th>人數</th><th>刪除</th></tr>
 			</thead>
 			<tbody>
 				<c:forEach var="roomDto" items="${ roomDtos }">
@@ -16,6 +16,7 @@
 						<td>${ roomDto.roomId }</td>
 						<td>${ roomDto.roomName }</td>
 						<td>${ roomDto.roomSize }</td>
+						<td><a class="button-error pure-button" href="/room/delete/${ roomDto.roomId }">刪除</a></td>
 					</tr>	
 				</c:forEach>
 			</tbody>
