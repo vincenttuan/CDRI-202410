@@ -2,14 +2,19 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.RoomDto;
+import com.example.demo.repository.RoomRepositoryJdbc;
 import com.example.demo.service.RoomService;
 
 @Service
 public class RoomServiceImpl implements RoomService {
-
+	
+	@Autowired
+	private RoomRepositoryJdbc roomRepositoryJdbc;
+	
 	@Override
 	public List<RoomDto> getAllRooms() {
 		// TODO Auto-generated method stub
