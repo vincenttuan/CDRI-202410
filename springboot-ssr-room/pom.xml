@@ -31,7 +31,15 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		
+		<!-- Hibernate Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.4.1.Final</version>
+		</dependency>
 
+		
 		<!-- Model Mapper DTO 與 Entity 互轉 -->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
