@@ -59,9 +59,16 @@ public class RoomController {
 	}
 	
 	@GetMapping("/delete/{roomId}")
-	public String deleteRoom(@PathVariable("roomId") Integer roomId) {
+	public String deleteRoom(@PathVariable Integer roomId) {
 		roomService.deleteRoom(roomId);
 		return "redirect:/rooms"; // 重導到 /rooms 頁面
+	}
+	
+	@GetMapping("/{roomId}")
+	public String getRoom(@PathVariable Integer roomId, Model model) {
+		RoomDto roomDto = roomService.getRoomById(roomId);
+		model.addAttribute("roomDto", roomDto);
+		return "room_update";
 	}
 	
 	@ExceptionHandler({RoomException.class})
