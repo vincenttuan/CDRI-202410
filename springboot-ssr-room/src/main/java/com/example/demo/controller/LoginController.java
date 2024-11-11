@@ -17,7 +17,9 @@ public class LoginController {
 	
 	@PostMapping
 	public String checkLogin(@RequestParam String username, @RequestParam String password) {
-		return "login";
+		
+		
+		return "redirect:/rooms"; // 登入成功後到首頁
 	}
 	
 }
