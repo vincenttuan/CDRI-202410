@@ -1,13 +1,14 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import static java.util.stream.Collectors.toList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.RoomMapper;
 import com.example.demo.model.dto.RoomDto;
+import com.example.demo.model.entity.Room;
 import com.example.demo.repository.RoomRepositoryJdbc;
 import com.example.demo.service.RoomService;
 
@@ -22,10 +23,10 @@ public class RoomServiceImpl implements RoomService {
 	
 	@Override
 	public List<RoomDto> getAllRooms() {
-		return roomRepositoryJdbc.findAll()
+		return roomRepositoryJdbc.findAll()  // List<Room>
 				.stream()
 				.map(roomMapper::toDto) // .map(room -> roomMapper.toDto(room))
-				.collect(Collectors.toList());
+				.collect(toList());
 	}
 
 	@Override
