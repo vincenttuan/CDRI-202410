@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.net.http.HttpRequest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import com.example.demo.exception.RoomException;
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.service.RoomService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 /**
