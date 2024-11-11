@@ -22,12 +22,12 @@
 				<tr>
 					<!-- 新增 Room 表單 -->
 					<td valign="top">
-						
+						<%@ include file="/WEB-INF/view/room_form.jspf" %>
 					</td>
 					
 					<!-- 列表 Rooms -->
 					<td valign="top">
-							
+						<%@ include file="/WEB-INF/view/room_list.jspf" %>	
 					</td>
 				</tr>
 			</table>
