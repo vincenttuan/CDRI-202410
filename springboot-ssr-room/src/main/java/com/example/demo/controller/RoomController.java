@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.dto.RoomDto;
@@ -37,6 +38,12 @@ public class RoomController {
 		//model.addAttribute("roomDto", new RoomDto());
 		model.addAttribute("roomDtos", roomDtos);
 		return "room";
+	}
+	
+	@PostMapping
+	public String addRoom(RoomDto roomDto) {
+		roomService.addRoom(roomDto);
+		return "redirect: /rooms"; // 重導到 /rooms 頁面
 	}
 	
 	
