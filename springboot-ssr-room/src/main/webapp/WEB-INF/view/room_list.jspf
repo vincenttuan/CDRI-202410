@@ -3,5 +3,23 @@
 <!-- Jakarta JSTL 表單標籤 -->
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>      
-
+<div class="pure-form">
+	<fieldset>
+		<legend>Room 列表</legend>
+		<table class="pure-table pure-table-bordered">
+			<thead>
+				<tr><th>roomId</th><th>roomName</th><th>roomSize</th></tr>
+			</thead>
+			<tbody>
+				<c:forEach var="roomDto" items="${ roomDtos }">
+					<tr>
+						<td>${ roomDto.roomId }</td>
+						<td>${ roomDto.roomName }</td>
+						<td>${ roomDto.roomSize }</td>
+					</tr>	
+				</c:forEach>
+			</tbody>
+		</table>
+	</fieldset>
+</div>
     
