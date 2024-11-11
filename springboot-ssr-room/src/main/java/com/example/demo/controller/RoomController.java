@@ -71,6 +71,16 @@ public class RoomController {
 		return "room_update";
 	}
 	
+	@PostMapping("/update/{roomId}")
+	public String updateRoom(@PathVariable Integer roomId, @Valid @ModelAttribute RoomDto roomDto, BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) { // 若有錯誤發生
+			model.addAttribute("roomDto", roomDto); // 將原本的 roomDto 回傳
+			return "room_update"; // 會自動將錯誤訊息傳給 jsp
+		}
+		roomService.updateRoom(roomId, roomDto);
+		return "redirect:/rooms"; // 重導到 /rooms 頁面
+	}
+	
 	@ExceptionHandler({RoomException.class})
 	public String handleRoomException(RoomException e, Model model) {
 		model.addAttribute("message", e.getMessage());
