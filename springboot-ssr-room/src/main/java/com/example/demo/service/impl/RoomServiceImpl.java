@@ -1,10 +1,12 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.mapper.RoomMapper;
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.repository.RoomRepositoryJdbc;
 import com.example.demo.service.RoomService;
@@ -15,10 +17,15 @@ public class RoomServiceImpl implements RoomService {
 	@Autowired
 	private RoomRepositoryJdbc roomRepositoryJdbc;
 	
+	@Autowired
+	private RoomMapper roomMapper;
+	
 	@Override
 	public List<RoomDto> getAllRooms() {
-		// TODO Auto-generated method stub
-		return null;
+		return roomRepositoryJdbc.findAll()
+				.stream()
+				.map(roomMapper::toDto) // .map(room -> roomMapper.toDto(room))
+				.collect(Collectors.toList());
 	}
 
 	@Override
