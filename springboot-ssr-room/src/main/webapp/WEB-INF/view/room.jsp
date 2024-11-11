@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- Jakarta JSTL 表單標籤 -->
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>      
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,7 +18,19 @@
 		<!-- body content -->
 		<div style="padding: 15px">
 			
-			${ roomDtos }
+			<table>
+				<tr>
+					<!-- 新增 Room 表單 -->
+					<td valign="top">
+						
+					</td>
+					
+					<!-- 列表 Rooms -->
+					<td valign="top">
+							
+					</td>
+				</tr>
+			</table>
 			
 		</div>
 	</body>
