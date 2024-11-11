@@ -47,6 +47,7 @@ public class RoomController {
 	// @Valid 進行驗證
 	// BindingResult 驗證結果
 	public String addRoom(@Valid @ModelAttribute("roomDto") RoomDto roomDto, BindingResult bindingResult, Model model) {
+		System.out.println(bindingResult.hasErrors());
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("roomDtos", roomService.getAllRooms());
 			return "room";

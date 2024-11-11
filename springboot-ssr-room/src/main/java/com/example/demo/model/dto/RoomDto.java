@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +17,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RoomDto {
 	
-	@NotNull(message = "房號不可為空")
+	@NotEmpty(message = "房號不可為空")
+	@NotNull(message = "房號不可為NULL")
 	private Integer roomId;
 	
 	@NotNull(message = "房名不可為空")
