@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.dto.RoomDto;
@@ -31,8 +32,9 @@ public class RoomController {
 	private RoomService roomService;
 	
 	@GetMapping
-	public String getRooms(Model model) {
+	public String getRooms(Model model, @ModelAttribute RoomDto roomDto) {
 		List<RoomDto> roomDtos = roomService.getAllRooms();
+		//model.addAttribute("roomDto", new RoomDto());
 		model.addAttribute("roomDtos", roomDtos);
 		return "room";
 	}
