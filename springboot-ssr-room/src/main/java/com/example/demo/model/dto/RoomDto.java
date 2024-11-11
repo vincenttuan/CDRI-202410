@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RoomDto {
 	
-	@NotNull(message = "房號不可為NULL")
+	@NotNull(message = "房號不可為空")
 	private Integer roomId;
 	
 	@NotNull(message = "房名不可為空")

@@ -1076,3 +1076,63 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'room_id' cannot be nu
 2024-11-11T13:21:34.602+08:00  INFO 12652 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-11-11T13:21:34.602+08:00  INFO 12652 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-11-11T13:21:34.603+08:00  INFO 12652 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-11T13:22:44.626+08:00  INFO 12652 --- [springboot-ssr-room] [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-11T13:22:44.631+08:00  INFO 12652 --- [springboot-ssr-room] [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-11T13:22:44.632+08:00  INFO 12652 --- [springboot-ssr-room] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-11T13:22:44.635+08:00  INFO 12652 --- [springboot-ssr-room] [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-11T13:22:47.496+08:00  INFO 6572 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : Starting SpringbootSsrRoomApplication using Java 21.0.4 with PID 6572 (E:\WorkSpace\springboot-ssr-room\target\classes started by NTPU in E:\WorkSpace\springboot-ssr-room)
+2024-11-11T13:22:47.497+08:00  INFO 6572 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-11-11T13:22:47.813+08:00  INFO 6572 --- [springboot-ssr-room] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-11T13:22:47.843+08:00  INFO 6572 --- [springboot-ssr-room] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 1 JPA repository interface.
+2024-11-11T13:22:48.115+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-11-11T13:22:48.123+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-11T13:22:48.123+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-11T13:22:48.239+08:00  INFO 6572 --- [springboot-ssr-room] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-11-11T13:22:48.242+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-11T13:22:48.242+08:00  INFO 6572 --- [springboot-ssr-room] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 724 ms
+2024-11-11T13:22:48.319+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-11T13:22:48.347+08:00  INFO 6572 --- [springboot-ssr-room] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-11T13:22:48.371+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-11T13:22:48.528+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-11T13:22:48.544+08:00  INFO 6572 --- [springboot-ssr-room] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-11T13:22:48.632+08:00  INFO 6572 --- [springboot-ssr-room] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c6bd624
+2024-11-11T13:22:48.634+08:00  INFO 6572 --- [springboot-ssr-room] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-11T13:22:49.099+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-11T13:22:49.124+08:00  INFO 6572 --- [springboot-ssr-room] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-11T13:22:49.186+08:00  WARN 6572 --- [springboot-ssr-room] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-11T13:22:49.447+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-11T13:22:49.718+08:00  INFO 6572 --- [springboot-ssr-room] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-11-11T13:22:49.722+08:00  INFO 6572 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : Started SpringbootSsrRoomApplication in 2.425 seconds (process running for 2.753)
+2024-11-11T13:22:58.768+08:00  INFO 6572 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-11T13:22:58.769+08:00  INFO 6572 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-11T13:22:58.769+08:00  INFO 6572 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-11T13:26:28.116+08:00  INFO 6572 --- [springboot-ssr-room] [RMI TCP Connection(14)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-11T13:26:28.122+08:00  INFO 6572 --- [springboot-ssr-room] [RMI TCP Connection(14)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-11T13:26:28.123+08:00  INFO 6572 --- [springboot-ssr-room] [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-11T13:26:28.126+08:00  INFO 6572 --- [springboot-ssr-room] [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-11T13:26:34.913+08:00  INFO 9312 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : Starting SpringbootSsrRoomApplication using Java 21.0.4 with PID 9312 (E:\WorkSpace\springboot-ssr-room\target\classes started by NTPU in E:\WorkSpace\springboot-ssr-room)
+2024-11-11T13:26:34.914+08:00  INFO 9312 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-11-11T13:26:35.244+08:00  INFO 9312 --- [springboot-ssr-room] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-11T13:26:35.279+08:00  INFO 9312 --- [springboot-ssr-room] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 1 JPA repository interface.
+2024-11-11T13:26:35.547+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-11-11T13:26:35.555+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-11T13:26:35.555+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-11T13:26:35.667+08:00  INFO 9312 --- [springboot-ssr-room] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-11-11T13:26:35.671+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-11T13:26:35.671+08:00  INFO 9312 --- [springboot-ssr-room] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 735 ms
+2024-11-11T13:26:35.746+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-11T13:26:35.775+08:00  INFO 9312 --- [springboot-ssr-room] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-11T13:26:35.799+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-11T13:26:35.960+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-11T13:26:35.977+08:00  INFO 9312 --- [springboot-ssr-room] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-11T13:26:36.063+08:00  INFO 9312 --- [springboot-ssr-room] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@70485aa
+2024-11-11T13:26:36.065+08:00  INFO 9312 --- [springboot-ssr-room] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-11T13:26:36.534+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-11T13:26:36.560+08:00  INFO 9312 --- [springboot-ssr-room] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-11T13:26:36.628+08:00  WARN 9312 --- [springboot-ssr-room] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-11T13:26:36.891+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-11T13:26:37.170+08:00  INFO 9312 --- [springboot-ssr-room] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-11-11T13:26:37.174+08:00  INFO 9312 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : Started SpringbootSsrRoomApplication in 2.464 seconds (process running for 2.792)
+2024-11-11T13:26:40.031+08:00  INFO 9312 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-11T13:26:40.031+08:00  INFO 9312 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-11T13:26:40.032+08:00  INFO 9312 --- [springboot-ssr-room] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
