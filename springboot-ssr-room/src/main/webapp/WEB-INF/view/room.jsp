@@ -15,6 +15,8 @@
 		<!-- body content -->
 		<div style="padding: 15px">
 			
+			${ roomDtos }
+			
 		</div>
 	</body>
 </html>
