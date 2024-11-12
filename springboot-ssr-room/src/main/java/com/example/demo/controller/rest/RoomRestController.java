@@ -6,13 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.exception.RoomException;
 import com.example.demo.model.dto.RoomDto;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.RoomService;
@@ -39,7 +42,7 @@ public class RoomRestController {
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<RoomDto>>> getRooms() {
 		List<RoomDto> roomDtos = roomService.getAllRooms();
-		String message = roomDtos.isEmpty() ? "Room 查無資料" : "Room 查詢成功";
+		String message = roomDtos.isEmpty() ? "Room 查無資料" : "Room 查詢多筆成功";
 		return ResponseEntity.ok(ApiResponse.success(message, roomDtos));
 	}
 	
@@ -48,6 +51,19 @@ public class RoomRestController {
 	public ResponseEntity<ApiResponse<RoomDto>> addRoom(@RequestBody RoomDto roomDto) {
 		roomService.addRoom(roomDto);
 		return ResponseEntity.ok(ApiResponse.success("Room 新增成功", roomDto));
+	}
+	
+	// 取得單筆
+	@GetMapping("/{roomId}")
+	public ResponseEntity<ApiResponse<RoomDto>> getRoom(@PathVariable Integer roomId) {
+		RoomDto roomDto = roomService.getRoomById(roomId);
+		return ResponseEntity.ok(ApiResponse.success("Room 查詢單筆成功", roomDto));
+	}
+	
+	
+	@ExceptionHandler({RoomException.class})
+	public ResponseEntity<ApiResponse<Void>> handleRoomExceptions(RoomException e) {
+		return ResponseEntity.status(500).body(ApiResponse.error(500, e.getMessage()));
 	}
 	
 	
