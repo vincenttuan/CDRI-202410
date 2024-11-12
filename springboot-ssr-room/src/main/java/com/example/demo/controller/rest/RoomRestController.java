@@ -3,12 +3,14 @@ package com.example.demo.controller.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.dto.RoomDto;
+import com.example.demo.response.ApiResponse;
 import com.example.demo.service.RoomService;
 
 /**
@@ -31,10 +33,10 @@ public class RoomRestController {
 	
 	// 取得所有房間列表
 	@GetMapping
-	public String getRooms() {
+	public ResponseEntity<ApiResponse<List<RoomDto>>> getRooms() {
 		List<RoomDto> roomDtos = roomService.getAllRooms();
-		
+		String message = roomDtos.isEmpty() ? "查無資料" : "查詢成功";
+		return ResponseEntity.ok(ApiResponse.success(message, roomDtos));
 	}
-	
 	
 }
