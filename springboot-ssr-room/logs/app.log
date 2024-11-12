@@ -6745,3 +6745,7 @@ Caused by: java.lang.NumberFormatException: For input string: "admin"
 2024-11-11T16:23:23.000+08:00  INFO 8756 --- [springboot-ssr-room] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
 2024-11-11T16:23:23.247+08:00  INFO 8756 --- [springboot-ssr-room] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
 2024-11-11T16:23:23.252+08:00  INFO 8756 --- [springboot-ssr-room] [main] c.e.demo.SpringbootSsrRoomApplication    : Started SpringbootSsrRoomApplication in 2.484 seconds (process running for 2.816)
+2024-11-11T16:36:57.893+08:00  INFO 8756 --- [springboot-ssr-room] [RMI TCP Connection(23)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-11T16:36:57.898+08:00  INFO 8756 --- [springboot-ssr-room] [RMI TCP Connection(23)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-11T16:36:57.900+08:00  INFO 8756 --- [springboot-ssr-room] [RMI TCP Connection(23)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-11T16:36:57.903+08:00  INFO 8756 --- [springboot-ssr-room] [RMI TCP Connection(23)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

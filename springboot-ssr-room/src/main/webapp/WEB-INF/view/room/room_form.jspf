@@ -16,5 +16,4 @@
 		<p />
 		<button type="submit" class="pure-button pure-button-primary">新增</button>
 	</fieldset>
-	
 </sp:form>
