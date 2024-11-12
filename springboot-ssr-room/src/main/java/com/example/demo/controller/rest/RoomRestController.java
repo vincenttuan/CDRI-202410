@@ -3,10 +3,14 @@ package com.example.demo.controller.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.dto.RoomDto;
@@ -35,8 +39,16 @@ public class RoomRestController {
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<RoomDto>>> getRooms() {
 		List<RoomDto> roomDtos = roomService.getAllRooms();
-		String message = roomDtos.isEmpty() ? "查無資料" : "查詢成功";
+		String message = roomDtos.isEmpty() ? "Room 查無資料" : "Room 查詢成功";
 		return ResponseEntity.ok(ApiResponse.success(message, roomDtos));
 	}
+	
+	// 新增房間
+	@PostMapping
+	public ResponseEntity<ApiResponse<Void>> addRoom(@RequestBody RoomDto roomDto) {
+		roomService.addRoom(roomDto);
+		return ResponseEntity.ok(ApiResponse.success("Room 新增成功", null));
+	}
+	
 	
 }
