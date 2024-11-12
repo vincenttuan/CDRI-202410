@@ -622,3 +622,8 @@ com.example.demo.exception.RoomAlreadyExistsException: 新增失敗: 303 已存�
 2024-11-12T12:05:37.762+08:00  INFO 10612 --- [springboot-ssr-room] [http-nio-8081-exec-7] c.e.d.r.impl.RoomRepositoryJdbcImpl      : org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
 2024-11-12T12:05:47.429+08:00  INFO 10612 --- [springboot-ssr-room] [http-nio-8081-exec-9] c.e.d.r.impl.RoomRepositoryJdbcImpl      : org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
 2024-11-12T12:05:59.803+08:00  INFO 10612 --- [springboot-ssr-room] [http-nio-8081-exec-1] c.e.d.r.impl.RoomRepositoryJdbcImpl      : org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+2024-11-12T12:26:20.385+08:00  INFO 10612 --- [springboot-ssr-room] [http-nio-8081-exec-9] c.e.d.r.impl.RoomRepositoryJdbcImpl      : org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+2024-11-12T12:48:27.038+08:00  INFO 10612 --- [springboot-ssr-room] [RMI TCP Connection(54)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-12T12:48:27.043+08:00  INFO 10612 --- [springboot-ssr-room] [RMI TCP Connection(54)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-12T12:48:27.044+08:00  INFO 10612 --- [springboot-ssr-room] [RMI TCP Connection(54)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-12T12:48:27.045+08:00  INFO 10612 --- [springboot-ssr-room] [RMI TCP Connection(54)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
