@@ -45,9 +45,9 @@ public class RoomRestController {
 	
 	// 新增房間
 	@PostMapping
-	public ResponseEntity<ApiResponse<Void>> addRoom(@RequestBody RoomDto roomDto) {
+	public ResponseEntity<ApiResponse<RoomDto>> addRoom(@RequestBody RoomDto roomDto) {
 		roomService.addRoom(roomDto);
-		return ResponseEntity.ok(ApiResponse.success("Room 新增成功", null));
+		return ResponseEntity.ok(ApiResponse.success("Room 新增成功", roomDto));
 	}
 	
 	
