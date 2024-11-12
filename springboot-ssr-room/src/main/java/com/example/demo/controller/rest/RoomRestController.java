@@ -1,8 +1,15 @@
 package com.example.demo.controller.rest;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.dto.RoomDto;
+import com.example.demo.service.RoomService;
 
 /**
 請求方法 URL 路徑              功能說明      請求參數                                 回應
@@ -19,6 +26,15 @@ DELETE /rest/room/{roomId} 刪除指定房間    roomId (路徑參數，房間 I
 @CrossOrigin(origins = {"http://localhost:8082", "http://localhost:8083"}, allowCredentials = "true")
 public class RoomRestController {
 	
+	@Autowired
+	private RoomService roomService;
+	
+	// 取得所有房間列表
+	@GetMapping
+	public String getRooms() {
+		List<RoomDto> roomDtos = roomService.getAllRooms();
+		
+	}
 	
 	
 }
