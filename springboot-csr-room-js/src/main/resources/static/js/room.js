@@ -5,6 +5,12 @@ const roomIdInput = document.getElementById('roomId');
 const roomNameInput = document.getElementById('roomName');
 const roomSizeInput = document.getElementById('roomSize');
 const addResultText = document.getElementById('addResult');
+// 獲取 DOM 元素 - 修改房間(Modal)
+const editModal = document.getElementById('editModal');
+const editRoomIdInput = document.getElementById('editRoomId');
+const editRoomNameInput = document.getElementById('editRoomName');
+const editRoomSizeInput = document.getElementById('editRoomSize');
+
 
 // 透過 fetch 經由 http://localhost:8081/rest/room 取得遠端資料
 const fetchRooms = async () => {
@@ -36,12 +42,20 @@ const displayRooms = (rooms) => {
 		// 在 listItem 中多加入修改元素(按鈕)
 		const updateButton = document.createElement('button');
 		updateButton.textContent = '修改';
-		updateButton.onclick = () => updateRoom(room.roomId, room.roomName, room.roomSize);
+		updateButton.onclick = () => openModal(room.roomId, room.roomName, room.roomSize);
 		listItem.appendChild(updateButton), 
 				
 		// 將 listItem 加入到 roomList 中
 		roomList.appendChild(listItem);
 	});
+};
+
+// 打開 Modal 小視窗
+const openModal = (roomId, roomName, roomSize) => {
+	editRoomIdInput.value = roomId;
+	editRoomNameInput.value = roomName;
+	editRoomSizeInput.value = roomSize;
+	editModal.style.display = 'flex';
 };
 
 // 刪除房間
