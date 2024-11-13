@@ -13,6 +13,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-csr-room-js</name>
 	<description>CSR Room JS project for Spring Boot</description>
+	
+	<packaging>war</packaging>
+	
 	<url/>
 	<licenses>
 		<license/>
