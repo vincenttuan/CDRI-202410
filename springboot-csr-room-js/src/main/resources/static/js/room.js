@@ -58,6 +58,11 @@ const openModal = (roomId, roomName, roomSize) => {
 	editModal.style.display = 'flex';
 };
 
+// 關閉 Modal 小視窗
+const closeModal = () => {
+	editModal.style.display = 'none';
+};
+
 // 刪除房間
 const deleteRoom = async (roomId) => {
 	const response = await fetch(`http://localhost:8081/rest/room/${roomId}`, {
