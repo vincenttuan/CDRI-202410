@@ -23,6 +23,13 @@ const displayRooms = (rooms) => {
 	rooms.forEach(room => {
 		const listItem = document.createElement('li'); // 建立 <li> 標籤元素
 		listItem.textContent = `房號: ${room.roomId} 房名: ${room.roomName} - 人數: ${room.roomSize}`;
+		
+		// 在 listItem 中多加入刪除元素(按鈕)
+		const deleteButton = document.createElement('button');
+		deleteButton.textContent = '刪除';
+		deleteButton.onclick = () => deleteRoom(room.roomId);
+		listItem.appendChild(deleteButton);
+		
 		// 將 listItem 加入到 roomList 中
 		roomList.appendChild(listItem);
 	});
