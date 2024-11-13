@@ -71,6 +71,7 @@ const confirmEdit = async () => {
 		roomSize: editRoomSizeInput.value
 	};
 	
+	const roomId = editRoomIdInput.value;
 	const response = await fetch(`http://localhost:8081/rest/room/${roomId}`, {
 		method: 'PUT',
 		headers: {
