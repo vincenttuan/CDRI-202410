@@ -20,6 +20,9 @@ const fetchRooms = async () => {
 
 // 顯示房間列表
 const displayRooms = (rooms) => {
+	
+	roomList.innerHTML = ''; // 清空 roomList 資料
+	
 	rooms.forEach(room => {
 		const listItem = document.createElement('li'); // 建立 <li> 標籤元素
 		listItem.textContent = `房號: ${room.roomId} 房名: ${room.roomName} - 人數: ${room.roomSize} `;
