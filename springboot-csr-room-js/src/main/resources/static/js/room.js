@@ -101,18 +101,22 @@ const confirmEdit = async () => {
 
 // 刪除房間
 const deleteRoom = async (roomId) => {
-	const response = await fetch(`http://localhost:8081/rest/room/${roomId}`, {
-		method: 'DELETE'
-	});
-	
-	const apiResponse = await response.json();
-	console.log('apiResponse:', JSON.stringify(apiResponse));
-	
-	if(response.ok) {
-		fetchRooms(); // 刪除成功之後重新加載房間列表
-	} else {
-		addResultText.textContent = apiResponse.message;
-	}
+	try {
+		const response = await fetch(`http://localhost:8081/rest/room/${roomId}`, {
+			method: 'DELETE'
+		});
+		
+		const apiResponse = await response.json();
+		console.log('apiResponse:', JSON.stringify(apiResponse));
+		
+		if(response.ok) {
+			fetchRooms(); // 刪除成功之後重新加載房間列表
+		} else {
+			addResultText.textContent = apiResponse.message;
+		}
+	} catch(e) {
+		addResultText.textContent = e;
+	}	
 };
 
 // 新增房間
@@ -158,6 +162,7 @@ const addRoom = async () => {
 		
 	} catch(e) {
 		console.error('遠端資料存取錯誤:', e);
+		addResultText.textContent = e;
 	}
 		
 	
