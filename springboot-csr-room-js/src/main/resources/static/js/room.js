@@ -90,6 +90,9 @@ const confirmEdit = async () => {
 		addResultText.textContent = apiResponse.message;
 	}
 	
+	// 關閉 Modal
+	closeModal();
+	
 };
 
 // 刪除房間
