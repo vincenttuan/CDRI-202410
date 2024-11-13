@@ -14,6 +14,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-ssr-room</name>
 	<description>SSR RoomE project for Spring Boot</description>
+	
+	<packaging>war</packaging>
+	
 	<url />
 	<licenses>
 		<license />
