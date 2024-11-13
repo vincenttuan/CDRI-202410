@@ -65,33 +65,37 @@ const closeModal = () => {
 
 // 修改確認
 const confirmEdit = async () => {
-	// 將資料轉換為 json 物件
-	const roomDto = {
-		roomName: editRoomNameInput.value,
-		roomSize: editRoomSizeInput.value
-	};
-	
-	const roomId = editRoomIdInput.value;
-	const response = await fetch(`http://localhost:8081/rest/room/${roomId}`, {
-		method: 'PUT',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(roomDto) // 轉 json string 後送出
+	try {
+		// 將資料轉換為 json 物件
+		const roomDto = {
+			roomName: editRoomNameInput.value,
+			roomSize: editRoomSizeInput.value
+		};
 		
-	});
-	
-	const apiResponse = await response.json();
-	console.log('apiResponse:', JSON.stringify(apiResponse));
-	
-	if(response.ok) {
-		fetchRooms(); // 修改成功之後重新加載房間列表
-	} else {
-		addResultText.textContent = apiResponse.message;
+		const roomId = editRoomIdInput.value;
+		const response = await fetch(`http://localhost:8081/rest/room/${roomId}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(roomDto) // 轉 json string 後送出
+			
+		});
+		
+		const apiResponse = await response.json();
+		console.log('apiResponse:', JSON.stringify(apiResponse));
+		
+		if(response.ok) {
+			fetchRooms(); // 修改成功之後重新加載房間列表
+		} else {
+			addResultText.textContent = apiResponse.message;
+		}
+	} catch(e) {
+		addResultText.textContent = e;
+	} finally {
+		// 關閉 Modal
+		closeModal();
 	}
-	
-	// 關閉 Modal
-	closeModal();
 	
 };
 
