@@ -10,7 +10,9 @@ function App() {
   const [todo, setTodo] = useState('');
 
   const handleClick = (e) => {
-    setTodos(todos.concat(todo));
+    if(!todo) return;
+    //setTodos(todos.concat(todo));
+    setTodos([...todos, todo]);
     setTodo(''); // 將 todo 清空
   };
 
