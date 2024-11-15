@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
+import TodoInput from './components/TodoInput';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -35,10 +36,7 @@ function App() {
   return (
     <div>
       <h1>My Todo List</h1>
-      <div>
-        <input type="text" onChange={handleChange} value={todo} />
-        <button onClick={handleAdd}>Add</button>
-      </div>
+      <TodoInput todo={todo} onChange={handleChange} onAdd={handleAdd} />
       <TodoList todos={todos} onToggleCompletion={toggleCompletion} />
     </div>
   );
