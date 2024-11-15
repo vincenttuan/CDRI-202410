@@ -43,7 +43,7 @@ function App() {
         <button onClick={handleClick}>Add</button>
       </div>
       <ul>
-        {todos.map((todo, index) => (
+        {todos.map((todo) => (
           <li key={todo.id}>
             {todo.id}
             <input type="checkbox" onChange={() => toggleCompletion(todo.id)} checked={todo.completed} />
