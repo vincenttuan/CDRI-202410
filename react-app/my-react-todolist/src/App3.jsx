@@ -7,15 +7,22 @@ function App() {
     '吃早餐', '做運動', '寫程式', 'Debug'
   ]);
 
+  const [todo, setTodo] = useState('');
+
   const handleClick = (e) => {
-    setTodos(todos.concat('繼續寫'));
+    setTodos(todos.concat(todo));
+    setTodo(''); // 將 todo 清空
+  };
+
+  const handleChange = (e) => {
+    setTodo(e.target.value);
   };
   
   return (
     <>
       <h1>My Todo List</h1>
       <div>
-        <input type="text" />
+        <input type="text" onChange={handleChange} value={todo} />
         <button onClick={handleClick}>Add</button>
       </div>
       <ul>
