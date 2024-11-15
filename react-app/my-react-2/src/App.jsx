@@ -9,6 +9,9 @@ function App() {
   const handleChange = (e) => {
     message = e.target.value; // 變數改變, 但是畫面不會渲染更新
     console.log('message:', message);
+
+    // 直接用 DOM 操作來更新內容, 如此渲染更新
+    document.getElementById('displayMessage').textContent = `顯示: ${message}`;
   };
 
   return (
@@ -16,7 +19,7 @@ function App() {
       <div>
         <input type="text" placeholder='請輸入一些內容' onChange={handleChange} />
       </div>
-      <div>
+      <div id="displayMessage">
         顯示: {message}
       </div>
     </>
