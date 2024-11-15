@@ -45,6 +45,7 @@ function App() {
       <ul>
         {todos.map((todo, index) => (
           <li key={todo.id}>
+            {todo.id}
             <input type="checkbox" onChange={() => toggleCompletion(todo.id)} checked={todo.completed} />
             {todo.text}
           </li>
