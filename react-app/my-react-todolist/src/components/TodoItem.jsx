@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoItem = ({ todo, onToggleCompletion }) => {
+const TodoItem = ({ todo, onToggleCompletion, onDelete }) => {
   return (
     <li
       className={`list-group-item d-flex justify-content-between align-items-center ${
@@ -15,13 +15,15 @@ const TodoItem = ({ todo, onToggleCompletion }) => {
       >
         {todo.text}
       </span>
-      <input
-        className="me-2"
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => onToggleCompletion(todo.id)}
-      />
-      
+      <div>
+        <input
+          className="me-2"
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => onToggleCompletion(todo.id)}
+        />
+        <button className='btn btn-danger btn-sm' onClick={() => onDelete(todo.id)}>X</button>
+      </div>
     </li>
   );
 };

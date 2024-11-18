@@ -30,7 +30,7 @@ export const addTodo = async(todo) => {
     });
     const result = await response.json();
     if (result.status === 200) {
-        return result.data; // 返回資料
+        return result.data; // 返回資料 json 給 then(json) 接收
     }
     throw new Error(result.message);
 };
