@@ -77,6 +77,4 @@ public class TodoController {
 				.body(ApiResponse.error(HttpStatus.NOT_FOUND.value(), e.getMessage()));
 	}
 	
-	
-	
 }
