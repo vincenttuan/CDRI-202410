@@ -18,15 +18,18 @@ function App() {
   }, []);
 
   // 新增待辦事項
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (!todo) return;
     const newTodo = { text: todo, completed: false };
 
-    addTodo(newTodo)
-      .then((addedTodo) => setTodos([...todos, addedTodo]))
-      .catch((error) => console.error('error:', error));
+    try {
+      const addedTodo = await addTodo(newTodo);
+      setTodos([...todos, addedTodo])
+      setTodo('');
+    } catch (error) {
+      console.error('Error add todo:', error);
+    }
     
-    setTodo('');
   };
 
   const handleChange = (e) => {
@@ -34,17 +37,17 @@ function App() {
   };
 
   // 更新待辦事項
-  const toggleCompletion = (id) => {
-    const uptTodos = todos.map((todo) => 
-      todo.id === id ? {...todo, completed: !todo.completed} : todo
-    );
-    // 要修改的 todo
-    const uptTodo = todos.find((todo) => todo.id === id);
-
-    updateTodo(uptTodo)
-      .then(() => setTodos(uptTodos))
-      .catch((error) => console.error('error:', error));
-
+  const toggleCompletion = async (id) => {
+    try {
+      const updatedTodo = todos.find((todo) => todo.id === id);
+      if (!updatedTodo) return;
+      
+      updatedTodo.completed = !updatedTodo.completed;
+      await updateTodo(updatedTodo);
+      setTodos([...todos]);
+    } catch (error) {
+      console.error('Error updating todo:', error);
+    }
   };
 
   // 刪除待辦事項
