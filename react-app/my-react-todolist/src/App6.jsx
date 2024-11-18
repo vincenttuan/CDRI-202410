@@ -39,7 +39,7 @@ function App() {
       todo.id === id ? {...todo, completed: !todo.completed} : todo
     );
     // 要修改的 todo
-    const uptTodo = uptTodos.find((todo) => todo.id === id);
+    const uptTodo = todos.find((todo) => todo.id === id);
 
     updateTodo(uptTodo)
       .then(() => setTodos(uptTodos))
