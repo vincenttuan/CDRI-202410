@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-csr-todolist-react</name>
 	<description>CSR TodoList project for Spring Boot</description>
-	<url/>  
+	<url/>
 	<licenses> 
 		<license/>
 	</licenses> 
