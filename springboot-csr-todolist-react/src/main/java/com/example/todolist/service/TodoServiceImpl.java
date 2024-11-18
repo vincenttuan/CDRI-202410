@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.todolist.repository.TodoRepository;
+import com.example.todolist.exception.TodoNotFoundException;
 import com.example.todolist.model.dto.TodoDTO;
 import com.example.todolist.model.entity.Todo;
 
@@ -39,7 +40,7 @@ public class TodoServiceImpl implements TodoService {
 	
 	// 更新代辦事項
 	@Override
-	public TodoDTO updateTodo(TodoDTO todoDTO) {
+	public TodoDTO updateTodo(TodoDTO todoDTO) throws TodoNotFoundException {
 		return todoRepository.findById(todoDTO.getId())
 				.map(todo -> {
 					// 將 todoDTO 每一個欄位資料對應更新到 todo 欄位中
@@ -50,17 +51,17 @@ public class TodoServiceImpl implements TodoService {
 					Todo updateTodo = todoRepository.save(todo);
 					return modelMapper.map(updateTodo, TodoDTO.class);
 				})
-				.orElseThrow(() -> new RuntimeException("查無資料"));
+				.orElseThrow(() -> new TodoNotFoundException("查無資料"));
 	}
 	
 	// 刪除代辦事項
 	@Override
-	public void deleteTodo(Long id) {
+	public void deleteTodo(Long id) throws TodoNotFoundException {
 		if(todoRepository.existsById(id)) { // 資料是否存在
 			todoRepository.deleteById(id);
 			return;
 		}
-		throw new RuntimeException("查無資料");
+		throw new TodoNotFoundException("查無資料");
 	}
 
 }
