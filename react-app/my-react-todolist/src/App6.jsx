@@ -39,11 +39,14 @@ function App() {
   // 更新待辦事項
   const toggleCompletion = async (id) => {
     try {
+      // 根據 id 找到要修改的 todo
       const updatedTodo = todos.find((todo) => todo.id === id);
-      if (!updatedTodo) return;
-      
+      if (!updatedTodo) return; // 找無資料
+      // 變更 completed 狀態
       updatedTodo.completed = !updatedTodo.completed;
+      // 調用 updateTodo 方法進行更新
       await updateTodo(updatedTodo);
+      // 重新選染 todos
       setTodos([...todos]);
     } catch (error) {
       console.error('Error updating todo:', error);
