@@ -24,7 +24,7 @@ export const addTodo = async(todo) => {
     const response = await fetch(BASE_URL, {
         method: 'POST',
         headers: {
-            'Content-type': 'application/json';
+            'Content-type': 'application/json'
         },
         body: JSON.stringify(todo),
     });
@@ -40,7 +40,7 @@ export const updateTodo = async(updateTodo) => {
     const response = await fetch(`${BASE_URL}/${updateTodo.id}`, {
         method: 'PUT',
         headers: {
-            'Content-type': 'application/json';
+            'Content-type': 'application/json'
         },
         body: JSON.stringify(updateTodo),
     });
