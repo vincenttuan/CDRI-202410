@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 
 const TodoList = ({ todos, onToggleCompletion }) => {
   return (
-    <ul>
+    <ul className="list-group">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}

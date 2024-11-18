@@ -35,8 +35,8 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>My Todo List</h1>
+    <div className='container mt-5'>
+      <h1 className='text-center mb-4'>My Todo List</h1>
       <TodoInput todo={todo} onChange={handleChange} onAdd={handleAdd} />
       <TodoList todos={todos} onToggleCompletion={toggleCompletion} />
     </div>
