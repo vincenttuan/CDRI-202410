@@ -2,6 +2,7 @@ package com.example.todolist.service;
 
 import java.util.List;
 
+import com.example.todolist.exception.TodoNotFoundException;
 import com.example.todolist.model.dto.TodoDTO;
 
 public interface TodoService {
@@ -13,9 +14,8 @@ public interface TodoService {
 	public TodoDTO createTodo(TodoDTO todoDTO);
 	
 	// 更新代辦事項
-	public TodoDTO updateTodo(TodoDTO todoDTO);
+	public TodoDTO updateTodo(TodoDTO todoDTO) throws TodoNotFoundException;
 	
 	// 刪除代辦事項
-	public void deleteTodo(Long id);
-	
+	public void deleteTodo(Long id) throws TodoNotFoundException;
 }
