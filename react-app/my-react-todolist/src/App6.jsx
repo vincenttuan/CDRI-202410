@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
@@ -14,6 +14,11 @@ function App() {
 
   
   const [todo, setTodo] = useState('');
+
+  useEffect(() => {
+    console.log('抓取 todo list 資料');
+    
+  }, []);
 
   const handleAdd = () => {
     if (!todo) return;
