@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
+import 'bootstrap/dist/css/bootstrap.min.css'; // 引入 Bootstrap 樣式
 
 function App() {
   const [todos, setTodos] = useState([
