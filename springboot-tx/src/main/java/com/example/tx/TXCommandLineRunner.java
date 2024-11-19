@@ -15,7 +15,7 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		buyService.buyOneBook("john", 1);
+		buyService.buyOneBook("john", 2);
 		
 	}
 
