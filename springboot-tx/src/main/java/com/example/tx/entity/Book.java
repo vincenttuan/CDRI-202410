@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Book {
 	@Id
-	private Integer id; // 書號
-	private String title; // 書名
-	private Integer price; // 價格
+	private Integer bookId; // 書號
+	private String bookName; // 書名
+	private Integer bookPrice; // 價格
 	
 }

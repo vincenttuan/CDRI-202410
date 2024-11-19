@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class BookInventory {
 	@Id
 	private Integer bookId; // 與書本的 ID 對應
-	private Integer amount; // 庫存數量
+	private Integer bookAmount; // 庫存數量
 }
