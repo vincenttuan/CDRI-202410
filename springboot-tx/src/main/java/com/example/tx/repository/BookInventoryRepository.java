@@ -11,4 +11,9 @@ public interface BookInventoryRepository extends JpaRepository<BookInventory, In
 	// 取得書本庫存數量
 	@Query(value = "select book_amount from book_inventory where book_id = :bookId", nativeQuery = true)
 	Integer getBookAmount(Integer bookId);
+	
+	// 更新庫存
+	@Query(value = "update book_inventory set book_amount = book_amount - :amountToReduce where book_id = :bookId", nativeQuery = true)
+	void updateBookAmount(Integer amountToReduce, Integer bookId);
+	
 }
