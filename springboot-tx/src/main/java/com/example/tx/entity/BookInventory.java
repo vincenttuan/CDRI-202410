@@ -10,10 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class BookInventory {
 	@Id
-	private Integer id; // 書號
-	private String title; // 書名
-	private Integer price; // 價格
-	
+	private Integer bookId; // 與書本的 ID 對應
+	private Integer amount; // 庫存數量
 }
