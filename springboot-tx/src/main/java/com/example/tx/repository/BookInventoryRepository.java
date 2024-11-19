@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.example.tx.entity.BookInventory;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Repository
 public interface BookInventoryRepository extends JpaRepository<BookInventory, Integer> {
 	// 取得書本庫存數量
@@ -14,6 +16,7 @@ public interface BookInventoryRepository extends JpaRepository<BookInventory, In
 	Integer getBookAmount(Integer bookId);
 	
 	@Modifying
+	@Transactional
 	// 更新庫存(目前存量 - amountToReduce)
 	@Query(value = "update book_inventory set book_amount = book_amount - :amountToReduce where book_id = :bookId", nativeQuery = true)
 	void updateBookAmount(Integer amountToReduce, Integer bookId);
