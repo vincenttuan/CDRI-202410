@@ -5,18 +5,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.example.tx.service.BookService;
+import com.example.tx.service.BuyService;
 
 @Component
 public class TXCommandLineRunner implements CommandLineRunner {
 	
 	@Autowired
-	private BookService bookService;
+	private BuyService buyService;
 	
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("book price: " + bookService.getBookPrice(1));
-		System.out.println("book amount: " + bookService.getBookAmount(1));
-		System.out.println("wallet balance: " + bookService.getWalletBalance("john"));
+		buyService.buyOneBook("john", 1);
 		
 	}
 
