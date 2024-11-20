@@ -27,7 +27,6 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	private BookRepository bookRepository;
 	
 	@Override
-	@Transactional
 	public void run(String... args) throws Exception {
 		buyBook("john", 1);
 		

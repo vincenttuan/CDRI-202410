@@ -37,22 +37,22 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public void reduceBookAmount(Integer bookId, Integer amountToReduce) throws InsufficientAmount {
+	public void reduceBookAmount(Integer bookId, Integer amountToReduce)  {
 		// 1. 檢查庫存
 		Integer bookAmount = getBookAmount(bookId);
 		if(bookAmount < amountToReduce) {
-			throw new InsufficientAmount(String.format("bookId: %d 庫存不足 (%d < %d)%n", bookId, bookAmount, amountToReduce));
+			throw new RuntimeException(String.format("bookId: %d 庫存不足 (%d < %d)%n", bookId, bookAmount, amountToReduce));
 		}
 		// 2. 更新庫存
 		bookInventoryRepository.updateBookAmount(amountToReduce, bookId);
 	}
 
 	@Override
-	public void reduceWalletBalance(String username, Integer bookPrice) {
+	public void reduceWalletBalance(String username, Integer bookPrice) throws InsufficientAmount {
 		// 1. 檢查餘額
 		Integer walletBalance = getWalletBalance(username);
 		if(walletBalance < bookPrice) {
-			throw new RuntimeException(String.format("username: %s 餘額不足 (%d < %d)%n", username, walletBalance, bookPrice));
+			throw new InsufficientAmount(String.format("username: %s 餘額不足 (%d < %d)%n", username, walletBalance, bookPrice));
 		}
 		// 2. 更新餘額
 		walletRepository.updateWalletBalance(bookPrice, username);

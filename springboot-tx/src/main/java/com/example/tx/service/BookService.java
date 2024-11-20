@@ -13,9 +13,9 @@ public interface BookService {
 	Integer getWalletBalance(String username);
 	
 	// 更新庫存(減少庫存量)
-	void reduceBookAmount(Integer bookId, Integer amountToReduce) throws InsufficientAmount;
+	void reduceBookAmount(Integer bookId, Integer amountToReduce);
 	
 	// 更新餘額(減少餘額)
-	void reduceWalletBalance(String username, Integer bookPrice);
+	void reduceWalletBalance(String username, Integer bookPrice) throws InsufficientAmount;
 		
 }
