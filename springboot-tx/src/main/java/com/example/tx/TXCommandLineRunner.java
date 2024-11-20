@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.tx.entity.Book;
 import com.example.tx.entity.BookInventory;
+import com.example.tx.exception.InsufficientAmount;
 import com.example.tx.repository.BookInventoryRepository;
 import com.example.tx.repository.BookRepository;
 import com.example.tx.service.BookService;
@@ -55,7 +56,12 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	
 	// 買書
 	private void buyBook(String username, Integer bookId) {
-		buyService.buyOneBook(username, bookId);
+		try {
+			buyService.buyOneBook(username, bookId);
+		} catch (InsufficientAmount e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 	
 }
