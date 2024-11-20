@@ -23,7 +23,7 @@ public class ProductImage {
 	
 	@OneToOne
 	@JoinColumn(name = "product_id")
-	private Product Image;
+	private Product product;
 	
 }
 
