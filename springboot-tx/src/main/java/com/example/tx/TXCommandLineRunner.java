@@ -29,9 +29,9 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... args) throws Exception {
-		//buyBook("john", 1);
+		buyBook("john", 1);
 		
-		updateBookName(1, "C#");
+		//updateBookName(1, "C#");
 	}
 	
 	// 修改書名
