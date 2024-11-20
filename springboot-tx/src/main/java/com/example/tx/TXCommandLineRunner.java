@@ -58,8 +58,10 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	private void buyBook(String username, Integer bookId) {
 		try {
 			buyService.buyOneBook(username, bookId);
+			System.out.println("買書成功");
 		} catch (InsufficientAmount e) {
 			System.out.println(e.getMessage());
+			System.out.println("買書失敗");
 		}
 		
 	}
