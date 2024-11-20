@@ -26,6 +26,7 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	private BookRepository bookRepository;
 	
 	@Override
+	@Transactional
 	public void run(String... args) throws Exception {
 		//buyBook("john", 1);
 		
@@ -38,11 +39,13 @@ public class TXCommandLineRunner implements CommandLineRunner {
 		if(optBook.isEmpty()) {
 			return;
 		}
-		// 取得 book 實體
+		// 取得 book 實體 (Managed Entity: entity 會與資料表保持同步)
 		Book book = optBook.get();
 		System.out.println("修改前:" + book);
 		// 修改 book name
 		book.setBookName(newBookName);
+		// 手動儲存 (Managed Entity: 不需要手動儲存)
+		//bookRepository.save(book);
 		
 		System.out.println("修改後:" + book);
 		// 重抓資料庫的資訊, 確認是否已經改
