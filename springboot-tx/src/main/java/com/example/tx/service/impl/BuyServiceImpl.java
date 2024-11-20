@@ -15,7 +15,10 @@ public class BuyServiceImpl implements BuyService {
 	@Autowired
 	private BookService bookService;
 	
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(
+		propagation = Propagation.REQUIRED,
+		rollbackFor = {InsufficientAmount.class}	
+	)
 	@Override
 	public void buyOneBook(String username, Integer bookId) throws InsufficientAmount {
 		System.out.println(username + " 要買書");
