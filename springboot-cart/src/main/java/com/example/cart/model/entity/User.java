@@ -1,10 +1,13 @@
 package com.example.cart.model.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -21,6 +24,10 @@ public class User {
 	
 	@Column(nullable = false)
 	private String password;
+	
+	// user 與 order 的關係是一對多關聯
+	@OneToMany
+	private List<Order> orders;
 	
 }
 
