@@ -25,10 +25,6 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	
-	// user 與 order 的關係是一對多關聯
-	@OneToMany
-	private List<Order> orders;
-	
 }
 
 
