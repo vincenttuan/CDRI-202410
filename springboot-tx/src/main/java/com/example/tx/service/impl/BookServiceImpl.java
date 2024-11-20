@@ -41,7 +41,7 @@ public class BookServiceImpl implements BookService {
 		// 1. 檢查庫存
 		Integer bookAmount = getBookAmount(bookId);
 		if(bookAmount < amountToReduce) {
-			throw new RuntimeException(String.format("bookId: %d 庫存不足 (%d < %d)%n", bookId, bookAmount, amountToReduce));
+			throw new InsufficientAmount(String.format("bookId: %d 庫存不足 (%d < %d)%n", bookId, bookAmount, amountToReduce));
 		}
 		// 2. 更新庫存
 		bookInventoryRepository.updateBookAmount(amountToReduce, bookId);
