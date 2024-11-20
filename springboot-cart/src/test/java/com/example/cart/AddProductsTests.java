@@ -26,8 +26,7 @@ class AddProductsTests {
         Product product = new Product();
         product.setName("PC");
         product.setPrice(40000);
-        
-        // 設置雙向關聯
+        // 設置關聯
         product.setProductImage(productImage);
         
         // 保存 Product，因為它是主要維護關聯的一方
