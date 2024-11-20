@@ -8,13 +8,24 @@ import com.example.cart.model.entity.User;
 import com.example.cart.repository.UserRepository;
 
 @SpringBootTest
-class AddUserTests {
+class AddUsersTests {
 	@Autowired
 	UserRepository userRepository;
 	
 	@Test
-	void addUser() {
-		User user = new User
+	void add() {
+		User user1 = new User();
+		user1.setUsername("admin");
+		user1.setPassword("1234");
+		
+		User user2 = new User();
+		user2.setUsername("mary");
+		user2.setPassword("1234");
+		
+		userRepository.save(user1);
+		userRepository.save(user2);
+		
+		
 	}
 
 }

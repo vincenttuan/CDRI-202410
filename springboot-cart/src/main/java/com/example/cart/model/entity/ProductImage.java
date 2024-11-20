@@ -1,5 +1,6 @@
 package com.example.cart.model.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,10 +21,6 @@ public class ProductImage {
 	
 	@Column(length = 4000)
 	private String imageBase64;
-	
-	@OneToOne
-	@JoinColumn(name = "product_id")
-	private Product product;
 	
 }
 
