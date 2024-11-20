@@ -39,12 +39,14 @@ class AddOrdersTests {
 		order.setUser(user);
 		orderRepository.save(order);
 		
+		// order_item 1
 		OrderItem item1 = new OrderItem();
 		item1.setProduct(product);
 		item1.setQuantity(10);
 		item1.setOrder(order); // 建立 order_item 與 order 之間的關聯
 		orderItemRepository.save(item1);
 		
+		// order_item 2
 		OrderItem item2 = new OrderItem();
 		item2.setProduct(product);
 		item2.setQuantity(20);
