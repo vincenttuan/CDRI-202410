@@ -28,7 +28,7 @@ public class Product {
 	@OneToMany(mappedBy = "product")
 	private List<OrderItem> orderItems;
 	
-	// 與 ProductImage 的一對一關聯
+	// 與 ProductImage 的一對一關聯 (單向)
     @OneToOne
     @JoinColumn(name = "product_image_id")
     private ProductImage productImage;
