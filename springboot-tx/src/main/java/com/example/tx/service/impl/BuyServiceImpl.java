@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.tx.exception.InsufficientAmount;
 import com.example.tx.service.BookService;
 import com.example.tx.service.BuyService;
 
@@ -16,7 +17,7 @@ public class BuyServiceImpl implements BuyService {
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
-	public void buyOneBook(String username, Integer bookId) {
+	public void buyOneBook(String username, Integer bookId) throws InsufficientAmount {
 		System.out.println(username + " 要買書");
 		// 1. 查詢書本價格
 		Integer bookPrice = bookService.getBookPrice(bookId);
