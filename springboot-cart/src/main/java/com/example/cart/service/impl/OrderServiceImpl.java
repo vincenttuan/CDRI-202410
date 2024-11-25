@@ -19,6 +19,10 @@ import com.example.cart.repository.ProductRepository;
 import com.example.cart.repository.UserRepository;
 import com.example.cart.service.OrderService;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
+
 @Service
 public class OrderServiceImpl implements OrderService {
 	
@@ -53,16 +57,18 @@ public class OrderServiceImpl implements OrderService {
 		// 2. 建立訂單 + 設定關聯關係
 		Order order = new Order();
 		order.setUser(optUser.get()); // 設定與 user 的關聯關係
-		//orderRepository.save(order); 
 		
-		// 3. 建立訂單項目列表
+		// 3. 儲存 order
+		//orderRepository.save(order); // 非聯集操作時要加入
+		
+		// 4. 建立訂單項目列表 (非聯集操作時要加入)
 //		items.forEach(item -> {
 //			OrderItem orderItem = modelMapper.map(item, OrderItem.class);
 //			orderItem.setOrder(order); // 設定與 order 的關聯關係
 //			orderItemRepository.save(orderItem); // 儲存
 //		});
 		
-		// 4. 建立訂單項目列表
+		// 3. 建立訂單項目列表 (聯集操作時要加入 @OneToMany(cascade = CascadeType.ALL))
 		List<OrderItem> orderItems = items.stream()
 				.map(item -> {
 					OrderItem orderItem = modelMapper.map(item, OrderItem.class);
@@ -70,7 +76,7 @@ public class OrderServiceImpl implements OrderService {
 					return orderItem;
 				}).collect(Collectors.toList());
 		
-		// 5. order 設定與 orderItems 關聯關係 + 儲存
+		// 4. order 設定與 orderItems 關聯關係 + 儲存 (聯集操作時要加入 @OneToMany(cascade = CascadeType.ALL))
 		order.setItems(orderItems);
 		orderRepository.save(order); 
 		
