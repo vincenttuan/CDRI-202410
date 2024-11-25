@@ -1,6 +1,7 @@
 package com.example.cart.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -9,14 +10,29 @@ import org.springframework.stereotype.Service;
 
 import com.example.cart.model.dto.OrderDTO;
 import com.example.cart.model.dto.OrderItemDTO;
+import com.example.cart.model.entity.Order;
+import com.example.cart.model.entity.OrderItem;
+import com.example.cart.model.entity.User;
+import com.example.cart.repository.OrderItemRepository;
 import com.example.cart.repository.OrderRepository;
+import com.example.cart.repository.ProductRepository;
+import com.example.cart.repository.UserRepository;
 import com.example.cart.service.OrderService;
 
 @Service
 public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
-	private OrderRepository orderRepository;
+	UserRepository userRepository;
+	
+	@Autowired
+	ProductRepository productRepository;
+	
+	@Autowired
+	OrderRepository orderRepository;
+	
+	@Autowired
+	OrderItemRepository orderItemRepository;
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -30,8 +46,24 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public OrderDTO saveOrder(Long userId, List<OrderItemDTO> items) {
-		// TODO Auto-generated method stub
-		return null;
+		// 1. 得到 user
+		Optional<User> optUser = userRepository.findById(userId);
+		if(optUser.isEmpty()) return null;
+		
+		// 2. 建立訂單項目列表
+		List<OrderItem> orderItems = items.stream() // ... OrderItemDTO
+				.map(item -> modelMapper.map(item, OrderItem.class)) // ... OrderItem
+				.collect(Collectors.toList()); // List<OrderItem>
+		
+		// 3. 建立訂單 + 設定關聯關係
+		Order order = new Order();
+		order.setUser(optUser.get());
+		order.setItems(orderItems);
+		
+		// 4. 儲存
+		order = orderRepository.save(order);
+		
+		return modelMapper.map(order, OrderDTO.class);
 	}
 	
 }
