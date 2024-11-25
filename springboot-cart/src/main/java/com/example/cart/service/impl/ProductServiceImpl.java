@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.cart.model.dto.ProductDTO;
+import com.example.cart.model.entity.Product;
 import com.example.cart.repository.ProductRepository;
 import com.example.cart.service.ProductService;
 
@@ -30,8 +31,11 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Optional<ProductDTO> getProductById(Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		Optional<Product> optProduct = productRepository.findById(id);
+		if(optProduct.isEmpty()) {
+			return Optional.empty();
+		}
+		return Optional.of(modelMapper.map(optProduct.get(), ProductDTO.class));
 	}
 
 	@Override
