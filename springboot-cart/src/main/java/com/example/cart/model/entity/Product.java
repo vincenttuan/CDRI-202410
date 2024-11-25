@@ -29,7 +29,7 @@ public class Product {
 	private List<OrderItem> orderItems;
 	
 	// 與 ProductImage 的一對一關聯 (單向)
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_image_id")
     private ProductImage productImage;
 	
