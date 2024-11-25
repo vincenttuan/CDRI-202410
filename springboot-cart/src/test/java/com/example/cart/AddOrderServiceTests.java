@@ -38,8 +38,13 @@ public class AddOrderServiceTests {
 		item.setQuantity(1);
 		item.setProduct(product);
 		
+		OrderItemDTO item2 = new OrderItemDTO();
+		item2.setQuantity(2);
+		item2.setProduct(product);
+		
 		List<OrderItemDTO> items = new ArrayList<>();
 		items.add(item);
+		items.add(item2);
 		
 		orderService.saveOrder(userId, items);
 		System.out.println("新增訂單成功");
