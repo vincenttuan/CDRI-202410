@@ -43,6 +43,7 @@ public class ProductServiceImpl implements ProductService {
 	public ProductDTO saveProduct(ProductDTO productDTO) {
 		// ProductDTO 轉 Product
 		Product product = modelMapper.map(productDTO, Product.class);
+		
 		// 配置 ProductImage
 		ProductImage productImage = new ProductImage();
 		productImage.setImageBase64(productDTO.getImageBase64());
