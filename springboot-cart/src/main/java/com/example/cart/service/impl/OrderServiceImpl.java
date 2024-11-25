@@ -50,18 +50,17 @@ public class OrderServiceImpl implements OrderService {
 		Optional<User> optUser = userRepository.findById(userId);
 		if(optUser.isEmpty()) return null;
 		
-		// 2. 建立訂單項目列表
-		List<OrderItem> orderItems = items.stream() // ... OrderItemDTO
-				.map(item -> modelMapper.map(item, OrderItem.class)) // ... OrderItem
-				.collect(Collectors.toList()); // List<OrderItem>
-		
-		// 3. 建立訂單 + 設定關聯關係
+		// 2. 建立訂單 + 設定關聯關係
 		Order order = new Order();
 		order.setUser(optUser.get());
-		order.setItems(orderItems);
+		orderRepository.save(order);
 		
-		// 4. 儲存
-		order = orderRepository.save(order);
+		// 3. 建立訂單項目列表
+		items.forEach(item -> {
+			OrderItem orderItem = modelMapper.map(item, OrderItem.class);
+			orderItem.setOrder(order);
+			orderItemRepository.save(orderItem);
+		});
 		
 		return modelMapper.map(order, OrderDTO.class);
 	}
