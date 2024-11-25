@@ -16,7 +16,8 @@ public class ProductImage {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length = 4000)
+	// 修改 imageBase64 欄位的註解為長文本
+	@Column(columnDefinition = "LONGTEXT")
 	private String imageBase64;
 	
 }
