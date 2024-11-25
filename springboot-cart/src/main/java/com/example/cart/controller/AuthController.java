@@ -54,5 +54,16 @@ public class AuthController {
 		return ResponseEntity.ok(ApiResponse.success("登出結果", "登出成功"));
 	}
 	
+	@GetMapping("/isLoggedIn")
+	public ResponseEntity<ApiResponse<LoginDTO>> isLoggedIn(HttpSession session) {
+		UserDTO userDTO = (UserDTO)session.getAttribute("userDTO");
+		LoginDTO loginDTO = new LoginDTO();
+		if(userDTO == null) {
+			loginDTO.setIsLoggedIn(false);
+			return ResponseEntity.ok(ApiResponse.success("無登入資訊", loginDTO));
+		} 
+		loginDTO.setIsLoggedIn(true);
+		return ResponseEntity.ok(ApiResponse.success("此人已登入資訊", loginDTO));
+	}
 	
 }
