@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,7 +48,11 @@ public class ProductController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", optProductDTO.get()));
 	}
 	
-	
+	@PostMapping
+	public ResponseEntity<ApiResponse<ProductDTO>> addProduct(@RequestBody ProductDTO productDTO) {
+		productDTO = productService.saveProduct(productDTO);
+		return ResponseEntity.ok(ApiResponse.success("新增成功", productDTO));
+	}
 	
 	
 }
