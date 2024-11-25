@@ -52,14 +52,14 @@ public class OrderServiceImpl implements OrderService {
 		
 		// 2. 建立訂單 + 設定關聯關係
 		Order order = new Order();
-		order.setUser(optUser.get());
-		orderRepository.save(order);
+		order.setUser(optUser.get()); // 設定與 user 的關聯關係
+		orderRepository.save(order); // 儲存
 		
 		// 3. 建立訂單項目列表
 		items.forEach(item -> {
 			OrderItem orderItem = modelMapper.map(item, OrderItem.class);
-			orderItem.setOrder(order);
-			orderItemRepository.save(orderItem);
+			orderItem.setOrder(order); // 設定與 order 的關聯關係
+			orderItemRepository.save(orderItem); // 儲存
 		});
 		
 		return modelMapper.map(order, OrderDTO.class);
