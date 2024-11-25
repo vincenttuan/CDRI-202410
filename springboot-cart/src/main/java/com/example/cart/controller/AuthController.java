@@ -37,6 +37,7 @@ public class AuthController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<ApiResponse<LoginDTO>> login(@RequestBody LoginDTO loginDTO, HttpSession session) {
+		// login 判斷比對
 		Optional<UserDTO> optUserDTO = userService.login(loginDTO);
 		if(optUserDTO.isEmpty()) {
 			return ResponseEntity.status(404).body(ApiResponse.error(404, "登入失敗"));
