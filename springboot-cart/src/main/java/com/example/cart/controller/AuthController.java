@@ -52,7 +52,7 @@ public class AuthController {
 	public ResponseEntity<ApiResponse<String>> logout(HttpSession session) {
 		session.invalidate(); // session 失效
 		return ResponseEntity.ok(ApiResponse.success("登出結果", "登出成功"));
-	}
+	} 
 	
 	@GetMapping("/isLoggedIn")
 	public ResponseEntity<ApiResponse<LoginDTO>> isLoggedIn(HttpSession session) {
