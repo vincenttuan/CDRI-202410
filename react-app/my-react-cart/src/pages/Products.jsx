@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
+import { fetchProducts, addProduct } from "../services/productService";
 
 function Products({ addToCart, isLoggedIn }) {
   const [products, setProducts] = useState([]);
@@ -9,25 +10,16 @@ function Products({ addToCart, isLoggedIn }) {
 
   // 使用 useEffect 從 REST API 獲取商品資料
   useEffect(() => {
-    const fetchProducts = async () => {
+    const loadProducts = async () => {
       try {
-        const response = await fetch("http://localhost:8080/products", {
-          method: "GET",
-          credentials: "include", // 包含 cookies 和 session
-        });
-
-        if (!response.ok) {
-          throw new Error("無法取得產品資料");
-        }
-
-        const apiResponse = await response.json();
+        const apiResponse = await fetchProducts(); // 使用查詢所有商品服務方法
         setProducts(apiResponse.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
 
-    fetchProducts();
+    loadProducts();
   }, []);
 
   const handleAddProduct = async () => {
@@ -39,19 +31,7 @@ function Products({ addToCart, isLoggedIn }) {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      });
-
-      if (!response.ok) {
-        throw new Error("新增商品失敗");
-      }
-
-      const savedProduct = await response.json();
+      const savedProduct = await addProduct(newProduct); // 使用新增商品服務方法
       // 將新商品加入到商品列表
       setProducts([...products, savedProduct.data]);
 
@@ -96,7 +76,10 @@ function Products({ addToCart, isLoggedIn }) {
           accept="image/*"
           onChange={handleImageUpload}
         />
-        <button onClick={handleAddProduct} disabled={!isLoggedIn}>新增商品</button>
+        {isLoggedIn && (
+          <button onClick={handleAddProduct} >新增商品</button>
+        )}
+        
       </div>
       <div className="product-list">
         <h1>商品列表</h1>
@@ -109,9 +92,11 @@ function Products({ addToCart, isLoggedIn }) {
                 <span>
                 <img src={product.imageBase64} alt={product.name} valign="middle"/> {product.name} - ${product.price}
                 </span>
-                <button onClick={() => addToCart(product)} disabled={!isLoggedIn}>
+                {isLoggedIn && (
+                  <button onClick={() => addToCart(product)} >
                   加入購物車
-                </button>
+                  </button>
+                )}
               </li>
             ))}
           </ul>

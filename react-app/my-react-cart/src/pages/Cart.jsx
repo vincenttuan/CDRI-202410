@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Cart.css";
+import { checkoutCart } from "../services/cartService";
 
 function Cart({ cartItems, removeFromCart, clearCart, isLoggedIn }) {
   const [checkoutMessage, setCheckoutMessage] = useState("");
@@ -15,20 +16,7 @@ function Cart({ cartItems, removeFromCart, clearCart, isLoggedIn }) {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/orders/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(cartItems),
-      });
-
-      if (!response.ok) {
-        throw new Error("結帳失敗");
-      }
-
-      const apiResponse = await response.json();
+      const apiResponse = await checkoutCart(cartItems); // 結帳處理服務;
       setCheckoutMessage(apiResponse.message);
       clearCart(); // 清空購物車
     } catch (error) {

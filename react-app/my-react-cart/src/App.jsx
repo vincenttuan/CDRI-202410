@@ -12,24 +12,16 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import LoginPage from "./pages/LoginPage";
 import "./App.css";
+import { checkLoginStatus, login, logout } from "./services/authService";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const checkLoginStatus = async () => {
+    const initializeLoginStatus = async () => {
       try {
-        const response = await fetch("http://localhost:8080/auth/isLoggedIn", {
-          method: "GET",
-          credentials: "include",
-        });
-
-        if (!response.ok) {
-          throw new Error("無法取得登入狀態，伺服器回應非成功狀態");
-        }
-
-        const apiResponse = await response.json();
+        const apiResponse = await checkLoginStatus(); // 使用判斷是否已登入服務方法
         setIsLoggedIn(apiResponse.data.isLoggedIn);
       } catch (error) {
         console.error("無法檢查登入狀態:", error);
@@ -37,7 +29,7 @@ function App() {
       }
     };
 
-    checkLoginStatus();
+    initializeLoginStatus();
   }, []);
 
   const addToCart = (product) => {
@@ -59,16 +51,7 @@ function App() {
 
   const handleLogin = async (username, password) => {
     try {
-      const response = await fetch("http://localhost:8080/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ username, password }),
-      });
-
-      const data = await response.json();
+      const data = await login(username, password); // 使用登入服務方法
 
       if (data.message === "登入成功") {
         setIsLoggedIn(true);
@@ -84,14 +67,10 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:8080/auth/logout", {
-        method: "GET",
-        credentials: "include", // 包含 cookies 和 session
-      });
-  
-      const apiResponse = await response.json();
+      const apiResponse = await logout(); // 使用登出服務方法
       setIsLoggedIn(false);
-      alert(apiResponse.message);
+      alert(apiResponse.data);
+      window.location.href = "/";
     } catch (error) {
       console.error("登出錯誤:", error);
     }
@@ -111,7 +90,6 @@ function App() {
       <Navbar
         cartCount={cartItems.length}
         isLoggedIn={isLoggedIn}
-        onLogin={() => (window.location.href = "/login")}
         onLogout={handleLogout}
       />
       <div className="content">

@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./Checkout.css";
+import { fetchOrderHistory } from "../services/cartService";
 
 function Checkout() {
   const [orderHistory, setOrderHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchOrderHistory = async () => {
+    const loadOrderHistory = async () => {
       try {
-        const response = await fetch("http://localhost:8080/orders", {
-          method: "GET",
-          credentials: "include", // 包含 cookies 和 session
-        });
-  
-        if (!response.ok) {
-          throw new Error("無法取得結帳紀錄");
-        }
-  
-        const apiResponse = await response.json();
+        const apiResponse = await fetchOrderHistory(); // 歷史訂單服務方法
         console.log("歷史訂單紀錄:", apiResponse);
         setOrderHistory(apiResponse.data);
       } catch (error) {
@@ -27,7 +19,7 @@ function Checkout() {
       }
     };
   
-    fetchOrderHistory();
+    loadOrderHistory ();
   }, []);
 
   return (
@@ -45,8 +37,7 @@ function Checkout() {
           {orderHistory.map((order, index) => {
             // 計算每筆訂單的總價
             const totalAmount = order.items.reduce(
-              (total, item) => total + item.product.price,
-              0
+              (total, item) => total + item.product.price, 0
             );
 
             return (
