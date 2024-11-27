@@ -8,7 +8,7 @@ package com.example.cart.aop;
  *
  * 功能：
  * - 在方法執行之前，檢查 HttpSession 中是否有 "userDTO"（用戶資訊）。
- * - 若無 "userDTO" 或會話過期，拋出 UnauthorizedException，返回未授權錯誤。
+ * - 若無 "userDTO" 或會話session過期，拋出 UnauthorizedException，返回未授權錯誤。
  *
  * AOP 設定：
  * - @Aspect：標記此類別為切面類別。
