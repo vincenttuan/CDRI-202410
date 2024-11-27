@@ -1,5 +1,10 @@
 package com.example.cart.aop;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * 自訂註解：@CheckUserSession
  *
@@ -20,6 +25,8 @@ package com.example.cart.aop;
  * - 在需要檢查用戶登入狀態的方法上標記 @CheckUserSession。
  * - 確保有對應的 AOP 切面處理此註解邏輯。
  */
-public class CheckUserSession {
+@Target(ElementType.METHOD) // 此註解僅能用於方法
+@Retention(RetentionPolicy.RUNTIME) // 此註解在系統運行時持續有效
+public @interface CheckUserSession { // @interface 自訂義註解關鍵字
 
 }
