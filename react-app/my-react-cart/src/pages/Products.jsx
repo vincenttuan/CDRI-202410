@@ -49,6 +49,7 @@ function Products({ addToCart, isLoggedIn }) {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
+        console.log(reader.result);
         setNewProductImageBase64(reader.result);
       };
       reader.readAsDataURL(file);
