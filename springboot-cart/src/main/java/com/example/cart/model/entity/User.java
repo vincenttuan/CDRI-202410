@@ -37,6 +37,14 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Order> orders;
 	
+	// 建立用戶可以關注商品的多對多關係
+	@ManyToMany
+	@JoinTable(
+			name = "user_product", // 關聯表名稱
+			joinColumns = @JoinColumn(name = "user_id"), // 用戶外鍵
+			inverseJoinColumns = @JoinColumn(name = "product_id") // 商品外鍵
+	)
+	private Set<Product> favoriteProducts;
 }
 
 
