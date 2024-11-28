@@ -63,8 +63,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<FavoriteProductDTO> getFavoriteProducts(Long userId) {
 		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("用戶不存在"));
-		
-		return null;
+		// 該用戶關注的商品集合
+		Set<Product> products = user.getFavoriteProducts();
+		// 將 products 集合中每一個 Product 元素轉 FavoriteProductDTO
+		return products.stream()
+						.map(product -> modelMapper.map(product, FavoriteProductDTO.class)) // 元素轉換
+						.toList();
 	}
 	
 	// 商品關注列表(商品被那些用戶關注)
