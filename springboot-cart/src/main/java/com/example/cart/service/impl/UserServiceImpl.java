@@ -74,8 +74,13 @@ public class UserServiceImpl implements UserService {
 	// 商品關注列表(商品被那些用戶關注)
 	@Override
 	public List<FavoriteUserDTO> getFavoriteUsers(Long productId) {
-		// TODO Auto-generated method stub
-		return null;
+		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException("商品不存在"));
+		// 該商品被那些用戶所關注的集合
+		Set<User> users = product.getFavoriteUsers();
+		// 將 users 集合中每一個 User 元素轉 FavoriteUserDTO
+		return users.stream()
+					.map(user -> modelMapper.map(user, FavoriteUserDTO.class))
+					.toList();
 	}
 	
 	// 新增商品關注
