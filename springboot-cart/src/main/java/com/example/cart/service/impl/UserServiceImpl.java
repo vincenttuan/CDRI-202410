@@ -58,25 +58,29 @@ public class UserServiceImpl implements UserService {
 		
 		return Optional.of(modelMapper.map(user, UserDTO.class));
 	}
-
+	
+	// 用戶關注列表(用戶關注那些商品)
 	@Override
 	public List<FavoriteProductDTO> getFavoriteProducts(Long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	// 商品關注列表(商品被那些用戶關注)
 	@Override
 	public List<FavoriteUserDTO> getFavoriteUsers(Long productId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	// 新增商品關注
 	@Override
 	public void addFavoriteProduct(Long userId, Long productId) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	// 移除商品關注
 	@Override
 	public void removeFavoriteProduct(Long userId, Long productId) {
 		// TODO Auto-generated method stub
