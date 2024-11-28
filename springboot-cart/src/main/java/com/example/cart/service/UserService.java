@@ -20,5 +20,10 @@ public interface UserService {
 	// 商品關注列表(商品被那些用戶關注)
 	public List<FavoriteUserDTO> getFavoriteUsers(Long productId);
 	
+	// 新增商品關注
+	public void addFavoriteProduct(Long userId, Long productId);
+	
+	// 移除商品關注
+	public void removeFavoriteProduct(Long userId, Long productId);
 	
 }
