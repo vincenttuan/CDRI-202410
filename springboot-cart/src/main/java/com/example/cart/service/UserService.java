@@ -7,7 +7,6 @@ import com.example.cart.model.dto.FavoriteProductDTO;
 import com.example.cart.model.dto.FavoriteUserDTO;
 import com.example.cart.model.dto.LoginDTO;
 import com.example.cart.model.dto.UserDTO;
-import com.example.cart.model.entity.Product;
 
 public interface UserService {
 	Optional<UserDTO> findByUsername(String username);
