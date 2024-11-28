@@ -10,16 +10,19 @@ import com.example.cart.response.ApiResponse;
 @ControllerAdvice // 可以用來處理全域的例外
 public class GlobalExceptionHandler {
 	
-	@ExceptionHandler({UnauthorizedException.class, ProductNotFoundException.class})
+	@ExceptionHandler({UnauthorizedException.class, ProductNotFoundException.class, UserNotFoundException.class})
 	public ResponseEntity<ApiResponse<String>> handleUnauthorizedException(Exception ex) {
 		String message;
 	    HttpStatus status;
 
 	    if (ex instanceof UnauthorizedException) {
-	        message = "未登入或登入失敗";
+	        message = ex.getMessage().isEmpty() ? "未登入或登入失敗" : ex.getMessage();
 	        status = HttpStatus.FORBIDDEN;
 	    } else if (ex instanceof ProductNotFoundException) {
-	        message = "商品不存在";
+	        message = ex.getMessage().isEmpty() ? "商品不存在" : ex.getMessage();
+	        status = HttpStatus.NOT_FOUND;
+	    } else if (ex instanceof UserNotFoundException) {
+	        message = ex.getMessage().isEmpty() ? "用戶不存在" : ex.getMessage();
 	        status = HttpStatus.NOT_FOUND;
 	    } else {
 	        message = ex.getMessage();
