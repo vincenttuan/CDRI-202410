@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
 	// 用戶關注列表(用戶關注那些商品)
 	@Override
 	public List<FavoriteProductDTO> getFavoriteProducts(Long userId) {
-		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("用戶不存在"));
+		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException());
 		// 該用戶關注的商品集合
 		Set<Product> products = user.getFavoriteProducts();
 		// 將 products 集合中每一個 Product 元素轉 FavoriteProductDTO
@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
 	// 商品關注列表(商品被那些用戶關注)
 	@Override
 	public List<FavoriteUserDTO> getFavoriteUsers(Long productId) {
-		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException("商品不存在"));
+		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException());
 		// 該商品被那些用戶所關注的集合
 		Set<User> users = product.getFavoriteUsers();
 		// 將 users 集合中每一個 User 元素轉 FavoriteUserDTO
@@ -86,8 +86,8 @@ public class UserServiceImpl implements UserService {
 	// 新增商品關注
 	@Override
 	public void addFavoriteProduct(Long userId, Long productId) {
-		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("用戶不存在"));
-		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException("商品不存在"));
+		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException());
+		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException());
 		// 將商品加入到用戶關注清單
 		user.getFavoriteProducts().add(product);
 		// 保存關係
@@ -97,8 +97,8 @@ public class UserServiceImpl implements UserService {
 	// 移除商品關注
 	@Override
 	public void removeFavoriteProduct(Long userId, Long productId) {
-		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("用戶不存在"));
-		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException("商品不存在"));
+		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException());
+		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException());
 		// 將商品從用戶關注清單中移除
 		user.getFavoriteProducts().remove(product);
 		// 保存關係
