@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 		// 原因: 當使用 AOP 會多包一層 UndeclaredThrowableException 例外, 
 		// 導致原始例外(例如: UnauthorizedException)無法直接被捕獲
 		// 所以當利用 handleException(Exception ex) 來捕獲時需要透過下方程式碼進行轉換
-		// 若使用 handleException(UndeclaredThrowableException ex) 則不需要以下轉換 <-- 專門針對某例外
+		// 若使用 handleException(UnauthorizedException ex) 則不需要以下轉換 <-- 專門針對某例外(會自動拆解找到指定例外包)
 		if (ex instanceof UndeclaredThrowableException) {
 	        actualException = ((UndeclaredThrowableException) ex).getUndeclaredThrowable();
 	    }
