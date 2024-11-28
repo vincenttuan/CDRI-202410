@@ -22,13 +22,17 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	// Locale 在 Spring 中或預設會參考瀏覽器的 Accept-Language Header 來判斷
 	// 範例: accept-language header: zh-CN, zh-TW; q = ...
-	public ResponseEntity<ApiResponse<String>> handleUnauthorizedException(Exception ex, Locale locale) {
+	public ResponseEntity<ApiResponse<String>> handleException(Exception ex, Locale locale) {
 		//ex.printStackTrace();
 		
 		Throwable actualException = ex;
 
 	    // 解包 UndeclaredThrowableException
-	    if (ex instanceof UndeclaredThrowableException) {
+		// 原因: 當使用 AOP 會多包一層 UndeclaredThrowableException 例外, 
+		// 導致原始例外(例如: UnauthorizedException)無法直接被捕獲
+		// 所以當利用 handleException(Exception ex) 來捕獲時需要透過下方程式碼進行轉換
+		// 若使用 handleException(UndeclaredThrowableException ex) 則不需要以下轉換 <-- 專門針對某例外
+		if (ex instanceof UndeclaredThrowableException) {
 	        actualException = ((UndeclaredThrowableException) ex).getUndeclaredThrowable();
 	    }
 	    
