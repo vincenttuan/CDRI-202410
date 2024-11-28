@@ -38,6 +38,8 @@ public class Product {
     @JoinColumn(name = "product_image_id")
     private ProductImage productImage;
 	
+    @ManyToMany(mappedBy = "favoriteProducts")
+    private Set<User> favoriteUsers;
 }
 
 
