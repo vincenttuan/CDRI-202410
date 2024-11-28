@@ -77,7 +77,6 @@ public class UserServiceImpl implements UserService {
 		Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException());
 		// 該商品被那些用戶所關注的集合
 		Set<User> users = product.getFavoriteUsers();
-		System.out.println(users.size());
 		// 將 users 集合中每一個 User 元素轉 FavoriteUserDTO
 		return users.stream()
 					.map(user -> modelMapper.map(user, FavoriteUserDTO.class))
