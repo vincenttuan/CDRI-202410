@@ -18,6 +18,8 @@ public class GlobalExceptionHandler {
 	private MessageSource messageSource;
 	
 	@ExceptionHandler({UnauthorizedException.class, ProductNotFoundException.class, UserNotFoundException.class})
+	// Locale 在 Spring 中或預設會參考瀏覽器的 Accept-Language Header 來判斷
+	// 範例: accept-language header: zh-CN, zh-TW; q = ...
 	public ResponseEntity<ApiResponse<String>> handleUnauthorizedException(Exception ex, Locale locale) {
 		String message;
 	    HttpStatus status;
