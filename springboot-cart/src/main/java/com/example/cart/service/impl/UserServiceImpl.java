@@ -1,14 +1,20 @@
 package com.example.cart.service.impl;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.cart.exception.ProductNotFoundException;
+import com.example.cart.exception.UserNotFoundException;
 import com.example.cart.model.dto.LoginDTO;
 import com.example.cart.model.dto.UserDTO;
+import com.example.cart.model.entity.Product;
 import com.example.cart.model.entity.User;
+import com.example.cart.repository.ProductRepository;
 import com.example.cart.repository.UserRepository;
 import com.example.cart.service.UserService;
 
@@ -17,6 +23,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -47,5 +56,6 @@ public class UserServiceImpl implements UserService {
 		
 		return Optional.of(modelMapper.map(user, UserDTO.class));
 	}
+	
 	
 }

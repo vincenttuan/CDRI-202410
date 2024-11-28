@@ -89,3 +89,27 @@
     border-radius: 4px;
   } 
   
+  /* 關注按鈕 */
+.favorite-button {
+  padding: 8px 12px;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.favorite-button.follow {
+  background-color: #28a745; /* 綠色 */
+}
+
+.favorite-button.follow:hover {
+  background-color: #218838;
+}
+
+.favorite-button.unfollow {
+  background-color: #dc3545; /* 紅色 */
+}
+
+.favorite-button.unfollow:hover {
+  background-color: #c82333;
+}

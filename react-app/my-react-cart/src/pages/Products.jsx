@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
 import { fetchProducts, addProduct } from "../services/productService";
+import { addFavorite, removeFavorite, fetchFavorites } from "../services/favoriteService";
 
 function Products({ addToCart, isLoggedIn }) {
   const [products, setProducts] = useState([]);
   const [newProductName, setNewProductName] = useState("");
   const [newProductPrice, setNewProductPrice] = useState("");
   const [newProductImageBase64, setNewProductImageBase64] = useState("");
+  const [favorites, setFavorites] = useState(new Set()); // 用 Set 儲存關注的商品 ID
 
   // 使用 useEffect 從 REST API 獲取商品資料
   useEffect(() => {
@@ -14,6 +16,12 @@ function Products({ addToCart, isLoggedIn }) {
       try {
         const apiResponse = await fetchProducts(); // 使用查詢所有商品服務方法
         setProducts(apiResponse.data);
+        // 使用者的關注清單
+        if (isLoggedIn) {
+          const favoritesResponse = await fetchFavorites(); // 查詢使用者的關注清單
+          const favoriteIds = new Set(favoritesResponse.data.map((fav) => fav.id));
+          setFavorites(favoriteIds);
+        }
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -52,7 +60,28 @@ function Products({ addToCart, isLoggedIn }) {
         console.log(reader.result);
         setNewProductImageBase64(reader.result);
       };
-      reader.readAsDataURL(file);
+      // readAsDataURL 方法會將指定的檔案讀取為Data URL 格式，也就是 Base64 編碼形式的字串
+      // 執行 reader.readAsDataURL(file) 後，當檔案讀取操作完成時，FileReader 物件的 onloadend 事件會被觸發。 
+      reader.readAsDataURL(file); 
+    }
+  };
+
+  // 處理關注
+  const handleFavoriteToggle = async (productId) => {
+    try {
+      if (favorites.has(productId)) {
+        await removeFavorite(productId); // 執行移除關注
+        const updatedFavorites = new Set(favorites);
+        updatedFavorites.delete(productId);
+        setFavorites(updatedFavorites);
+      } else {
+        await addFavorite(productId); // 執行關注
+        const updatedFavorites = new Set(favorites);
+        updatedFavorites.add(productId);
+        setFavorites(updatedFavorites);
+      }
+    } catch (error) {
+      console.error("Error toggling favorite:", error);
     }
   };
 
@@ -94,9 +123,18 @@ function Products({ addToCart, isLoggedIn }) {
                 <img src={product.imageBase64} alt={product.name} valign="middle"/> {product.name} - ${product.price}
                 </span>
                 {isLoggedIn && (
+                  <>
                   <button onClick={() => addToCart(product)} >
-                  加入購物車
+                    加入購物車
                   </button>
+                  &nbsp;&nbsp;
+                  <button
+                    className={`favorite-button ${favorites.has(product.id) ? "unfollow" : "follow"}`}
+                    onClick={() => handleFavoriteToggle(product.id)}
+                  >
+                    {favorites.has(product.id) ? "移除關注" : "加入關注"}
+                  </button>
+                  </>
                 )}
               </li>
             ))}
