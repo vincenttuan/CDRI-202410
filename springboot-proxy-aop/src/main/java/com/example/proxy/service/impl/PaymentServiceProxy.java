@@ -18,6 +18,7 @@ public class PaymentServiceProxy implements PaymentService {
 	private PaymentService paymentService;
 	
 	// 只有一個建構子，Spring 會自動注入 paymentService
+	// @Qualifier 可以指明是哪一個實現類
 	public PaymentServiceProxy(@Qualifier("paymentServiceImpl") PaymentService paymentService) {
 		this.paymentService = paymentService;
 	}
