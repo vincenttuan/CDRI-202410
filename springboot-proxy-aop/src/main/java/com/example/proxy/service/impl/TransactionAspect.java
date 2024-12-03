@@ -43,7 +43,7 @@ public class TransactionAspect {
 	public void checkAmount(int amount) {
 		System.out.printf("Before amount = %d%n", amount);
 		if(amount <= 0) {
-			System.err.println("支付失敗: 金額必須大於零!");
+			System.err.println("失敗: 金額必須大於零!");
 			throw new IllegalArgumentException("支付失敗: 金額必須大於零!");
 		}
 	}
