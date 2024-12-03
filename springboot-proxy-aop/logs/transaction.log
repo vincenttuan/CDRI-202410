@@ -1,0 +1,7 @@
+2024-12-03 12:18:00 - Starting TestTransactionService using Java 21.0.4 with PID 916 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-03 12:18:00 - No active profile set, falling back to 1 default profile: "default"
+2024-12-03 12:18:00 - Started TestTransactionService in 0.628 seconds (process running for 1.164)
+2024-12-03 12:18:00 - Before amount = 100
+2024-12-03 12:18:00 - After pay ...
+2024-12-03 12:18:00 - 支付 100 元
+2024-12-03 12:18:00 - Before amount = -50
