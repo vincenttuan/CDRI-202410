@@ -16,7 +16,7 @@ public class TestPaymentService {
 	
 	@Test
 	public void test() {
-		// 透過代理物件來調用業務方法
+		// 透過手動代理物件來調用業務方法
 		/*
 		PaymentServiceProxy proxy = new PaymentServiceProxy(paymentService);
 		proxy.pay(100);
@@ -25,6 +25,8 @@ public class TestPaymentService {
 		proxy.refund(200);
 		proxy.refund(-30);
 		*/
+		
+		// 自動使用代理程式
 		paymentService.pay(100);
 		paymentService.pay(-50);
 		
