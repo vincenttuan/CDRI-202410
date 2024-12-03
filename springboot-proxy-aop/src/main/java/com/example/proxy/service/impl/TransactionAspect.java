@@ -1,5 +1,7 @@
 package com.example.proxy.service.impl;
 
+import java.util.Arrays;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -29,7 +31,9 @@ public class TransactionAspect {
 	//@Before(value = "pay() || refund()")
 	@Before(value = "allMethods()")
 	public void checkAmount(JoinPoint joinPoint) {
-		System.out.println("Before ...");
+		String methodName = joinPoint.getSignature().getName(); // 方法名稱
+		Object[] args = joinPoint.getArgs(); // 方法參數
+		System.out.printf("Before %s %s%n", methodName, Arrays.toString(args));
 	}
 	
 	@AfterReturning(value = "pay()")
