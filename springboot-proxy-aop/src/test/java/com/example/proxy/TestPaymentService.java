@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.proxy.service.PaymentService;
+import com.example.proxy.service.impl.PaymentServiceProxy;
 
 @SpringBootTest
 public class TestPaymentService {
@@ -14,11 +15,14 @@ public class TestPaymentService {
 	
 	@Test
 	public void test() {
-		paymentService.pay(100);
-		paymentService.pay(-60);
 		
-		paymentService.refund(200);
-		paymentService.refund(-30);
+		PaymentServiceProxy proxy = new PaymentServiceProxy(paymentService);
+		proxy.pay(100);
+		proxy.pay(-50);
+		
+		proxy.refund(200);
+		proxy.refund(-30);
+		
 	}
 	
 }
