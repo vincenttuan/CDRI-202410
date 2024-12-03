@@ -20,6 +20,12 @@ public class TransactionAspect {
 	@Pointcut(value = "execution(* com.example.proxy.service.TransactionService.*(..))")
 	public void allMethods() {};
 	
+	@Pointcut(value = "execution(* com.example.proxy.service.*.*(..))")
+	public void allClasses() {};
+	
+	@Pointcut(value = "execution(* *.*(..))")
+	public void all() {};
+	
 	//@Before(value = "pay() || refund()")
 	@Before(value = "allMethods()")
 	public void checkAmount(JoinPoint joinPoint) {
