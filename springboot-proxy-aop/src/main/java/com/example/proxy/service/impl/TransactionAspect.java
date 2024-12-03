@@ -43,7 +43,6 @@ public class TransactionAspect {
 	}
 	
 	
-	
 	@AfterReturning(value = "pay()")
 	public void logPay(JoinPoint joinPoint) {
 		System.out.println("After pay ...");
