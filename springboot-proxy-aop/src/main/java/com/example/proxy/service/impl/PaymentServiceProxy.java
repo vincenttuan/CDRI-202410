@@ -3,13 +3,18 @@ package com.example.proxy.service.impl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.proxy.service.PaymentService;
 
 // PaymentService 代理程式
+@Service
 public class PaymentServiceProxy implements PaymentService {
 	
 	private PaymentService paymentService;
 	
+	@Autowired
 	public PaymentServiceProxy(PaymentService paymentService) {
 		this.paymentService = paymentService;
 	}
