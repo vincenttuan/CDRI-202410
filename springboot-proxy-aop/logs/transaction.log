@@ -5,3 +5,18 @@
 2024-12-03 12:18:00 - After pay ...
 2024-12-03 12:18:00 - 支付 100 元
 2024-12-03 12:18:00 - Before amount = -50
+2024-12-03 12:20:02 - Starting TestTransactionService using Java 21.0.4 with PID 11072 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-03 12:20:02 - No active profile set, falling back to 1 default profile: "default"
+2024-12-03 12:20:02 - Started TestTransactionService in 0.584 seconds (process running for 1.096)
+2024-12-03 12:20:03 - Before amount = 100
+2024-12-03 12:20:03 - After pay ...
+2024-12-03 12:20:03 - 支付 100 元
+2024-12-03 12:20:03 - Before amount = 50
+2024-12-03 12:20:03 - After pay ...
+2024-12-03 12:20:03 - 支付 50 元
+2024-12-03 12:20:03 - Before amount = 200
+2024-12-03 12:20:03 - After refund ...
+2024-12-03 12:20:03 - 退款 200 元
+2024-12-03 12:20:03 - Before amount = 30
+2024-12-03 12:20:03 - After refund ...
+2024-12-03 12:20:03 - 退款 30 元

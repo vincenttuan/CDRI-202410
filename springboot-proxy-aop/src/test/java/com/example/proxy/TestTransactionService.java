@@ -17,10 +17,10 @@ public class TestTransactionService {
 	@Test
 	public void test() {
 		transactionService.pay(100);
-		transactionService.pay(-50);
+		transactionService.pay(50);
 		
 		transactionService.refund(200);
-		transactionService.refund(-30);
+		transactionService.refund(30);
 		
 	}
 	
