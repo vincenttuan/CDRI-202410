@@ -29,12 +29,20 @@ public class TransactionAspect {
 	public void all() {};
 	
 	//@Before(value = "pay() || refund()")
+	/*
 	@Before(value = "allMethods()")
 	public void checkAmount(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		Object[] args = joinPoint.getArgs(); // 方法參數
 		System.out.printf("Before %s %s%n", methodName, Arrays.toString(args));
 	}
+	*/
+	@Before(value = "allMethods() && args(amount)")
+	public void checkAmount(int amount) {
+		System.out.printf("Before amount = %d%n", amount);
+	}
+	
+	
 	
 	@AfterReturning(value = "pay()")
 	public void logPay(JoinPoint joinPoint) {
