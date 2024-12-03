@@ -1,6 +1,8 @@
 package com.example.proxy.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -41,19 +43,23 @@ public class TransactionAspect {
 	public void checkAmount(int amount) {
 		System.out.printf("Before amount = %d%n", amount);
 		if(amount <= 0) {
+			System.err.println("支付失敗: 金額必須大於零!");
 			throw new IllegalArgumentException("支付失敗: 金額必須大於零!");
 		}
 	}
 	
-	
-	@AfterReturning(value = "pay()")
-	public void logPay(JoinPoint joinPoint) {
+	@AfterReturning(value = "pay() && args(amount)")
+	public void logPay(int amount) {
 		System.out.println("After pay ...");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println("支付 " + amount + " 元 " + sdf.format(new Date()));
 	}
 	
-	@AfterReturning(value = "refund()")
-	public void logRefund(JoinPoint joinPoint) {
+	@AfterReturning(value = "refund() && args(amount)")
+	public void logRefund(int amount) {
 		System.out.println("After refund ...");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println("退款 " + amount + " 元 " + sdf.format(new Date()));
 	}
 	
 }
