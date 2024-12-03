@@ -22,7 +22,7 @@ public class PaymentServiceProxy implements PaymentService {
 			return;
 		}
 		
-		// 執行實際支付業務
+		// 代理執行實際支付業務
 		paymentService.pay(amount); 
 		
 		// After 執行業務邏輯之後:添加日誌 (公用邏輯)
@@ -38,7 +38,7 @@ public class PaymentServiceProxy implements PaymentService {
 			return;
 		}
 		
-		// 執行實際退款業務
+		// 代理執行實際退款業務
 		paymentService.refund(amount);
 		
 		// After 執行業務邏輯之後:添加日誌 (公用邏輯)
