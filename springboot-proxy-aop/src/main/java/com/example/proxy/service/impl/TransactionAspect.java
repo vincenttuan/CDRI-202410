@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class TransactionAspect {
 	
-	@Before("execution(* com.example.proxy.service.Transaction.pay(..))")
+	@Before("execution(* com.example.proxy.service.TransactionService.pay(..))")
 	public void checkAmount(JoinPoint joinPoint) {
 		System.out.println("Before pay ...");
 	}
 	
-	@AfterReturning("execution(* com.example.proxy.service.Transaction.pay(..))")
+	@AfterReturning("execution(* com.example.proxy.service.TransactionService.pay(..))")
 	public void logPay(JoinPoint joinPoint) {
 		System.out.println("After pay ...");
 	}
