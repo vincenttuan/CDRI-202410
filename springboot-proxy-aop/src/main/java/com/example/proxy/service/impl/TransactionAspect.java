@@ -40,6 +40,9 @@ public class TransactionAspect {
 	@Before(value = "allMethods() && args(amount)")
 	public void checkAmount(int amount) {
 		System.out.printf("Before amount = %d%n", amount);
+		if(amount <= 0) {
+			throw new IllegalArgumentException("支付失敗: 金額必須大於零!");
+		}
 	}
 	
 	
