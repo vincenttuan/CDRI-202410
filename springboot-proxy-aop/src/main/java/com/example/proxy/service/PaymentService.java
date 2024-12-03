@@ -1,6 +1,6 @@
 package com.example.proxy.service;
 
 public interface PaymentService {
-	Boolean pay(int amount); // 付款
-	Boolean refund(int amount); // 退款
+	void pay(int amount); // 付款
+	void refund(int amount); // 退款
 }
