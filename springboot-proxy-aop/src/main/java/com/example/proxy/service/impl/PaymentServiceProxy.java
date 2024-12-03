@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,8 @@ public class PaymentServiceProxy implements PaymentService {
 	
 	private PaymentService paymentService;
 	
-	public PaymentServiceProxy(PaymentService paymentService) {
+	// 只有一個建構子，Spring 會自動注入 paymentService
+	public PaymentServiceProxy(@Qualifier("paymentServiceImpl") PaymentService paymentService) {
 		this.paymentService = paymentService;
 	}
 	
