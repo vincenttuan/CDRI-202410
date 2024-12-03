@@ -20,3 +20,33 @@
 2024-12-03 12:20:03 - Before amount = 30
 2024-12-03 12:20:03 - After refund ...
 2024-12-03 12:20:03 - 退款 30 元
+2024-12-03 12:22:37 - [c.e.proxy.TestTransactionService] - Starting TestTransactionService using Java 21.0.4 with PID 9916 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-03 12:22:37 - [c.e.proxy.TestTransactionService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-03 12:22:37 - [c.e.proxy.TestTransactionService] - Started TestTransactionService in 0.598 seconds (process running for 1.114)
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - Before amount = 100
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - After pay ...
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - 支付 100 元
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - Before amount = 50
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - After pay ...
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - 支付 50 元
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - Before amount = 200
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - After refund ...
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - 退款 200 元
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - Before amount = 30
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - After refund ...
+2024-12-03 12:22:38 - [c.e.p.service.impl.TransactionAspect] - 退款 30 元
+2024-12-03 12:24:20 - [c.e.p.TestTransactionService] - Starting TestTransactionService using Java 21.0.4 with PID 2020 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-03 12:24:20 - [c.e.p.TestTransactionService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-03 12:24:21 - [c.e.p.TestTransactionService] - Started TestTransactionService in 0.59 seconds (process running for 1.102)
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - Before amount = 100
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - After pay ...
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - 支付 100 元
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - Before amount = 50
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - After pay ...
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - 支付 50 元
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - Before amount = 200
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - After refund ...
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - 退款 200 元
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - Before amount = 30
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - After refund ...
+2024-12-03 12:24:21 - [c.e.p.s.i.TransactionAspect] - 退款 30 元
