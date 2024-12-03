@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.example.proxy.service.PaymentService;
 
-
+// PaymentService 代理程式
 public class PaymentServiceProxy implements PaymentService {
 	
 	private PaymentService paymentService;
