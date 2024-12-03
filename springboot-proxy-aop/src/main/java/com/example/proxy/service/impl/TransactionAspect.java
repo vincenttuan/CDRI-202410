@@ -56,16 +56,20 @@ public class TransactionAspect {
 	
 	@AfterReturning(value = "pay() && args(amount)")
 	public void logPay(int amount) {
-		System.out.println("After pay ...");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		System.out.println("支付 " + amount + " 元 " + sdf.format(new Date()));
+		//System.out.println("After pay ...");
+		logger.info("After pay ...");
+		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//System.out.println("支付 " + amount + " 元 " + sdf.format(new Date()));
+		logger.info("支付 {} 元", amount);
 	}
 	
 	@AfterReturning(value = "refund() && args(amount)")
 	public void logRefund(int amount) {
-		System.out.println("After refund ...");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		System.out.println("退款 " + amount + " 元 " + sdf.format(new Date()));
+		//System.out.println("After refund ...");
+		logger.info("After refund ...");
+		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//System.out.println("退款 " + amount + " 元 " + sdf.format(new Date()));
+		logger.info("退款 {} 元", amount);
 	}
 	
 }
