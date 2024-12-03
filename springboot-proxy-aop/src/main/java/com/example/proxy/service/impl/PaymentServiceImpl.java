@@ -1,7 +1,10 @@
 package com.example.proxy.service.impl;
 
+import org.springframework.stereotype.Service;
+
 import com.example.proxy.service.PaymentService;
 
+@Service
 public class PaymentServiceImpl implements PaymentService {
 
 	@Override
