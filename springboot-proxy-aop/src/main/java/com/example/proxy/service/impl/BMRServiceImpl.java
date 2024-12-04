@@ -12,9 +12,13 @@ import com.example.proxy.service.BMRService;
 public class BMRServiceImpl implements BMRService {
 
 	@Override
-	public Double getBMR(Double h, Double w, Integer age) {
-		
-		return null;
+	public Double getBMR(Double h, Double w, Integer age, String gender) {
+		// Java 12 新型 switch
+		return switch (gender.toLowerCase()) {
+			case "male", "m" -> 88.362+(13.397*w)+(4.799*h)-(5.677*age);
+			case "female", "f" -> 447.593+(9.247*w)+(3.098*h)-(4.330*age);
+			default -> throw new IllegalArgumentException("資料錯誤");
+		};
 	}
 
 }
