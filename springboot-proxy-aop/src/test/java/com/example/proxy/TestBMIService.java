@@ -14,9 +14,14 @@ public class TestBMIService {
 	
 	@Test
 	public void test() {
-		Double h = null;
+		Double h = 170.0;
 		Double w = 60.0;
 		Double bmi = bmiService.getBMI(h, w);
 		System.out.printf("bmi = %.2f%n", bmi);
+		
+		Double h2 = null;
+		Double w2 = 60.0;
+		Double bmi2 = bmiService.getBMI(h2, w2);
+		System.out.printf("bmi = %.2f%n", bmi2);
 	}
 }
