@@ -16,12 +16,12 @@ public class BMIServiceAspect {
 	private static final Logger logger = LoggerFactory.getLogger(BMIServiceAspect.class);
 		
 	// 定義切點
-	@Pointcut("execution(* com.example.proxy.service.BMIService.*(..)) && args(h, w)")
+	@Pointcut("execution(* com.example.proxy.service.BMIService.*(..))")
 	public void pt() {}
 
 	// BMI 調用紀錄
 	// 前置通知
-	@Before(value = "pt()")
+	@Before(value = "pt() && args(h, w)")
 	public void before(Double h, Double w) {
 		System.out.println("BMIServiceAspect: 前置通知");
 		logger.info("h={}, w={}", h, w);
