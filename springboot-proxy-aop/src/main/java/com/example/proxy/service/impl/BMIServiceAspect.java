@@ -26,6 +26,10 @@ public class BMIServiceAspect {
 	public void before(Double h, Double w) {
 		System.out.println("BMIServiceAspect: 前置通知");
 		logger.info("h={}, w={}", h, w);
+		if(h == null || w == null) {
+			throw new IllegalArgumentException("身高體重不合法");
+		}
+		
 	}
 	
 	// 取得 BMI 計算結果並記錄
