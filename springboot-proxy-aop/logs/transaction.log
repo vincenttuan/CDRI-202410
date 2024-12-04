@@ -13,3 +13,22 @@
 2024-12-04 10:11:58 - [c.e.p.TestBMIService] - Starting TestBMIService using Java 21.0.4 with PID 6804 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
 2024-12-04 10:11:58 - [c.e.p.TestBMIService] - No active profile set, falling back to 1 default profile: "default"
 2024-12-04 10:11:58 - [c.e.p.TestBMIService] - Started TestBMIService in 0.599 seconds (process running for 1.117)
+2024-12-04 10:13:08 - [c.e.p.TestBMIService] - Starting TestBMIService using Java 21.0.4 with PID 11684 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-04 10:13:08 - [c.e.p.TestBMIService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-04 10:13:09 - [c.e.p.TestBMIService] - Started TestBMIService in 0.62 seconds (process running for 1.15)
+2024-12-04 10:13:09 - [c.e.p.s.i.BMIServiceAspect] - h=170.0, w=60.0
+2024-12-04 10:13:26 - [c.e.p.TestBMIService] - Starting TestBMIService using Java 21.0.4 with PID 4736 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-04 10:13:26 - [c.e.p.TestBMIService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-04 10:13:26 - [c.e.p.TestBMIService] - Started TestBMIService in 0.627 seconds (process running for 1.15)
+2024-12-04 10:13:35 - [c.e.p.TestBMIService] - Starting TestBMIService using Java 21.0.4 with PID 12108 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-04 10:13:35 - [c.e.p.TestBMIService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-04 10:13:36 - [c.e.p.TestBMIService] - Started TestBMIService in 0.592 seconds (process running for 1.114)
+2024-12-04 10:13:45 - [c.e.p.TestBMIService] - Starting TestBMIService using Java 21.0.4 with PID 11536 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-04 10:13:45 - [c.e.p.TestBMIService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-04 10:13:45 - [c.e.p.TestBMIService] - Started TestBMIService in 0.611 seconds (process running for 1.134)
+2024-12-04 10:13:46 - [c.e.p.s.i.BMIServiceAspect] - h=170.0, w=60.0
+2024-12-04 10:16:42 - [c.e.p.TestBMIService] - Starting TestBMIService using Java 21.0.4 with PID 12160 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-04 10:16:42 - [c.e.p.TestBMIService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-04 10:16:42 - [c.e.p.TestBMIService] - Started TestBMIService in 0.599 seconds (process running for 1.123)
+2024-12-04 10:16:42 - [c.e.p.s.i.BMIServiceAspect] - h=170.0, w=60.0
+2024-12-04 10:16:42 - [c.e.p.s.i.BMIServiceAspect] - bmi=20.761245674740486

@@ -1,6 +1,7 @@
 package com.example.proxy.service.impl;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -26,5 +27,14 @@ public class BMIServiceAspect {
 		System.out.println("BMIServiceAspect: 前置通知");
 		logger.info("h={}, w={}", h, w);
 	}
+	
+	// 取得 BMI 計算結果並記錄
+	// 返回通知
+	@AfterReturning(value = "pt()", returning = "result")
+	public void afterReturning(Object result) {
+		System.out.println("BMIServiceAspect: 返回通知");
+		logger.info("bmi={}", result);
+	}
+	
 	
 }
