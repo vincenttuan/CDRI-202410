@@ -2,6 +2,7 @@ package com.example.proxy.service.impl;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -20,7 +21,7 @@ public class BMIServiceAspect {
 	@Pointcut("execution(* com.example.proxy.service.BMIService.*(..))")
 	public void pt() {}
 
-	// BMI Log紀錄 + 檢核參數
+	// BMI log 紀錄 + 檢核參數
 	// 前置通知
 	@Before(value = "pt() && args(h, w)")
 	public void before(Double h, Double w) {
@@ -32,12 +33,19 @@ public class BMIServiceAspect {
 		
 	}
 	
-	// 取得 BMI 計算結果並記錄
+	// 取得 BMI 計算結果 + log 記錄
 	// 返回通知
 	@AfterReturning(value = "pt()", returning = "result")
 	public void afterReturning(Object result) {
 		System.out.println("BMIServiceAspect: 返回通知");
 		logger.info("bmi={}", result);
+	}
+	
+	// 方法在執行時本身就發生例外 + log 紀錄
+	// 例外通知
+	@AfterThrowing(value = "pt()", throwing = "ex")
+	public void afterThrowing(Exception ex) {
+		logger.info("ex={}", ex);
 	}
 	
 	
