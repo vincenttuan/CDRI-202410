@@ -13,7 +13,7 @@ public class BMRServiceImpl implements BMRService {
 
 	@Override
 	public Double getBMR(Double h, Double w, Integer age) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
