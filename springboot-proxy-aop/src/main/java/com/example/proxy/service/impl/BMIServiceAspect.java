@@ -20,7 +20,7 @@ public class BMIServiceAspect {
 	@Pointcut("execution(* com.example.proxy.service.BMIService.*(..))")
 	public void pt() {}
 
-	// BMI 調用紀錄
+	// BMI Log紀錄 + 檢核參數
 	// 前置通知
 	@Before(value = "pt() && args(h, w)")
 	public void before(Double h, Double w) {
