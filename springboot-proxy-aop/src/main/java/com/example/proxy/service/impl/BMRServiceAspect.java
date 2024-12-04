@@ -22,7 +22,7 @@ public class BMRServiceAspect {
 	
 	@Around(value = "pt()")
 	public Object logAround(ProceedingJoinPoint joinPoint) {
-		// -- 相當於 @Begin 前置通知 ------------------------------------------
+		// -- 相當於 @Begin 前置通知 ------------------------------
 		System.out.println("BMRServiceAspect: 環繞通知");
 		Object[] args = joinPoint.getArgs();
 		System.out.println(Arrays.toString(args));
