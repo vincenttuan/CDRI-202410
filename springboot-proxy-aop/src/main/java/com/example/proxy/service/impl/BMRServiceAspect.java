@@ -1,5 +1,7 @@
 package com.example.proxy.service.impl;
 
+import java.util.Arrays;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -21,6 +23,12 @@ public class BMRServiceAspect {
 	@Around(value = "pt()")
 	public Object logAround(ProceedingJoinPoint joinPoint) {
 		System.out.println("BMRServiceAspect: 環繞通知");
+		Object[] args = joinPoint.getArgs();
+		System.out.println(Arrays.toString(args));
+		// 若年齡沒資料返回 0.0
+		if (args[2] == null) {
+			return Double.valueOf("0.0");
+		}
 		Object result = null;
 		// 執行原方法
 		try {

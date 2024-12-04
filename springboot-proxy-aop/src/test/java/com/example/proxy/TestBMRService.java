@@ -16,7 +16,7 @@ public class TestBMRService {
 	public void test() {
 		Double h = 170.0;
 		Double w = 60.0;
-		Integer age = 25;
+		Integer age = null;
 		String gender = "m";
 		Double bmr = bmrService.getBMR(h, w, age, gender);
 		System.out.printf("bmr = %.2f%n", bmr);
