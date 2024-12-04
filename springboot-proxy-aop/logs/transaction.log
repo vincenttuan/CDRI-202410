@@ -82,3 +82,6 @@
 2024-12-04 11:20:16 - [c.e.p.TestBMRService] - Starting TestBMRService using Java 21.0.4 with PID 10520 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
 2024-12-04 11:20:16 - [c.e.p.TestBMRService] - No active profile set, falling back to 1 default profile: "default"
 2024-12-04 11:20:16 - [c.e.p.TestBMRService] - Started TestBMRService in 0.61 seconds (process running for 1.135)
+2024-12-04 11:20:55 - [c.e.p.TestBMRService] - Starting TestBMRService using Java 21.0.4 with PID 6060 (started by NTPU in E:\WorkSpace\springboot-proxy-aop)
+2024-12-04 11:20:55 - [c.e.p.TestBMRService] - No active profile set, falling back to 1 default profile: "default"
+2024-12-04 11:20:56 - [c.e.p.TestBMRService] - Started TestBMRService in 0.615 seconds (process running for 1.133)

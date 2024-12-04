@@ -22,6 +22,7 @@ public class BMRServiceAspect {
 	
 	@Around(value = "pt()")
 	public Object logAround(ProceedingJoinPoint joinPoint) {
+		// -- 相當於 @Begin 前置通知 ------------------------------------------
 		System.out.println("BMRServiceAspect: 環繞通知");
 		Object[] args = joinPoint.getArgs();
 		System.out.println(Arrays.toString(args));
@@ -29,12 +30,19 @@ public class BMRServiceAspect {
 		if (args[2] == null) {
 			return Double.valueOf("0.0");
 		}
+		//-----------------------------------------------------
 		Object result = null;
-		// 執行原方法
 		try {
+			// 執行原方法
 			result = joinPoint.proceed();
-		} catch (Throwable e) {
-			
+			// 相當於 @AfterReturning 後置通知 
+			// code ...
+		} catch (Throwable ex) {
+			// 相當於 @AfterThrowing 後置通知
+			// code ...
+		} finally {
+			// 相當於 @After 後置通知
+			// code ...
 		}
 		
 		return result;
