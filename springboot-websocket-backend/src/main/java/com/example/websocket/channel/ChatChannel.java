@@ -20,25 +20,25 @@ public class ChatChannel {
 	
 	// Session 指的是 WebSocket 的連線
 	// 每一個連線都有獨立的 session 與 id (自動分配)
-	@OnOpen
+	@OnOpen // 當客戶端與伺服器建立連接時觸發。
 	public void onOpen(Session session) {
 		System.out.println("[ "+ session.getId() + " 已連線]");
 		// 回應
 		session.getAsyncRemote().sendText("[ "+ session.getId() + " 已連線]");
 	}
 	
-	@OnMessage
+	@OnMessage // 當伺服器收到來自客戶端的消息時觸發。
 	public void onMessage(String message, Session session) {
 		// 回應
 		session.getAsyncRemote().sendText("[ " + session.getId() + " 說]: " + message);
 	}
 	
-	@OnClose
+	@OnClose // 當客戶端與伺服器的連接被關閉時觸發。
 	public void onClose(Session session, CloseReason closeReason) {
 		System.out.println("[ "+ session.getId() + " 已離線], 原因: " + closeReason);
 	}
 	
-	@OnError
+	@OnError // 當 WebSocket 通訊過程中發生錯誤時觸發。
 	public void onError(Session session, Throwable throwable) {
 		System.out.println("[ "+ session.getId() + " 連線異常], 原因: " + throwable);
 	}
