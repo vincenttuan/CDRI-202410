@@ -46,12 +46,15 @@ connectButton.onclick = () => {
 	};			
 };
 
-// 發送按鈕
+// 指定對象-發送按鈕
 sendTargetButton.onclick = () => {
 	const message = messageInput.value;
 	const target = targetInput.value; // sessionId
 	if(!message) {
 		addLog('請輸入訊息');
+	}
+	if(!target) {
+		addLog('請輸入對象的 session id');
 	}
 	
 	// 構建 JSON 格式的消息
@@ -70,7 +73,7 @@ sendTargetButton.onclick = () => {
 	messageInput.value = "";
 };
 
-// 發送按鈕
+// 廣播-發送按鈕
 sendButton.onclick = () => {
 	const message = messageInput.value;
 	if(!message) {
