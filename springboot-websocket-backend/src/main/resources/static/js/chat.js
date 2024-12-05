@@ -68,7 +68,7 @@ sendTargetButton.onclick = () => {
 	// 傳送訊息
 	webSocket.send(jsonString);
 	
-	addLog(`發送訊息: ${message} 給: ${target}`)
+	addLog(`發送訊息: ${message} 私訊: ${target}`)
 	// 清空輸入框
 	messageInput.value = "";
 };
