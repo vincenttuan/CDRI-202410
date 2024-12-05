@@ -34,7 +34,7 @@ public class ChatChannel {
 				});
 	}
 	
-	// Session 指的是 WebSocket 的連線
+	// Session 指的是 WebSocket 的連線 
 	// 每一個連線都有獨立的 session 與 id (自動分配)
 	@OnOpen // 當客戶端與伺服器建立連接時觸發。
 	public void onOpen(Session session) {
