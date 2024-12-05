@@ -27,6 +27,14 @@ import jakarta.websocket.server.ServerEndpoint;
 
 @ServerEndpoint(value = "/channel/chat")
 public class ChatChannel {
+	/**
+	 * [
+	 * 	{"username": "john", "sessionId": 4},
+	 * 	{"username": "mary", "sessionId": 5},
+	 * 	{"username": "bob", "sessionId": null},
+	 * ]
+	 * */
+	
 	
 	// 利用 Set + synshronized 來保存所有 session
 	private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
