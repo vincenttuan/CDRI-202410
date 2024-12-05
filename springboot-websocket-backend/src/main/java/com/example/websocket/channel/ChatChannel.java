@@ -6,6 +6,12 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.messaging.Message;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import jakarta.websocket.CloseReason;
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnError;
@@ -34,6 +40,14 @@ public class ChatChannel {
 				});
 	}
 	
+	// 發送消息給指定用戶
+	private void sendToSession(String targetId, String sessionId, String message) {
+        sessions.stream()
+                .filter(session -> session.getId().equals(targetId) && session.isOpen())
+                .findFirst()
+                .ifPresent(session -> session.getAsyncRemote().sendText("[ " + sessionId + " 私訊]: " + message));
+    }
+	
 	// Session 指的是 WebSocket 的連線 
 	// 每一個連線都有獨立的 session 與 id (自動分配)
 	@OnOpen // 當客戶端與伺服器建立連接時觸發。
@@ -49,11 +63,21 @@ public class ChatChannel {
 	}
 	
 	@OnMessage // 當伺服器收到來自客戶端的消息時觸發。
-	public void onMessage(String message, Session session) {
-		// 回應 (只有自己知道)
-		//session.getAsyncRemote().sendText("[ " + session.getId() + " 說]: " + message);
-		// 廣播消息
-		broadcast(session.getId(), message);
+	public void onMessage(String jsonMessage, Session session) {
+		JsonObject messageObject = JsonParser.parseString(jsonMessage).getAsJsonObject();
+		String type = messageObject.get("type").getAsString();
+		String target = messageObject.get("target").getAsString();
+		String message = messageObject.get("message").getAsString();
+		
+		if ("message".equals(type)) {
+			if ("all".equals(target)) {
+				// 廣播消息
+				broadcast(session.getId(), message);
+			} else {
+				// 指定
+				sendToSession(target, session.getId(), message);
+			}
+		}
 	}
 	
 	@OnClose // 當客戶端與伺服器的連接被關閉時觸發。
