@@ -38,6 +38,9 @@ public class ChatChannel {
 	// 每一個連線都有獨立的 session 與 id (自動分配)
 	@OnOpen // 當客戶端與伺服器建立連接時觸發。
 	public void onOpen(Session session) {
+		// 將新建立的 session 加入到集合
+		sessions.add(session);
+		
 		System.out.println("[ "+ session.getId() + " 已連線]");
 		// 回應 (只有自己知道)
 		//session.getAsyncRemote().sendText("[ "+ session.getId() + " 已連線]");
