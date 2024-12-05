@@ -58,6 +58,7 @@ public class ChatChannel {
 	
 	@OnClose // 當客戶端與伺服器的連接被關閉時觸發。
 	public void onClose(Session session, CloseReason closeReason) {
+		sessions.remove(session); // 移除 session
 		System.out.println("[ "+ session.getId() + " 已離線], 原因: " + closeReason);
 		// 廣播消息
 		broadcast(session.getId(), "離線了");
@@ -65,6 +66,7 @@ public class ChatChannel {
 	
 	@OnError // 當 WebSocket 通訊過程中發生錯誤時觸發。
 	public void onError(Session session, Throwable throwable) {
+		sessions.remove(session); // 移除 session
 		System.out.println("[ "+ session.getId() + " 連線異常], 原因: " + throwable);
 	}
 }
