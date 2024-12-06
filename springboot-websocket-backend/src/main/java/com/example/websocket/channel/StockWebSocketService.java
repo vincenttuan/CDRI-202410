@@ -20,7 +20,7 @@ import jakarta.websocket.server.ServerEndpoint;
 @ServerEndpoint(value = "/stock-service")
 public class StockWebSocketService {
 	
-	// 訂閱時間服務的客戶Session集合 (那些 Session 有訂閱此服務)
+	// 訂閱報價服務的客戶Session集合 (那些 Session 有訂閱此服務)
 	private static final Set<Session> subscribers = Collections.synchronizedSet(new HashSet<>());
 	
 	// 定期任務執行器
