@@ -1,7 +1,9 @@
 package com.example.websocket.channel;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -28,13 +30,14 @@ public class StockWebSocketService {
 	private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 	
 	static {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss E");
 		// 任務
 		Runnable task = () -> {
 			// 取得報價資料
 			// 範例: {最低=1065, 昨收=1075, 漲跌=5.00, 最高=1080, 成交=1070, 均價=1071, 成交金額(億)=178.06, 漲跌幅=0.47, 振幅=1.40, 開盤=1075, 昨量=31354, 總量=16617}
 			String symbol = "2330.TW"; // ^TWII = 加權股價指數, 2330.TW = 台積電, 1101.TW = 台泥 ...
 			Map<String, String> map = YahooStockScraper.getPrice(symbol);
-			String stockMessage = "台積電(" + symbol + "): 今日成交" + map.get("成交") + " 成交金額(億): " + map.get("成交金額(億)") + " 漲跌: " + map.get("漲跌") + " 漲跌幅: " + map.get("漲跌幅") + " %";
+			String stockMessage = "台積電(" + symbol + "): <p />今日成交" + map.get("成交") + " <p />成交金額(億): " + map.get("成交金額(億)") + " <p />漲跌: " + map.get("漲跌") + " <p />漲跌幅: " + map.get("漲跌幅") + " % <p />時間: " + sdf.format(new Date());
 			// 發送通知給有訂閱的人
 			for(Session session : subscribers) {
 				sendMessage(session, stockMessage);
