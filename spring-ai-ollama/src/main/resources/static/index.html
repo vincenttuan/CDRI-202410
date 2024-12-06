@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Chat Streaming</title>
+    <style>
+        #chat {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            height: 500px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td valign="top" style="width: 500px">
+				<h1>LLM Chat Streaming</h1>
+			    問題: <input type="text" id="userInput" placeholder="請輸入問題並按 Enter" style="width: 400px" />
+			    <div id="chat">等待訊息...</div>
+			</td>
+			<td valign="top" style="width: 500px">
+				<h1>食物與價格清單</h1>
+			    <table border="1">
+			        <thead>
+			            <tr>
+			                <th>品名</th>
+			                <th>價格 (元)</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <tr><td>麥香魚</td><td>58</td></tr>
+			            <tr><td>大麥克</td><td>72</td></tr>
+			            <tr><td>薯餅</td><td>29</td></tr>
+			            <tr><td>可樂</td><td>20</td></tr>
+			            <tr><td>沙拉</td><td>35</td></tr>
+			            <tr><td>雞塊</td><td>45</td></tr>
+			            <tr><td>蘋果派</td><td>30</td></tr>
+			            <tr><td>冰淇淋</td><td>25</td></tr>
+			            <tr><td>咖啡</td><td>40</td></tr>
+			            <tr><td>熱巧克力</td><td>50</td></tr>
+			            <tr><td>雞腿堡</td><td>65</td></tr>
+			            <tr><td>花生奶昔</td><td>55</td></tr>
+			            <tr><td>玉米湯</td><td>28</td></tr>
+			            <tr><td>炸雞</td><td>85</td></tr>
+			            <tr><td>牛肉堡</td><td>68</td></tr>
+			            <tr><td>海鮮湯</td><td>60</td></tr>
+			            <tr><td>豬排堡</td><td>62</td></tr>
+			            <tr><td>柳橙汁</td><td>25</td></tr>
+			            <tr><td>奶昔</td><td>50</td></tr>
+			            <tr><td>巧克力蛋糕</td><td>45</td></tr>
+			            <tr><td>草莓派</td><td>30</td></tr>
+			            <tr><td>炸薯條</td><td>35</td></tr>
+			            <tr><td>雞肉卷</td><td>55</td></tr>
+			            <tr><td>雞肉沙拉</td><td>48</td></tr>
+			            <tr><td>飲料套餐</td><td>75</td></tr>
+			            <tr><td>起司蛋堡</td><td>70</td></tr>
+			            <tr><td>蜜汁雞翅</td><td>90</td></tr>
+			        </tbody>
+			    </table>
+			</td>
+		</tr>
+    </table>
+    <script>
+        let eventSource; // 儲存 EventSource 連線
+        const chatDiv = document.getElementById("chat");
+        const userInput = document.getElementById("userInput");
+
+        // 綁定 Enter 鍵事件
+        userInput.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                const message = userInput.value.trim(); // 取得輸入的問題
+
+                if (message) {
+                    // 清空之前的訊息並初始化 EventSource
+                    chatDiv.innerText = "";
+                    if (eventSource) {
+                        eventSource.close(); // 關閉之前的連線
+                    }
+
+                    // 建立新的 EventSource
+                    eventSource = new EventSource('/chat?message=' + encodeURIComponent(message));
+
+                    // 處理訊息接收
+                    eventSource.onmessage = function(event) {
+                        console.log(event.data); // 顯示接收到的訊息
+                        chatDiv.innerText += event.data + ""; // 將訊息追加到聊天框中
+                    };
+
+                    // 處理錯誤
+                    eventSource.onerror = function() {
+                        console.error("接收訊息時發生錯誤");
+                        chatDiv.innerText += "\n[錯誤] 無法接收訊息";
+                        eventSource.close();
+                    };
+                }
+            }
+        });
+    </script>
+</body>
+</html>
