@@ -29,6 +29,7 @@
         const logMessage = (message) => {
             const messagesDiv = document.getElementById("messages");
             messagesDiv.innerHTML += `${message}<br>`;
+            //messagesDiv.innerHTML = `${message}<br>`;
             messagesDiv.scrollTop = messagesDiv.scrollHeight; // 滾動到最底部
         };
 
