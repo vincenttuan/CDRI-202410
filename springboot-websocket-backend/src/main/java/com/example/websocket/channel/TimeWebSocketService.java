@@ -41,18 +41,29 @@ public class TimeWebSocketService {
 	}
 	
 	@OnClose
-	public void onClose(Session session, Throwable throwable) {
-		
+	public void onClose(Session session) {
+		// 客戶端斷開連線時要取消該客戶的訂閱
+		subscribers.remove(session);
+		sendMessage(session, "[已取消]訂閱時間服務成功, 因客戶端斷開連線");
 	}
 	
 	@OnError
-	public void onOpen(Session session, String message) {
-		
+	public void onError(Session session, Throwable throwable) {
+		// 出現錯誤時取消訂閱
+		subscribers.remove(session);
+		// 印出錯誤訊息
+		throwable.printStackTrace();
 	}
 	
 	// 發送訊息
 	private void sendMessage(Session session, String message) {
-		
+		try {
+			if(session.isOpen()) {
+				session.getBasicRemote().sendText(message); // 同步送出
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
