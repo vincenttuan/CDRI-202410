@@ -16,7 +16,7 @@ public class TimeWebSocketService {
 	}
 	
 	@OnMessage
-	public void onMessage(String message, Session session) {
+	public void onMessage(Session session, String message) {
 		
 	}
 	
