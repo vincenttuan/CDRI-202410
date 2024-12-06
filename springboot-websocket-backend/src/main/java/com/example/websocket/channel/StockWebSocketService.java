@@ -3,6 +3,7 @@ package com.example.websocket.channel;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -30,7 +31,8 @@ public class StockWebSocketService {
 		// 任務
 		Runnable task = () -> {
 			// 取得報價資料
-			String stockMessage = YahooStockScraper.getPrice("^TWII").toString();
+			Map<String, String> map = YahooStockScraper.getPrice("^TWII");
+			String stockMessage = "加權指數:" + map.get("成交");
 			// 發送通知給有訂閱的人
 			for(Session session : subscribers) {
 				sendMessage(session, stockMessage);
