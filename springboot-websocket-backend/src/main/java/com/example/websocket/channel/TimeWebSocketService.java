@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnError;
@@ -18,25 +21,21 @@ public class TimeWebSocketService {
 	// 訂閱時間服務的客戶Session集合 (那些 Session 有訂閱此服務)
 	private static final Set<Session> subscribers = Collections.synchronizedSet(new HashSet<>());
 	
+	// 定期任務執行器
+	private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+	
 	static {
-		new Thread(() -> {
-			
-			while (true) {
-				// 取得現在時間
-				String timeMessage = "現在時間: " + LocalDateTime.now();
-				// 發送通知給有訂閱的人
-				for(Session session : subscribers) {
-					sendMessage(session, timeMessage);
-				}
-				// 暫停 1 秒 (1000ms)
-				try {
-					Thread.sleep(1000); 
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+		// 任務
+		Runnable task = () -> {
+			// 取得現在時間
+			String timeMessage = "現在時間: " + LocalDateTime.now();
+			// 發送通知給有訂閱的人
+			for(Session session : subscribers) {
+				sendMessage(session, timeMessage);
 			}
-			
-		}).start();
+		};
+		// 定期執行
+		scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS);
 		
 	}
 	
