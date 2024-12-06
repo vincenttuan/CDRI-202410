@@ -10,7 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Test;
 
-public class YahooStockScraper {
+public class TestYahooStockScraper {
 	
 	@Test
 	public void test() throws IOException {
