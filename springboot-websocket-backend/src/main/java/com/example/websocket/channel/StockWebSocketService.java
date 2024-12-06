@@ -8,6 +8,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import com.example.websocket.util.YahooStockScraper;
+
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnError;
 import jakarta.websocket.OnMessage;
@@ -28,7 +30,7 @@ public class StockWebSocketService {
 		// 任務
 		Runnable task = () -> {
 			// 取得現在時間
-			String timeMessage = "現在時間: " + LocalDateTime.now();
+			String timeMessage = YahooStockScraper.getPrice("^TWII").toString();
 			// 發送通知給有訂閱的人
 			for(Session session : subscribers) {
 				sendMessage(session, timeMessage);

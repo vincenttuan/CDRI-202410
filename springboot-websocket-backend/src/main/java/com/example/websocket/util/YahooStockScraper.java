@@ -11,9 +11,16 @@ import org.jsoup.select.Elements;
 
 public class YahooStockScraper {
 	
-	public static Map<String, String> getPrice(String symbol) throws IOException {
+	public static Map<String, String> getPrice(String symbol) {
 		String url = "https://tw.stock.yahoo.com/quote/" + symbol;
-		Document doc = Jsoup.connect(url).get();
+		Document doc = null;
+		try {
+			doc = Jsoup.connect(url).get();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 		// 找到 <ul> 下的 <li class="price-detail-item"> 前面幾個字是 price-detail-item 的元素
 		Elements elements = doc.select("ul > li.price-detail-item");
 		// 過濾 html tag
