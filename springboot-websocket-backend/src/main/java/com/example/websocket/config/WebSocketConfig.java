@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import com.example.websocket.channel.ChatChannel;
+import com.example.websocket.channel.TimeWebSocketService;
 
 @Configuration
 public class WebSocketConfig {
@@ -14,6 +15,7 @@ public class WebSocketConfig {
 		ServerEndpointExporter exporter = new ServerEndpointExporter();
 		// 註冊 WebSocket 端點
 		exporter.setAnnotatedEndpointClasses(ChatChannel.class);
+		exporter.setAnnotatedEndpointClasses(TimeWebSocketService.class);
 		
 		return exporter;
 	}
