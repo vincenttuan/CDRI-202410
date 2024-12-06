@@ -1,5 +1,6 @@
 package com.example.websocket.channel;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +18,27 @@ public class TimeWebSocketService {
 	// 訂閱時間服務的客戶Session集合 (那些 Session 有訂閱此服務)
 	private static final Set<Session> subscribers = Collections.synchronizedSet(new HashSet<>());
 	
+	static {
+		new Thread(() -> {
+			
+			while (true) {
+				// 取得現在時間
+				String timeMessage = "現在時間: " + LocalDateTime.now();
+				// 發送通知給有訂閱的人
+				for(Session session : subscribers) {
+					sendMessage(session, timeMessage);
+				}
+				// 暫停 1 秒 (1000ms)
+				try {
+					Thread.sleep(1000); 
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}).start();
+		
+	}
 	
 	@OnOpen
 	public void onOpen(Session session) {
@@ -56,7 +78,7 @@ public class TimeWebSocketService {
 	}
 	
 	// 發送訊息
-	private void sendMessage(Session session, String message) {
+	private static void sendMessage(Session session, String message) {
 		try {
 			if(session.isOpen()) {
 				session.getBasicRemote().sendText(message); // 同步送出
