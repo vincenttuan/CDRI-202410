@@ -15,8 +15,7 @@ public class WebSocketConfig {
 		ServerEndpointExporter exporter = new ServerEndpointExporter();
 		// 註冊 WebSocket 端點
 		// 門號: /channel/chat, /time-service
-		exporter.setAnnotatedEndpointClasses(ChatChannel.class);
-		exporter.setAnnotatedEndpointClasses(TimeWebSocketService.class);
+		exporter.setAnnotatedEndpointClasses(ChatChannel.class, TimeWebSocketService.class);
 		
 		return exporter;
 	}
