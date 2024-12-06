@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESS 聊天室</title>
+    <style>
+        #messages {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ESS 聊天室</h1>
+    <div id="messages">等待連接...</div>
+    <div>
+        <input type="text" id="sessionId" placeholder="你的名稱" />
+        <button onclick="connect()">連接</button>
+    </div>
+    <div>
+        <input type="text" id="target" placeholder="目標名稱 (all 為廣播)" />
+        <input type="text" id="message" placeholder="輸入訊息" />
+        <button onclick="sendMessage()">送出</button>
+    </div>
+
+    <script>
+        let eventSource;
+
+        function connect() {
+            const sessionId = document.getElementById("sessionId").value.trim();
+            if (!sessionId) {
+                alert("請輸入名稱");
+                return;
+            }
+
+            // 建立 SSE 連線
+            eventSource = new EventSource(`/channel/esschat?sessionId=${sessionId}`);
+            const messagesDiv = document.getElementById("messages");
+
+            eventSource.onmessage = function(event) {
+                const newMessage = document.createElement("p");
+                newMessage.textContent = event.data;
+                messagesDiv.appendChild(newMessage);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight; // 滾動到底部
+            };
+
+            eventSource.onerror = function() {
+                const errorMessage = document.createElement("p");
+                errorMessage.textContent = "[連線已中斷]";
+                messagesDiv.appendChild(errorMessage);
+                eventSource.close();
+            };
+        }
+
+        function sendMessage() {
+            const sessionId = document.getElementById("sessionId").value.trim();
+            const target = document.getElementById("target").value.trim() || "all";
+            const message = document.getElementById("message").value.trim();
+
+            if (!sessionId || !message) {
+                alert("請輸入名稱和訊息");
+                return;
+            }
+
+            // 發送消息
+            fetch(`/channel/esschat/send?sessionId=${sessionId}&target=${target}&message=${message}`, {
+                method: "POST"
+            }).catch(err => console.error("發送消息失敗", err));
+        }
+    </script>
+</body>
+</html>
