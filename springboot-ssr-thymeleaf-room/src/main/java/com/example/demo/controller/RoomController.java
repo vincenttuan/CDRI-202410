@@ -45,7 +45,7 @@ public class RoomController {
 		List<RoomDto> roomDtos = roomService.getAllRooms();
 		//model.addAttribute("roomDto", new RoomDto());
 		model.addAttribute("roomDtos", roomDtos);
-		return "room/room";
+		return "room";
 	}
 	
 	@PostMapping
@@ -54,7 +54,7 @@ public class RoomController {
 	public String addRoom(@Valid @ModelAttribute RoomDto roomDto, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) { // 若有錯誤發生
 			model.addAttribute("roomDtos", roomService.getAllRooms());
-			return "room/room"; // 會自動將錯誤訊息傳給 jsp
+			return "room"; // 會自動將錯誤訊息傳給 jsp
 		}
 		roomService.addRoom(roomDto);
 		return "redirect:/rooms"; // 重導到 /rooms 頁面
@@ -70,14 +70,14 @@ public class RoomController {
 	public String getRoom(@PathVariable Integer roomId, Model model) {
 		RoomDto roomDto = roomService.getRoomById(roomId);
 		model.addAttribute("roomDto", roomDto);
-		return "room/room_update";
+		return "room_update";
 	}
 	
 	@PostMapping("/update/{roomId}")
 	public String updateRoom(@PathVariable Integer roomId, @Valid @ModelAttribute RoomDto roomDto, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) { // 若有錯誤發生
 			model.addAttribute("roomDto", roomDto); // 將原本的 roomDto 回傳
-			return "room/room_update"; // 會自動將錯誤訊息傳給 jsp
+			return "room_update"; // 會自動將錯誤訊息傳給 jsp
 		}
 		roomService.updateRoom(roomId, roomDto);
 		return "redirect:/rooms"; // 重導到 /rooms 頁面

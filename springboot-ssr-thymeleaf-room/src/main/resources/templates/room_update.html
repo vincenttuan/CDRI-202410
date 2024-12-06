@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Room</title>
+</head>
+<body>
+<form th:action="@{/room/update/{id}(id=${roomDto.roomId})}" method="post">
+    <input type="text" name="roomId" th:value="${roomDto.roomId}" />
+    
+    <label for="name">Room Name:</label>
+    <input type="text" id="roomName" name="roomName" th:value="${roomDto.roomName}" />
+    
+    <label for="price">Size:</label>
+    <input type="number" id="roomSize" name="roomSize" th:value="${roomDto.roomSize}" />
+    
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

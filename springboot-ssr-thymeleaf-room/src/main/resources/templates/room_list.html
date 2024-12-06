@@ -1,0 +1,26 @@
+<div:block th:fragment="room_list">
+<table>
+    <thead>
+        <tr>
+            <th>Room Id</th>
+            <th>Room Name</th>
+            <th>Room Size</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="room : ${roomDtos}">
+            <td th:text="${room.roomId}"></td>
+            <td th:text="${room.roomName}"></td>
+            <td th:text="${room.roomSize}"></td>
+            <td>
+            	<a th:href="@{/room/{id}(id=${room.roomId})}">Edit Room</a>
+            </td>
+            <td>
+            	<a th:href="@{/room/delete/{id}(id=${room.roomId})}">Delete Room</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,14 @@
+<div:block th:fragment="room_form">
+<form th:action="@{/room}" method="post">
+    <label for="name">Room Id:</label>
+    <input type="text" id="roomId" name="roomId" th:value="${roomDto.roomId}" />
+    
+    <label for="name">Room Name:</label>
+    <input type="text" id="roomName" name="roomName" th:value="${roomDto.roomName}" />
+    
+    <label for="price">Price:</label>
+    <input type="number" id="roomSize" name="roomSize" th:value="${roomDto.roomSize}" />
+    
+    <button type="submit">Save</button>
+</form>
+</div>
