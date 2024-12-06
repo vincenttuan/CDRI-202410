@@ -14,8 +14,8 @@ public class YahooStockScraper {
 	
 	@Test
 	public void test() throws IOException {
-		//String url = "https://tw.stock.yahoo.com/quote/2330.TW";
-		String url = "https://tw.stock.yahoo.com/quote/^TWII";
+		String url = "https://tw.stock.yahoo.com/quote/2330.TW";
+		//String url = "https://tw.stock.yahoo.com/quote/^TWII";
 		Document doc = Jsoup.connect(url).get();
 		// 找到 <ul> 下的 <li class="price-detail-item"> 前面幾個字是 price-detail-item 的元素
 		Elements elements = doc.select("ul > li.price-detail-item");
