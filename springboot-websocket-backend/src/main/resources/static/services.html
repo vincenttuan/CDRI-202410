@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Service</title>
+</head>
+<body>
+    <h1>WebSocket Service</h1>
+    <div>
+        <button id="connectButton">連接 WebSocket</button>
+        <button id="disconnectButton" disabled>斷開連接</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button id="subscribeTimeButton" disabled>訂閱時間服務</button>
+        <button id="unsubscribeTimeButton" disabled>取消訂閱時間服務</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button id="subscribeLottoButton" disabled>訂閱隨機數服務</button>
+        <button id="unsubscribeLottoButton" disabled>取消訂閱隨機數服務</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h2>訊息日誌</h2>
+        <div id="log" style="border: 1px solid #ccc; padding: 10px; height: 200px; overflow-y: scroll;"></div>
+    </div>
+
+    <script>
+        let websocket;
+
+        // 日誌函數，用於顯示訊息
+        const log = (message) => {
+            const logDiv = document.getElementById('log');
+            logDiv.innerHTML += `${message}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight; // 滾動到最底部
+        };
+
+        // 按鈕元素
+        const connectButton = document.getElementById('connectButton');
+        const disconnectButton = document.getElementById('disconnectButton');
+        const subscribeTimeButton = document.getElementById('subscribeTimeButton');
+        const unsubscribeTimeButton = document.getElementById('unsubscribeTimeButton');
+        const subscribeLottoButton = document.getElementById('subscribeLottoButton');
+        const unsubscribeLottoButton = document.getElementById('unsubscribeLottoButton');
+
+        // 連接 WebSocket
+        connectButton.onclick = () => {
+            websocket = new WebSocket('ws://localhost:8080/service');
+
+            websocket.onopen = () => {
+                log('WebSocket 連接成功！');
+                connectButton.disabled = true;
+                disconnectButton.disabled = false;
+                subscribeTimeButton.disabled = false;
+                subscribeLottoButton.disabled = false;
+            };
+
+            websocket.onmessage = (event) => {
+                log(`收到訊息：${event.data}`);
+            };
+
+            websocket.onclose = () => {
+                log('WebSocket 已斷開連接');
+                connectButton.disabled = false;
+                disconnectButton.disabled = true;
+                subscribeTimeButton.disabled = true;
+                unsubscribeTimeButton.disabled = true;
+                subscribeLottoButton.disabled = true;
+                unsubscribeLottoButton.disabled = true;
+            };
+
+            websocket.onerror = (error) => {
+                log('WebSocket 發生錯誤');
+                console.error(error);
+            };
+        };
+
+        // 斷開 WebSocket
+        disconnectButton.onclick = () => {
+            if (websocket) {
+                websocket.close();
+                log('主動斷開 WebSocket 連接');
+            }
+        };
+
+        // 訂閱時間服務
+        subscribeTimeButton.onclick = () => {
+            if (websocket) {
+                websocket.send('SUBSCRIBE_TIME');
+                log('已發送訂閱時間服務指令');
+                unsubscribeTimeButton.disabled = false;
+                subscribeTimeButton.disabled = true;
+            }
+        };
+
+        // 取消訂閱時間服務
+        unsubscribeTimeButton.onclick = () => {
+            if (websocket) {
+                websocket.send('UNSUBSCRIBE_TIME');
+                log('已發送取消訂閱時間服務指令');
+                unsubscribeTimeButton.disabled = true;
+                subscribeTimeButton.disabled = false;
+            }
+        };
+
+        // 訂閱隨機數服務
+        subscribeLottoButton.onclick = () => {
+            if (websocket) {
+                websocket.send('SUBSCRIBE_LOTTO');
+                log('已發送訂閱隨機數服務指令');
+                unsubscribeLottoButton.disabled = false;
+                subscribeLottoButton.disabled = true;
+            }
+        };
+
+        // 取消訂閱隨機數服務
+        unsubscribeLottoButton.onclick = () => {
+            if (websocket) {
+                websocket.send('UNSUBSCRIBE_LOTTO');
+                log('已發送取消訂閱隨機數服務指令');
+                unsubscribeLottoButton.disabled = true;
+                subscribeLottoButton.disabled = false;
+            }
+        };
+    </script>
+</body>
+</html>
