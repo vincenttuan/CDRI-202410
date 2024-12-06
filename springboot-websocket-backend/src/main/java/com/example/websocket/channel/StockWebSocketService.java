@@ -29,15 +29,15 @@ public class StockWebSocketService {
 	static {
 		// 任務
 		Runnable task = () -> {
-			// 取得現在時間
-			String timeMessage = YahooStockScraper.getPrice("^TWII").toString();
+			// 取得報價資料
+			String stockMessage = YahooStockScraper.getPrice("^TWII").toString();
 			// 發送通知給有訂閱的人
 			for(Session session : subscribers) {
-				sendMessage(session, timeMessage);
+				sendMessage(session, stockMessage);
 			}
 		};
 		// 定期執行
-		scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS);
+		scheduler.scheduleAtFixedRate(task, 0, 3, TimeUnit.SECONDS);
 		
 	}
 	
