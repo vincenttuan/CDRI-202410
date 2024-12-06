@@ -30,4 +30,9 @@ public class TimeWebSocketService {
 		
 	}
 	
+	// 發送訊息
+	private void sendMessage(Session session, String message) {
+		
+	}
+	
 }
