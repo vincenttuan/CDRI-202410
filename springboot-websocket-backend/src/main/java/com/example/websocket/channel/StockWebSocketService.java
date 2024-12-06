@@ -31,7 +31,9 @@ public class StockWebSocketService {
 		// 任務
 		Runnable task = () -> {
 			// 取得報價資料
-			Map<String, String> map = YahooStockScraper.getPrice("^TWII");
+			// 範例: {最低=1065, 昨收=1075, 漲跌=5.00, 最高=1080, 成交=1070, 均價=1071, 成交金額(億)=178.06, 漲跌幅=0.47, 振幅=1.40, 開盤=1075, 昨量=31354, 總量=16617}
+			String symbol = "^TWII"; // ^TWII = 加權股價指數, 2330.TW = 台積電, 1101.TW = 台泥 ...
+			Map<String, String> map = YahooStockScraper.getPrice(symbol);
 			String stockMessage = "加權指數:" + map.get("成交");
 			// 發送通知給有訂閱的人
 			for(Session session : subscribers) {
