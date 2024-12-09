@@ -63,7 +63,7 @@ public class ChatController {
     public SseEmitter chat(@RequestParam String message) {
     	
     	String foods = buildFoodList();
-    	String finalMessage = "一定要用繁體中文回答,麥當勞商品有:" + foods + "," + message + ",用一定要用繁體中文回答";
+    	String finalMessage = "一定要用繁體中文回答,麥當勞商品有:" + foods + "," + message + ",直接提供簡潔的答案";
     	
         SseEmitter emitter = new SseEmitter();
 
