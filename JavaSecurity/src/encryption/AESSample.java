@@ -23,6 +23,8 @@ public class AESSample {
 		System.out.println("----------------------------");
 		
 		// 利用 AES 進行加密
+		// 流程: 明文 -> 加密(encryptedECB) -> 編碼(codingECBBase64)
+		//      解碼(decodingECBBase64) -> 解密(decryptedECB) -> 明文
 		// 1. 建立 AES 密鑰規範
 		SecretKeySpec aseKeySpec = new SecretKeySpec(KEY.getBytes(), "AES"); // 金鑰
 		// 2. 選擇 ECB 模式進行對明文的加密 (透過金鑰加密)
