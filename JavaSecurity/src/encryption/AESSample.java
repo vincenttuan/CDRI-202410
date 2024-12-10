@@ -16,9 +16,6 @@ public class AESSample {
 	// 建立一個 AES Key(256bits, 32bytes)
 	private static final String KEY = "012345678901234567890123456789AB"; // 32 個字
 
-	// 建立一個 SecureRandom
-	private static final SecureRandom SECURE_RANDOM = new SecureRandom();
-	
 	public static void main(String[] args) throws Exception {
 		String originalText = "剛剛已經有下雨了"; // 明文
 		System.out.println("原始明文: " + originalText);
