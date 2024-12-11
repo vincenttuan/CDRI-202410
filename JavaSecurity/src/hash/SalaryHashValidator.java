@@ -7,9 +7,11 @@ import security.KeyUtil;
 
 public class SalaryHashValidator {
 	public static void main(String[] args) throws Exception {
+		// 讀檔
 		String filePath = "src/hash/my_salary.txt";
 		String content = Files.readString(Path.of(filePath));
 		System.out.println(content);
+		// 原始 hash
 		String hashFilePath = "src/hash/my_salary_hash.txt";
 		String salaryHash = Files.readString(Path.of(hashFilePath));
 		System.out.println("原始:" + salaryHash);
