@@ -390,6 +390,10 @@ public class KeyUtil {
         return mac.doFinal(message);
     }
     
+    public static byte[] generateMac(SecretKey key, String message) throws Exception {
+        return generateMac("HmacSHA256", key, message.getBytes());
+    }
+    
     /**
      * 用指定的演算法和鑰匙生成訊息驗證碼 (MAC)。
      *
