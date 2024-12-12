@@ -26,7 +26,7 @@ public class DigitalSignatureVerify {
 		// 小王公鑰檔位置
 		String publicKeyPath = "src/sign/publicKey.key";
 		// 小王數位簽章檔位置
-		String signaturePath = "src/security/sign/signature.sig";
+		String signaturePath = "src/sign/signature.sig";
 		
 		PublicKey publicKey = KeyUtil.getPublicKeyFromFile("RSA", publicKeyPath);
 		byte[] savedSignature = KeyUtil.getSignatureFromFile(signaturePath);
