@@ -15,8 +15,10 @@ public class MACExample {
 		SecretKey macKey = KeyUtil.generateKeyForHmac(); // 預設 HmacSHA256
 		
 		// 3. 利用此密鑰(macKey) + 訊息(message) 生成 MAC 值
-		byte[] macValue = KeyUtil.generateMac(macKey, message);
+		byte[] macValue = KeyUtil.generateMac(macKey, message); // 預設 HmacSHA256
 		
+		// 4. 將 macValue 轉 16 進位字串印出
+		System.out.println("MAC(Hex):" + KeyUtil.bytesToHex(macValue));
 	}
 	
 }
