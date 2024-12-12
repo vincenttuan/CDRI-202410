@@ -134,6 +134,8 @@ public class KeyUtil {
         signature.initVerify(publicKey);
 
         byte[] data = Files.readAllBytes(Paths.get(filePath));
+        // update(data)：將檔案的內容（data）傳遞給 Signature 物件。
+        // 這樣 Signature 物件將會計算出該資料的摘要，然後用來與提供的數位簽章做比對。
         signature.update(data);
         
         return signature.verify(digitalSignature);
