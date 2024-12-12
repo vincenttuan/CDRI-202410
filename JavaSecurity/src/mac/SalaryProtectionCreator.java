@@ -31,6 +31,6 @@ public class SalaryProtectionCreator {
 		
 		// 得到 macValue(Hex)
 		String macHexValue = KeyUtil.generateMac("HmacSHA256", macKey, filePath);
-		System.out.println("HR 發布的 macHexValue: " + macHexValue);
+		System.out.println("HR 發佈的 macHexValue: " + macHexValue);
 	}
 }
