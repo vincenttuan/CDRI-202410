@@ -1,7 +1,5 @@
 package mac;
 
-import java.util.Arrays;
-
 import javax.crypto.SecretKey;
 
 import security.KeyUtil;
