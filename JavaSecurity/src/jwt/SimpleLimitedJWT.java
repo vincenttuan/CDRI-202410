@@ -1,5 +1,7 @@
 package jwt;
 
+import java.util.Date;
+
 import com.nimbusds.jwt.JWTClaimsSet;
 
 import security.KeyUtil;
@@ -22,6 +24,9 @@ import security.KeyUtil;
  */
 public class SimpleLimitedJWT {
 	public static void main(String[] args) throws Exception {
+		// 有效期間(10秒)
+		Date expirationTime = new Date(new Date().getTime() + 10_000); // 現在時刻 + 10 秒
+		
 		// 1. 生成簽名密鑰
 		// JWK: 產生簽名用的密鑰(32bytes)
 		String signingSecret = KeyUtil.generateSecret(32);
@@ -35,12 +40,15 @@ public class SimpleLimitedJWT {
 				.claim("action", "open") // 額外的聲明: 開(open)關(close)動作
 				.claim("machine", "Air condition") // 額外的聲明: 機器(Air condition, Fan ...)
 				.claim("ip", "192.168.1.1") // 額外的聲明: 裝置位置
+				.expirationTime(expirationTime) // 設定有效期間
 				.build();
 		System.out.println("payload:" + claimsSet);
 		
 		// 3. 進行簽名(將 claimsSet(資料主體) 進行簽名) 得到 token
 		String token = KeyUtil.signJWT(claimsSet, signingSecret);
 		System.out.println("Token(JWT):" + token);
+		
+		
 		
 		// 4. 驗證 token(JWT)
 		if(KeyUtil.verifyJWTSignature(token, signingSecret)) {
