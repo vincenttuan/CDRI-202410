@@ -18,10 +18,8 @@ import security.KeyUtil;
  * TOTP: 是 OTP 的一種，其特點是根據當前時間生成密碼。
 */
 public class TOTP {
-	private static long fixedTimeInterval; // 紀錄固定時間間隔
-	
 	public static void main(String[] args) throws Exception {
-		for(int i=1;i<=40;i++) {
+		for(int i=1;i<=70;i++) {
 			System.out.println(i + ": 我的 TOTP 密碼: " + generateTOTP("admin"));
 			Thread.sleep(1000);
 		}
@@ -30,11 +28,10 @@ public class TOTP {
 	public static String generateTOTP(String username) throws Exception {
 		// 金鑰(以登入者的名稱當作金鑰)
 		String secret = Base64.getEncoder().encodeToString(username.getBytes());
-		//if(fixedTimeInterval == 0) {
-			fixedTimeInterval = System.currentTimeMillis() / 1000L / 30L; // 30 秒
-		//}
+		// 現在秒數 30 的倍數就會更新, 例如: 12:01:00, 12:01:30, 12:02:00, 12:02:30
+		long timeInterval = System.currentTimeMillis() / 1000L / 30L; // 30 秒
 		// 得到 TOPT 密碼 (使用 HMACSHA256)
-		String totp = KeyUtil.generateTOTP(secret, fixedTimeInterval, "HMACSHA256");
+		String totp = KeyUtil.generateTOTP(secret, timeInterval, "HMACSHA256");
 		return totp;
 	}
 }
