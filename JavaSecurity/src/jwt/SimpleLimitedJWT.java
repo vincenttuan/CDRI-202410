@@ -48,7 +48,8 @@ public class SimpleLimitedJWT {
 		String token = KeyUtil.signJWT(claimsSet, signingSecret);
 		System.out.println("Token(JWT):" + token);
 		
-		
+		// 模擬讓 token(JWT) 過期的情境
+		Thread.sleep(11_000); // 暫停 11 秒
 		
 		// 4. 驗證 token(JWT)
 		if(KeyUtil.verifyJWTSignature(token, signingSecret)) {
