@@ -23,13 +23,14 @@ import security.KeyUtil;
  * 
  */
 public class SimpleLimitedJWT {
+	static String signingSecret = KeyUtil.generateSecret(32);
+	
 	public static void main(String[] args) throws Exception {
 		// 有效期間(10秒)
 		Date expirationTime = new Date(new Date().getTime() + 10_000); // 現在時刻 + 10 秒
 		
 		// 1. 生成簽名密鑰
 		// JWK: 產生簽名用的密鑰(32bytes)
-		String signingSecret = KeyUtil.generateSecret(32);
 		System.out.println("密鑰:" + signingSecret);
 		
 		// 2. 創建 JWT 的聲明(claim)
@@ -64,6 +65,8 @@ public class SimpleLimitedJWT {
 			
 		} else {
 			System.out.println("驗證失敗");
+			System.out.println("重新登入重新取得 token");
+			main(args);
 		}
 	}
 }
