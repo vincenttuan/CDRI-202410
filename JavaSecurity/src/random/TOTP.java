@@ -19,7 +19,7 @@ import security.KeyUtil;
 */
 public class TOTP {
 	public static void main(String[] args) throws Exception {
-		for(int i=1;i<=70;i++) {
+		for(int i=1;;i++) {
 			System.out.println(i + ": 我的 TOTP 密碼: " + generateTOTP("admin"));
 			Thread.sleep(1000);
 		}
