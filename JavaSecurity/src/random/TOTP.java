@@ -23,15 +23,16 @@ public class TOTP {
 	public static void main(String[] args) throws Exception {
 		for(int i=1;i<=40;i++) {
 			System.out.println(i + ": 我的 TOTP 密碼: " + generateTOTP("admin"));
+			Thread.sleep(1000);
 		}
 	}
 	
 	public static String generateTOTP(String username) throws Exception {
 		// 金鑰(以登入者的名稱當作金鑰)
 		String secret = Base64.getEncoder().encodeToString(username.getBytes());
-		if(fixedTimeInterval == 0) {
+		//if(fixedTimeInterval == 0) {
 			fixedTimeInterval = System.currentTimeMillis() / 1000L / 30L; // 30 秒
-		}
+		//}
 		// 得到 TOPT 密碼 (使用 HMACSHA256)
 		String totp = KeyUtil.generateTOTP(secret, fixedTimeInterval, "HMACSHA256");
 		return totp;
