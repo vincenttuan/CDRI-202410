@@ -1,24 +1,136 @@
-2024-11-08T10:05:01.976+08:00  INFO 3120 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.4 with PID 3120 (E:\WorkSpace\springboot-mvc\target\classes started by NTPU in E:\WorkSpace\springboot-mvc)
-2024-11-08T10:05:01.977+08:00  INFO 3120 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
-2024-11-08T10:05:02.325+08:00  INFO 3120 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-11-08T10:05:02.337+08:00  INFO 3120 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
-2024-11-08T10:05:02.603+08:00  INFO 3120 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-11-08T10:05:02.613+08:00  INFO 3120 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-11-08T10:05:02.614+08:00  INFO 3120 --- [springboot-mvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-11-08T10:05:02.756+08:00  INFO 3120 --- [springboot-mvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-11-08T10:05:02.761+08:00  INFO 3120 --- [springboot-mvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-11-08T10:05:02.761+08:00  INFO 3120 --- [springboot-mvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 755 ms
-2024-11-08T10:05:02.843+08:00  INFO 3120 --- [springboot-mvc] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-11-08T10:05:03.012+08:00  INFO 3120 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-11-08T10:05:03.098+08:00  INFO 3120 --- [springboot-mvc] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37d28938
-2024-11-08T10:05:03.099+08:00  INFO 3120 --- [springboot-mvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-11-08T10:05:03.187+08:00  INFO 3120 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-11-08T10:05:03.192+08:00  INFO 3120 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Started SpringbootMvcApplication in 1.442 seconds (process running for 1.798)
-2024-11-08T10:05:18.294+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-11-08T10:05:18.294+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-11-08T10:05:18.295+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-11-08T10:05:18.311+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-1] c.example.demo.controller.ApiController  : 這是一條日誌訊息
-2024-11-08T10:05:32.972+08:00  INFO 3120 --- [springboot-mvc] [http-nio-8080-exec-3] c.example.demo.controller.ApiController  : username = John, userage18
-2024-11-08T10:10:43.295+08:00  INFO 3120 --- [springboot-mvc] [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2024-11-08T10:10:43.300+08:00  INFO 3120 --- [springboot-mvc] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-11-08T10:10:43.303+08:00  INFO 3120 --- [springboot-mvc] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-16T10:25:31.546+08:00  INFO 7496 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.4 with PID 7496 (E:\WorkSpace\springboot-mvc\target\classes started by NTPU in E:\WorkSpace\springboot-mvc)
+2024-12-16T10:25:31.552+08:00  INFO 7496 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-12-16T10:25:31.903+08:00  INFO 7496 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-12-16T10:25:31.913+08:00  INFO 7496 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
+2024-12-16T10:25:32.165+08:00  INFO 7496 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-16T10:25:32.176+08:00  INFO 7496 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-16T10:25:32.176+08:00  INFO 7496 --- [springboot-mvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-16T10:25:32.298+08:00  INFO 7496 --- [springboot-mvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-16T10:25:32.303+08:00  INFO 7496 --- [springboot-mvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-16T10:25:32.303+08:00  INFO 7496 --- [springboot-mvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 726 ms
+2024-12-16T10:25:32.331+08:00  WARN 7496 --- [springboot-mvc] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiController' defined in file [E:\WorkSpace\springboot-mvc\target\classes\com\example\demo\controller\ApiController.class]: Failed to instantiate [com.example.demo.controller.ApiController]: Constructor threw exception
+2024-12-16T10:25:32.333+08:00  INFO 7496 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-16T10:25:32.345+08:00  INFO 7496 --- [springboot-mvc] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-16T10:25:32.354+08:00 ERROR 7496 --- [springboot-mvc] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiController' defined in file [E:\WorkSpace\springboot-mvc\target\classes\com\example\demo\controller\ApiController.class]: Failed to instantiate [com.example.demo.controller.ApiController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.SpringbootMvcApplication.main(SpringbootMvcApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.ApiController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 17 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The method of(E, E, E, E, E) in the type List is not applicable for the arguments (Book, Book, Book, Book, Book)
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The method getId() is undefined for the type Book
+	The method of(E, E, E, E, E) in the type List is not applicable for the arguments (Book, Book, Book, Book, Book)
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	Cannot infer type argument(s) for <R> map(Function<? super T,? extends R>)
+	The method getPub() is undefined for the type Book
+	The method getPrice() is undefined for the type Book
+	The method getPrice() is undefined for the type Book
+	The method getName() is undefined for the type Book
+
+	at com.example.demo.controller.ApiController.<init>(ApiController.java:166) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 19 common frames omitted
+
+2024-12-16T10:26:11.194+08:00  INFO 3196 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.4 with PID 3196 (E:\WorkSpace\springboot-mvc\target\classes started by NTPU in E:\WorkSpace\springboot-mvc)
+2024-12-16T10:26:11.195+08:00  INFO 3196 --- [springboot-mvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-12-16T10:26:11.494+08:00  INFO 3196 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-12-16T10:26:11.503+08:00  INFO 3196 --- [springboot-mvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
+2024-12-16T10:26:11.757+08:00  INFO 3196 --- [springboot-mvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-16T10:26:11.766+08:00  INFO 3196 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-16T10:26:11.766+08:00  INFO 3196 --- [springboot-mvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-16T10:26:11.887+08:00  INFO 3196 --- [springboot-mvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-16T10:26:11.891+08:00  INFO 3196 --- [springboot-mvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-16T10:26:11.891+08:00  INFO 3196 --- [springboot-mvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 671 ms
+2024-12-16T10:26:11.918+08:00  WARN 3196 --- [springboot-mvc] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiController' defined in file [E:\WorkSpace\springboot-mvc\target\classes\com\example\demo\controller\ApiController.class]: Failed to instantiate [com.example.demo.controller.ApiController]: Constructor threw exception
+2024-12-16T10:26:11.919+08:00  INFO 3196 --- [springboot-mvc] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-12-16T10:26:11.929+08:00  INFO 3196 --- [springboot-mvc] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-16T10:26:11.943+08:00 ERROR 3196 --- [springboot-mvc] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'apiController' defined in file [E:\WorkSpace\springboot-mvc\target\classes\com\example\demo\controller\ApiController.class]: Failed to instantiate [com.example.demo.controller.ApiController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.SpringbootMvcApplication.main(SpringbootMvcApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.ApiController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 17 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The method of(E, E, E, E, E) in the type List is not applicable for the arguments (Book, Book, Book, Book, Book)
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The method getId() is undefined for the type Book
+	The method of(E, E, E, E, E) in the type List is not applicable for the arguments (Book, Book, Book, Book, Book)
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	The constructor Book(int, String, double, int, boolean) is undefined
+	Cannot infer type argument(s) for <R> map(Function<? super T,? extends R>)
+	The method getPub() is undefined for the type Book
+	The method getPrice() is undefined for the type Book
+	The method getPrice() is undefined for the type Book
+	The method getName() is undefined for the type Book
+
+	at com.example.demo.controller.ApiController.<init>(ApiController.java:166) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 19 common frames omitted
+

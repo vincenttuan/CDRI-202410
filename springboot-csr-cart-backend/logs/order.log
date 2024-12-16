@@ -1,23 +1,23 @@
-2024-12-09 10:19:21 INFO  c.e.cart.SpringbootCartApplication - Starting SpringbootCartApplication using Java 21.0.4 with PID 9596 (E:\WorkSpace\springboot-csr-cart-backend\target\classes started by NTPU in E:\WorkSpace\springboot-csr-cart-backend)
-2024-12-09 10:19:21 INFO  c.e.cart.SpringbootCartApplication - No active profile set, falling back to 1 default profile: "default"
-2024-12-09 10:19:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-09 10:19:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 5 JPA repository interfaces.
-2024-12-09 10:19:22 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-12-09 10:19:22 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-12-09 10:19:22 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-12-09 10:19:22 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-09 10:19:22 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-12-09 10:19:22 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 828 ms
-2024-12-09 10:19:22 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-09 10:19:22 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-09 10:19:22 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-12-09 10:19:22 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-09 10:19:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-12-09 10:19:24 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
-2024-12-09 10:19:24 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2024-12-16 09:12:31 INFO  c.e.cart.SpringbootCartApplication - Starting SpringbootCartApplication using Java 21.0.4 with PID 10464 (E:\WorkSpace\springboot-csr-cart-backend\target\classes started by NTPU in E:\WorkSpace\springboot-csr-cart-backend)
+2024-12-16 09:12:31 INFO  c.e.cart.SpringbootCartApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-16 09:12:31 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-16 09:12:31 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 5 JPA repository interfaces.
+2024-12-16 09:12:31 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8443 (https)
+2024-12-16 09:12:31 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2024-12-16 09:12:31 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-16 09:12:31 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-16 09:12:32 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-16 09:12:32 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 961 ms
+2024-12-16 09:12:32 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-16 09:12:32 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-16 09:12:32 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-16 09:12:32 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-16 09:12:32 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-16 09:12:33 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
+2024-12-16 09:12:33 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2024-12-09 10:19:24 WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+2024-12-16 09:12:33 WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
 org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
@@ -96,24 +96,23 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
 	... 48 common frames omitted
-Caused by: java.net.UnknownHostException: 無法識別這台主機。 (host.docker.internal)
-	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
-	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52)
-	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211)
-	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828)
-	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139)
-	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)
-	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:130)
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
 	... 51 common frames omitted
-2024-12-09 10:19:24 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
-2024-12-09 10:19:24 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
-2024-12-09 10:19:24 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2024-12-09 10:19:24 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+2024-12-16 09:12:33 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2024-12-16 09:12:33 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2024-12-16 09:12:33 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-12-16 09:12:33 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-12-09 10:19:24 ERROR o.s.boot.SpringApplication - Application run failed
+2024-12-16 09:12:33 ERROR o.s.boot.SpringApplication - Application run failed
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
@@ -159,87 +158,83 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
 	... 30 common frames omitted
-2024-12-09 11:27:25 INFO  c.example.cart.AddOrderServiceTests - Starting AddOrderServiceTests using Java 21.0.4 with PID 6088 (started by NTPU in E:\WorkSpace\springboot-csr-cart-backend)
-2024-12-09 11:27:25 INFO  c.example.cart.AddOrderServiceTests - No active profile set, falling back to 1 default profile: "default"
-2024-12-09 11:27:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-09 11:27:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
-2024-12-09 11:27:26 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-09 11:27:26 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-09 11:27:26 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-12-09 11:27:26 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-09 11:27:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-12-09 11:27:26 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5fa5c8cf
-2024-12-09 11:27:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-12-09 11:27:27 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-09 11:27:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-09 11:27:27 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-09 11:27:28 INFO  c.example.cart.AddOrderServiceTests - Started AddOrderServiceTests in 3.36 seconds (process running for 4.095)
-2024-12-09 11:27:28 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.AddOrdersTests]: AddOrdersTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 11:27:28 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.AddOrdersTests
-2024-12-09 11:27:28 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.AddProductsTests]: AddProductsTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 11:27:28 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.AddProductsTests
-2024-12-09 11:27:28 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.AddUsersTests]: AddUsersTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 11:27:28 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.AddUsersTests
-2024-12-09 11:27:28 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
-2024-12-09 11:27:28 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Duplicate entry 'admin' for key 'user.UK5c856itaihtmi69ni04cmpc4m'
-2024-12-09 11:27:28 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.DeleteProductsTests]: DeleteProductsTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 11:27:28 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.DeleteProductsTests
-2024-12-09 11:27:28 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-09 11:27:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-12-09 11:27:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2024-12-09 12:25:47 INFO  c.example.cart.AddOrderServiceTests - Starting AddOrderServiceTests using Java 21.0.4 with PID 10072 (started by NTPU in E:\WorkSpace\springboot-csr-cart-backend)
-2024-12-09 12:25:47 INFO  c.example.cart.AddOrderServiceTests - No active profile set, falling back to 1 default profile: "default"
-2024-12-09 12:25:47 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-09 12:25:47 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
-2024-12-09 12:25:48 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-09 12:25:48 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-09 12:25:48 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-12-09 12:25:48 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-09 12:25:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-12-09 12:25:48 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4eb1943b
-2024-12-09 12:25:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-12-09 12:25:49 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-09 12:25:49 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-09 12:25:49 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-09 12:25:50 INFO  c.example.cart.AddOrderServiceTests - Started AddOrderServiceTests in 2.936 seconds (process running for 3.582)
-2024-12-09 12:25:50 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.AddOrdersTests]: AddOrdersTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 12:25:50 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.AddOrdersTests
-2024-12-09 12:25:50 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.AddProductsTests]: AddProductsTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 12:25:50 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.AddProductsTests
-2024-12-09 12:25:50 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.AddUsersTests]: AddUsersTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 12:25:50 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.AddUsersTests
-2024-12-09 12:25:50 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
-2024-12-09 12:25:50 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Duplicate entry 'admin' for key 'user.UK5c856itaihtmi69ni04cmpc4m'
-2024-12-09 12:25:50 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.cart.DeleteProductsTests]: DeleteProductsTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-09 12:25:50 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.cart.SpringbootCartApplication for test class com.example.cart.DeleteProductsTests
-2024-12-09 12:25:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-09 12:25:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-12-09 12:25:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2024-12-09 12:26:18 INFO  c.e.cart.SpringbootCartApplication - Starting SpringbootCartApplication using Java 21.0.4 with PID 6648 (E:\WorkSpace\springboot-csr-cart-backend\target\classes started by NTPU in E:\WorkSpace\springboot-csr-cart-backend)
-2024-12-09 12:26:18 INFO  c.e.cart.SpringbootCartApplication - No active profile set, falling back to 1 default profile: "default"
-2024-12-09 12:26:19 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-09 12:26:19 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 5 JPA repository interfaces.
-2024-12-09 12:26:19 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-12-09 12:26:19 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-12-09 12:26:19 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-12-09 12:26:19 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-09 12:26:19 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-12-09 12:26:19 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 792 ms
-2024-12-09 12:26:19 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-09 12:26:19 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-09 12:26:19 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-12-09 12:26:19 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-09 12:26:19 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-12-09 12:26:20 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f73f0c7
-2024-12-09 12:26:20 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-12-09 12:26:20 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-09 12:26:20 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-09 12:26:20 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-09 12:26:21 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2024-12-09 12:26:21 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2024-12-09 12:26:21 INFO  c.e.cart.SpringbootCartApplication - Started SpringbootCartApplication in 2.618 seconds (process running for 2.998)
-2024-12-09 13:33:19 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
-2024-12-09 13:33:19 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
-2024-12-09 13:33:19 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-09 13:33:19 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-12-09 13:33:19 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-12-16 10:25:05 INFO  c.e.cart.SpringbootCartApplication - Starting SpringbootCartApplication using Java 21.0.4 with PID 8960 (E:\WorkSpace\springboot-csr-cart-backend\target\classes started by NTPU in E:\WorkSpace\springboot-csr-cart-backend)
+2024-12-16 10:25:05 INFO  c.e.cart.SpringbootCartApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-16 10:25:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-16 10:25:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 5 JPA repository interfaces.
+2024-12-16 10:25:06 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8443 (https)
+2024-12-16 10:25:06 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8443"]
+2024-12-16 10:25:06 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-16 10:25:06 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-16 10:25:06 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-16 10:25:06 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 811 ms
+2024-12-16 10:25:06 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-16 10:25:06 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-16 10:25:06 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-16 10:25:07 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-16 10:25:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-16 10:25:07 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ebc5be6
+2024-12-16 10:25:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-12-16 10:25:07 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-16 10:25:08 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-16 10:25:08 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController': Unsatisfied dependency expressed through field 'orderService': Error creating bean with name 'orderServiceImpl' defined in file [E:\WorkSpace\springboot-csr-cart-backend\target\classes\com\example\cart\service\impl\OrderServiceImpl.class]: Failed to instantiate [com.example.cart.service.impl.OrderServiceImpl]: Constructor threw exception
+2024-12-16 10:25:08 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-16 10:25:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-12-16 10:25:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-12-16 10:25:08 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-12-16 10:25:08 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-16 10:25:08 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController': Unsatisfied dependency expressed through field 'orderService': Error creating bean with name 'orderServiceImpl' defined in file [E:\WorkSpace\springboot-csr-cart-backend\target\classes\com\example\cart\service\impl\OrderServiceImpl.class]: Failed to instantiate [com.example.cart.service.impl.OrderServiceImpl]: Constructor threw exception
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.cart.SpringbootCartApplication.main(SpringbootCartApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderServiceImpl' defined in file [E:\WorkSpace\springboot-csr-cart-backend\target\classes\com\example\cart\service\impl\OrderServiceImpl.class]: Failed to instantiate [com.example.cart.service.impl.OrderServiceImpl]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.cart.service.impl.OrderServiceImpl]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 31 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The method setUser(User) is undefined for the type Order
+	The method setOrder(Order) is undefined for the type OrderItem
+	The method setItems(List<OrderItem>) is undefined for the type Order
+
+	at com.example.cart.service.impl.OrderServiceImpl.<init>(OrderServiceImpl.java:59)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 33 common frames omitted
