@@ -49,6 +49,13 @@ public class TodoController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", todos));
 	}
 	
+	// 獲取所有待辦事項
+	@GetMapping("/string")
+	public String getAllDtosString() {
+		List<TodoDTO> todos = todoService.getAllTodos();
+		return todos.toString();
+	}
+	
 	// 新增待辦事項
 	@PostMapping
 	public ResponseEntity<ApiResponse<TodoDTO>> createTodo(@RequestBody TodoDTO todoDto) {
