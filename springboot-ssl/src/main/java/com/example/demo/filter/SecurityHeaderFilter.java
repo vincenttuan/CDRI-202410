@@ -26,6 +26,9 @@ public class SecurityHeaderFilter extends HttpFilter {
 		// X-XSS-Protection 啟用 XSS 防護(防止外部惡意的 script 程式攻擊)
 		response.setHeader("X-XSS-Protection", "1; mode=block");
 		
+		// 設定 Cookie 的 SameSite 屬性
+		response.setHeader("Set-Cookie", "myKey=1234abcd; SameSite=strict; Secure; HttpOnly");
+		
 		// 自行加入其他安全標頭 ...
 		
 		chain.doFilter(request, response);
