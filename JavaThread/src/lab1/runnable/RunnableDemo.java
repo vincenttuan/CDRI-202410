@@ -21,7 +21,8 @@ class Job2 implements Runnable {
 	}
 }
 
-
 public class RunnableDemo {
-
+	public static void main(String[] args) {
+		 
+	}
 }
