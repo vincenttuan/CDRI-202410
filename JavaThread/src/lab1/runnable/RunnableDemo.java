@@ -32,6 +32,9 @@ public class RunnableDemo {
 		// 設定執行緒名稱
 		t1.setName("烏龜");
 		t2.setName("兔子");
+		// 設定執行緒權限(1(min)~10(max), 預設:5)
+		t1.setPriority(10);
+		t2.setPriority(Thread.MIN_PRIORITY); // 1
 		// 啟動執行緒
 		t1.start();
 		t2.start();
