@@ -29,6 +29,9 @@ public class RunnableDemo {
 		// 建立執行緒
 		Thread t1 = new Thread(job1);
 		Thread t2 = new Thread(job2);
+		// 設定執行緒名稱
+		t1.setName("烏龜");
+		t2.setName("兔子");
 		// 啟動執行緒
 		t1.start();
 		t2.start();
