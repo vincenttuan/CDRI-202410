@@ -36,7 +36,7 @@ public class RunnableDemo {
 		// 建立工作 
 		Runnable job1 = new Job1(); // 工作 1
 		Runnable job2 = new Job2(); // 工作 2
-		Runnable job3 = new Job2(); // 工作 3
+		Runnable job3 = new Job3(); // 工作 3
 		// 建立執行緒
 		Thread t1 = new Thread(job1);
 		Thread t2 = new Thread(job2);
