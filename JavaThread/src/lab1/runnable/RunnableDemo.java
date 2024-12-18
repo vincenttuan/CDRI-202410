@@ -21,22 +21,36 @@ class Job2 implements Runnable {
 	}
 }
 
+class Job3 implements Runnable {
+	@Override
+	public void run() {
+		while (true) {
+			String tName = Thread.currentThread().getName();
+			System.err.printf("\t[%s] 跟拍作業中\n", tName);
+		}
+	}
+}
+
 public class RunnableDemo {
 	public static void main(String[] args) {
 		// 建立工作 
 		Runnable job1 = new Job1(); // 工作 1
 		Runnable job2 = new Job2(); // 工作 2
+		Runnable job3 = new Job2(); // 工作 3
 		// 建立執行緒
 		Thread t1 = new Thread(job1);
 		Thread t2 = new Thread(job2);
+		Thread t3 = new Thread(job3);
 		// 設定執行緒名稱
 		t1.setName("烏龜");
 		t2.setName("兔子");
+		t3.setName("攝影車");
 		// 設定執行緒權限(1(min)~10(max), 預設:5)
 		t1.setPriority(10);
 		t2.setPriority(Thread.MIN_PRIORITY); // 1
 		// 啟動執行緒
 		t1.start();
 		t2.start();
+		t3.start();
 	}
 }
