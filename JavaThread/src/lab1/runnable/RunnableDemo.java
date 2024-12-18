@@ -23,6 +23,14 @@ class Job2 implements Runnable {
 
 public class RunnableDemo {
 	public static void main(String[] args) {
-		 
+		// 建立工作 
+		Runnable job1 = new Job1(); // 工作 1
+		Runnable job2 = new Job2(); // 工作 2
+		// 建立執行緒
+		Thread t1 = new Thread(job1);
+		Thread t2 = new Thread(job2);
+		// 啟動執行緒
+		t1.start();
+		t2.start();
 	}
 }
