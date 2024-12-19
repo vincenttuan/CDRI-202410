@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.tx.dto.UsernameLeaveDaysDTO;
+import com.example.tx.dto.LeaveDaysDTO;
 import com.example.tx.entity.Employee;
 import com.example.tx.repository.EmployeeRepository;
 import com.example.tx.repository.LeaveRequestRepository;
@@ -33,8 +33,8 @@ class SpringbootTxApplicationTests {
 		List<Object[]> usernameLeaveDaysDTOs = employeeRepository.queryUsernamesWithLeaveDays();
 		System.out.println(usernameLeaveDaysDTOs);
 		
-		List<UsernameLeaveDaysDTO> dtoList = usernameLeaveDaysDTOs.stream()
-				.map(row -> new UsernameLeaveDaysDTO((String)row[0], ((Number) row[1]).intValue()))
+		List<LeaveDaysDTO> dtoList = usernameLeaveDaysDTOs.stream()
+				.map(row -> new LeaveDaysDTO((String)row[0], (Integer) row[1]))
 				.toList();
 		System.out.println(dtoList);
 		

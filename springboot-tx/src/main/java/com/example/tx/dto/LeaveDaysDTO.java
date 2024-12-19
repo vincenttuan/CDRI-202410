@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class UsernameLeaveDaysDTO {
+public class LeaveDaysDTO {
     private String username;
     private Integer totalLeaveDays;
 }
