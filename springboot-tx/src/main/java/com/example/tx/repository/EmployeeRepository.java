@@ -14,4 +14,8 @@ import com.example.tx.entity.LeaveRequest;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	@Query(value = "select username from employee", nativeQuery = true)
 	List<String> queryAllNames();
+	
+	@Query(value = "select username from employee where id=:id", nativeQuery = true)
+	String getUsernameById(Integer id);
+	
 }
