@@ -28,7 +28,7 @@ public class TXCommandLineRunner implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		buyBook("john", 1);
+		//buyBook("john", 1);
 		
 		//updateBookName(1, "C#");
 	}
