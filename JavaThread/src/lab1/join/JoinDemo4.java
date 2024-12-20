@@ -29,6 +29,7 @@ public class JoinDemo4 {
         
         try {
             Thread.sleep(3000);
+            // 中斷/插件
             Thread.currentThread().interrupt(); // 中斷主執行緒, 觸發 InterruptedException
             urgentTask.start(); // 處理緊急任務執行緒
             urgentTask.join();
