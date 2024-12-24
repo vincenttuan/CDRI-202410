@@ -3,6 +3,7 @@
   <groupId>JavaThread</groupId>
   <artifactId>JavaThread</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
