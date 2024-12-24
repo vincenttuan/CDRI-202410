@@ -11,12 +11,12 @@ public class Account {
 	public void withdraw(int amount) {
 		String tName = Thread.currentThread().getName();
 		System.out.println(tName + " 進來提款 $" + amount);
+		int currentBalance = balance; // 取得最新餘額
 		try {
 			Thread.sleep(1); // 模擬延遲
 		} catch (Exception e) {
 			
 		}
-		int currentBalance = balance; // 取得最新餘額
 		if(currentBalance >= amount) {
 			balance = currentBalance - amount; // 修改餘額
 			System.out.println(tName + " 提款 $" + amount + " 成功, 餘額 $" + balance);
