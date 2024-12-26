@@ -19,3 +19,5 @@ public class Salary {
 	private Integer amount;// 薪資金額
 	
 }
+
+
