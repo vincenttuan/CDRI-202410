@@ -14,25 +14,16 @@ import com.example.leave.model.entity.LeaveRequest;
 import com.example.leave.service.EmployeeService;
 
 @SpringBootTest
-public class TestEmployeeService {
+public class TestEmployeeService2 {
 	@Autowired
 	EmployeeService employeeService;
 	
 	@Test
 	public void test() {
 		try {
-			EmployeeDTO employeeDTO = employeeService.getEmployeeDTOById(1);
-			System.out.println(employeeDTO.getUsername());
-			List<LeaveRequestDTO> leaveRequests = employeeDTO.getLeaveRequests();
-			leaveRequests.forEach(leave -> {
-				System.out.println(leave.getReason() + "," + leave.getStartDate() + "~" + leave.getEndDate() + " diff:" + leave.getLeaveDays());
-			});
-			List<ProjectDTO> projects = employeeDTO.getProjects();
-			projects.forEach(p -> {
-				System.out.println(p.getName());
-			});
+			List<EmployeeDTO> employees = employeeService.findAllEmployeeDTOs();
 			
-			System.out.println(employeeDTO);
+			employees.forEach(System.out::println);
 			
 			
 			

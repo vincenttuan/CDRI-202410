@@ -1,6 +1,8 @@
 package com.example.leave.service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.hibernate.Hibernate;
 import org.modelmapper.ModelMapper;
@@ -19,7 +21,21 @@ public class EmployeeService {
 
     @Autowired
     private ModelMapper modelMapper;
+    
+    /**
+     * 查詢所有員工並返回 EmployeeDTO 列表
+     * @return List<EmployeeDTO>
+     */
+    public List<EmployeeDTO> findAllEmployeeDTOs() {
+        // 查詢所有員工
+        List<Employee> employees = employeeRepository.findAll();
 
+        // 使用 ModelMapper 將 Employee 實體轉換為 EmployeeDTO
+        return employees.stream()
+        				.map(employee -> modelMapper.map(employee, EmployeeDTO.class))
+        				.toList();
+    }
+    
     /**
      * 根據員工 ID 獲取 EmployeeDTO 資料
      * @param employeeId 員工 ID
