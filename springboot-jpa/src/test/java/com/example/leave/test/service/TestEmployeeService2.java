@@ -22,11 +22,7 @@ public class TestEmployeeService2 {
 	public void test() {
 		try {
 			List<EmployeeDTO> employees = employeeService.findAllEmployeeDTOs();
-			
 			employees.forEach(System.out::println);
-			
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
