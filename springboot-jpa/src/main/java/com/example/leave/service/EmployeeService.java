@@ -10,14 +10,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.leave.model.dto.EmployeeDTO;
+import com.example.leave.model.dto.EmployeeProjectDTO;
+import com.example.leave.model.dto.ProjectDTO;
 import com.example.leave.model.entity.Employee;
+import com.example.leave.model.entity.Project;
 import com.example.leave.repository.EmployeeRepository;
+import com.example.leave.repository.ProjectRepository;
 
 @Service
 public class EmployeeService {
 
-    @Autowired
+	@Autowired
     private EmployeeRepository employeeRepository;
+
+	@Autowired
+    private ProjectRepository projectRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -55,4 +62,50 @@ public class EmployeeService {
 
         return employeeDTO;
     }
+    
+    public void updateProject(Integer employeeId, List<Integer> projectIds) {
+        // 查詢員工
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new IllegalArgumentException("找不到 ID 為 " + employeeId + " 的員工"));
+
+        // 處理專案為空的情況
+        List<Project> projects = (projectIds == null || projectIds.isEmpty())
+                ? List.of() // 若為空，設置為空集合
+                : projectRepository.findAllById(projectIds);
+
+        // 設置專案關聯
+        employee.setProjects(projects);
+
+        // 保存更新
+        employeeRepository.save(employee);
+    }
+
+    
+    /**
+     * 根據員工 ID 獲取 EmployeeProjectDTO 資料
+     * @param employeeId 員工 ID
+     * @return EmployeeProjectDTO
+     */
+    public EmployeeProjectDTO getEmployeeProjectDTOById(Integer employeeId) {
+        // 查詢員工資料
+        Optional<Employee> optEmployee = employeeRepository.findById(employeeId);
+        if (optEmployee.isEmpty()) {
+            throw new IllegalArgumentException("找不到 ID 為 " + employeeId + " 的員工");
+        }
+
+        Employee employee = optEmployee.get();
+
+        
+        // 將 Employee 實體轉換為 EmployeeProjectDTO
+        EmployeeProjectDTO employeeProjectDTO = modelMapper.map(employee, EmployeeProjectDTO.class);
+
+        // 手動轉換專案列表到 DTO
+        List<ProjectDTO> projectDTOs = employee.getProjects().stream()
+                .map(project -> modelMapper.map(project, ProjectDTO.class))
+                .toList();
+        employeeProjectDTO.setProjects(projectDTOs);
+
+        return employeeProjectDTO;
+    }
+
 }
