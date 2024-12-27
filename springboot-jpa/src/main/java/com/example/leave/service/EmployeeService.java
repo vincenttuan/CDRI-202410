@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.leave.model.dto.EmployeeDTO;
-import com.example.leave.model.dto.EmployeeProjectDTO;
+import com.example.leave.model.dto.LeaveRequestDTO;
 import com.example.leave.model.dto.ProjectDTO;
 import com.example.leave.model.entity.Employee;
+import com.example.leave.model.entity.LeaveRequest;
 import com.example.leave.model.entity.Project;
 import com.example.leave.repository.EmployeeRepository;
+import com.example.leave.repository.LeaveRequestRepository;
 import com.example.leave.repository.ProjectRepository;
 
 @Service
@@ -25,6 +27,9 @@ public class EmployeeService {
 
 	@Autowired
     private ProjectRepository projectRepository;
+	
+	@Autowired
+    private LeaveRequestRepository leaveRequestRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -79,33 +84,22 @@ public class EmployeeService {
         // 保存更新
         employeeRepository.save(employee);
     }
-
     
-    /**
-     * 根據員工 ID 獲取 EmployeeProjectDTO 資料
-     * @param employeeId 員工 ID
-     * @return EmployeeProjectDTO
-     */
-    public EmployeeProjectDTO getEmployeeProjectDTOById(Integer employeeId) {
-        // 查詢員工資料
-        Optional<Employee> optEmployee = employeeRepository.findById(employeeId);
-        if (optEmployee.isEmpty()) {
-            throw new IllegalArgumentException("找不到 ID 為 " + employeeId + " 的員工");
-        }
-
-        Employee employee = optEmployee.get();
-
+    public void addLeaveRequest(Integer employeeId, LeaveRequestDTO leaveRequestDTO) {
+    	//System.out.println(leaveRequestDTO);
+    	// 查詢員工
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new IllegalArgumentException("找不到 ID 為 " + employeeId + " 的員工"));
         
-        // 將 Employee 實體轉換為 EmployeeProjectDTO
-        EmployeeProjectDTO employeeProjectDTO = modelMapper.map(employee, EmployeeProjectDTO.class);
+        LeaveRequest leaveRequest = modelMapper.map(leaveRequestDTO, LeaveRequest.class);
+        
+        // 新增請假單
+        leaveRequest.setEmployee(employee);
+        
+        // 儲存
+        leaveRequestRepository.save(leaveRequest);
 
-        // 手動轉換專案列表到 DTO
-        List<ProjectDTO> projectDTOs = employee.getProjects().stream()
-                .map(project -> modelMapper.map(project, ProjectDTO.class))
-                .toList();
-        employeeProjectDTO.setProjects(projectDTOs);
-
-        return employeeProjectDTO;
     }
+    
 
 }

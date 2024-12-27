@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.leave.model.dto.EmployeeDTO;
-import com.example.leave.model.dto.EmployeeProjectDTO;
+import com.example.leave.model.dto.LeaveRequestDTO;
 import com.example.leave.model.dto.ProjectDTO;
 import com.example.leave.service.EmployeeService;
+import com.example.leave.service.LeaveRequestService;
 import com.example.leave.service.ProjectService;
 
 @Controller
@@ -27,6 +28,9 @@ public class EmployeeController {
 	@Autowired
 	private ProjectService projectService;
 	
+	@Autowired
+	private LeaveRequestService leaveRequestService;
+	
 	@GetMapping
 	public String index(Model model) {
 		List<EmployeeDTO> employees = employeeService.findAllEmployeeDTOs();
@@ -36,10 +40,10 @@ public class EmployeeController {
 	
 	@GetMapping("/{employeeId}/project")
 	public String employeeProject(@PathVariable Integer employeeId, Model model) {
-	    EmployeeProjectDTO employeeProjectDTO = employeeService.getEmployeeProjectDTOById(employeeId);
+	    EmployeeDTO employeeDTO = employeeService.getEmployeeDTOById(employeeId);
 	    List<ProjectDTO> projectDTOs = projectService.findAllProjectDTOs();
 
-	    model.addAttribute("employeeProjectDTO", employeeProjectDTO);
+	    model.addAttribute("employeeDTO", employeeDTO);
 	    model.addAttribute("projectDTOs", projectDTOs);
 
 	    return "leave/employee_project";
@@ -50,5 +54,29 @@ public class EmployeeController {
 	    employeeService.updateProject(employeeId, projects);
 	    return "redirect:/employee";
 	}
+	
+	@GetMapping("/{employeeId}/leave_request")
+	public String employeeLeaveRequest(@PathVariable Integer employeeId, Model model) {
+	    EmployeeDTO employeeDTO = employeeService.getEmployeeDTOById(employeeId);
+	    LeaveRequestDTO leaveRequestDTO = new LeaveRequestDTO();
+
+	    model.addAttribute("employeeDTO", employeeDTO);
+	    model.addAttribute("leaveRequestDTO", leaveRequestDTO);
+
+	    return "leave/employee_leave_request";
+	}
+	
+	@PostMapping("/{employeeId}/leave_request")
+	public String employeeLeaveRequestAdd(@PathVariable Integer employeeId, @ModelAttribute LeaveRequestDTO leaveRequestDTO) {
+	    employeeService.addLeaveRequest(employeeId, leaveRequestDTO);
+		return "redirect:/employee";
+	}
+	
+	@GetMapping("/{employeeId}/leave_request/delete/{leaveRequestId}")
+	public String index(@PathVariable Integer employeeId, @PathVariable Integer leaveRequestId) {
+		leaveRequestService.deleteLeaveRequest(leaveRequestId);
+		return "redirect:/employee";
+	}
+	
 	
 }

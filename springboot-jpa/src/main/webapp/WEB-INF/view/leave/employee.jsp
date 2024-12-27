@@ -14,15 +14,14 @@
 	<body>
 		<!-- menu bar include -->
 		<%@ include file="/WEB-INF/view/leave/menu.jspf" %>
-		${ employees }
 		<!-- body content -->
 		<div style="padding: 15px">
 			
 			<table class="pure-table pure-table-bordered">
 				<thead>
 					<tr>
-						<th>Id</th><th>username</th><th>annualLeave</th><th>arrivalDate</th>
-						<th>Projects</th><th>修改專案</th><th>Leaves</th>
+						<th>編號</th><th>姓名</th><th>年假</th><th>到職日</th>
+						<th>專案工作</th><th>請假紀錄</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,9 +32,42 @@
 						<td>${ employee.username }</td>
 						<td>${ employee.annualLeave }</td>
 						<td>${ employee.arrivalDate }</td>
-						<td>${ employee.projects }</td>
-						<td><a href="/employee/${ employee.id }/project">修改專案</a></td>
-						<td>${ employee.leaveRequests}</td>
+						<td>
+							<table>
+								<tr>
+									<c:forEach var="project" items="${ employee.projects}">
+										<td>${ project.name }</td>
+									</c:forEach>
+									<td>
+										<a href="/employee/${ employee.id }/project">修改</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table>
+								<c:forEach var="leaveRequest" items="${ employee.leaveRequests}">
+								<tr>
+									<td>${ leaveRequest.type }</td>
+									<td>${ leaveRequest.startDate }</td>
+									<td>${ leaveRequest.endDate }</td>
+									<td>${ leaveRequest.leaveDays }d</td>
+									<td>${ leaveRequest.reason }</td>
+									<td>${ leaveRequest.status }</td>
+									<td>
+										<a href="/employee/${ employee.id }/leave_request/delete/${ leaveRequest.id }">刪除</a>
+									</td>
+								</tr>
+								</c:forEach>
+								<tr>
+									<td>
+										<a href="/employee/${ employee.id }/leave_request">新增</a>
+									</td>
+									<td colspan="6"> </td>
+								</tr>
+							</table>
+							
+						</td>
 					</tr>
 					</c:forEach>
 				</tbody>

@@ -6,4 +6,9 @@ import lombok.Data;
 public class ProjectDTO {
 	private Integer id;
 	private String name;
+	
+	@Override
+	public String toString() {
+		return name + " ";
+	}
 }
