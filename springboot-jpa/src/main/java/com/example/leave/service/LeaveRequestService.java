@@ -41,5 +41,10 @@ public class LeaveRequestService {
     	leaveRequestRepository.deleteById(id);
     }
     
+    public LeaveRequestDTO getLeaveRequestById(Integer id) {
+    	LeaveRequest leaveRequest = leaveRequestRepository.findById(id).get();
+    	return modelMapper.map(leaveRequest, LeaveRequestDTO.class);
+    }
+    
 
 }

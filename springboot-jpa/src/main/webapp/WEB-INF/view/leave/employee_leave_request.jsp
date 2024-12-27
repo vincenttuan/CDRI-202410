@@ -21,13 +21,14 @@
 			<sp:form class="pure-form" modelAttribute="leaveRequestDTO" method="post" action="/employee/${employeeDTO.id}/leave_request">
 			    員工編號: ${employeeDTO.id}<p />
 			    員工姓名: ${employeeDTO.username}<p />
+			    <sp:input type="hidden" path="id" />
+			    <input type="hidden" name="_method" value="${ _method }" />
 			    假別: <sp:input path="type" required="required" /><p />
 			    開始日: <sp:input type="date" path="startDate" required="required" /><p />
 			    結束日: <sp:input type="date" path="endDate" required="required" /><p />
 			    請假理由: <sp:input path="reason" /><p />
 			    假單狀態: <sp:input path="status" required="required" /><p />
-			    
-			    <button type="submit">新增</button>
+			    <button type="submit">${ _method eq 'put' ? '修改' : '新增' }</button>
 			</sp:form>
 
 		</div>

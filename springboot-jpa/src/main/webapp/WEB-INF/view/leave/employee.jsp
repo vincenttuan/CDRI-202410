@@ -55,6 +55,9 @@
 									<td>${ leaveRequest.reason }</td>
 									<td>${ leaveRequest.status }</td>
 									<td>
+										<a href="/employee/${ employee.id }/leave_request/${ leaveRequest.id }">修改</a>
+									</td>
+									<td>
 										<a href="/employee/${ employee.id }/leave_request/delete/${ leaveRequest.id }">刪除</a>
 									</td>
 								</tr>
@@ -63,7 +66,7 @@
 									<td>
 										<a href="/employee/${ employee.id }/leave_request">新增</a>
 									</td>
-									<td colspan="6"> </td>
+									<td colspan="7"> </td>
 								</tr>
 							</table>
 							

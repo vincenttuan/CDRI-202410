@@ -85,15 +85,14 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
     
-    public void addLeaveRequest(Integer employeeId, LeaveRequestDTO leaveRequestDTO) {
-    	//System.out.println(leaveRequestDTO);
+    public void addOrUpdateLeaveRequest(Integer employeeId, LeaveRequestDTO leaveRequestDTO) {
     	// 查詢員工
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new IllegalArgumentException("找不到 ID 為 " + employeeId + " 的員工"));
         
         LeaveRequest leaveRequest = modelMapper.map(leaveRequestDTO, LeaveRequest.class);
         
-        // 新增請假單
+        // 設定請假單員工
         leaveRequest.setEmployee(employee);
         
         // 儲存
@@ -101,5 +100,4 @@ public class EmployeeService {
 
     }
     
-
 }

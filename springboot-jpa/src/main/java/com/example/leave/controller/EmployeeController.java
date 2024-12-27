@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.PutExchange;
 
 import com.example.leave.model.dto.EmployeeDTO;
 import com.example.leave.model.dto.LeaveRequestDTO;
@@ -45,7 +47,8 @@ public class EmployeeController {
 
 	    model.addAttribute("employeeDTO", employeeDTO);
 	    model.addAttribute("projectDTOs", projectDTOs);
-
+	    model.addAttribute("_method", "post");
+	    
 	    return "leave/employee_project";
 	}
 
@@ -59,18 +62,31 @@ public class EmployeeController {
 	public String employeeLeaveRequest(@PathVariable Integer employeeId, Model model) {
 	    EmployeeDTO employeeDTO = employeeService.getEmployeeDTOById(employeeId);
 	    LeaveRequestDTO leaveRequestDTO = new LeaveRequestDTO();
-
 	    model.addAttribute("employeeDTO", employeeDTO);
 	    model.addAttribute("leaveRequestDTO", leaveRequestDTO);
-
+	    model.addAttribute("_method", "post");
+	    
 	    return "leave/employee_leave_request";
 	}
 	
-	@PostMapping("/{employeeId}/leave_request")
-	public String employeeLeaveRequestAdd(@PathVariable Integer employeeId, @ModelAttribute LeaveRequestDTO leaveRequestDTO) {
-	    employeeService.addLeaveRequest(employeeId, leaveRequestDTO);
+	@GetMapping("/{employeeId}/leave_request/{leaveRequestId}")
+	public String employeeLeaveRequestUpdate(@PathVariable Integer employeeId, @PathVariable Integer leaveRequestId, Model model) {
+	    EmployeeDTO employeeDTO = employeeService.getEmployeeDTOById(employeeId);
+	    LeaveRequestDTO leaveRequestDTO = leaveRequestService.getLeaveRequestById(leaveRequestId);
+	    model.addAttribute("employeeDTO", employeeDTO);
+	    model.addAttribute("leaveRequestDTO", leaveRequestDTO);
+	    model.addAttribute("_method", "put");
+	    
+	    return "leave/employee_leave_request";
+	}
+	
+	// 新增/修改假單
+	@RequestMapping(value = "/{employeeId}/leave_request", method = {RequestMethod.POST, RequestMethod.PUT})
+	public String AddOrUpdateEmployeeLeaveRequest(@PathVariable Integer employeeId, @ModelAttribute LeaveRequestDTO leaveRequestDTO) {
+	    employeeService.addOrUpdateLeaveRequest(employeeId, leaveRequestDTO);
 		return "redirect:/employee";
 	}
+	
 	
 	@GetMapping("/{employeeId}/leave_request/delete/{leaveRequestId}")
 	public String index(@PathVariable Integer employeeId, @PathVariable Integer leaveRequestId) {
